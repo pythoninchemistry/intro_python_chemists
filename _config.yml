@@ -16,11 +16,11 @@
 
 #######################################################################################
 # Jekyll site settings
-title: Jupyter Book
-author: The Jupyter Book Community
-email: choldgraf@berkeley.edu
+title: An Introduction to Python for Chemistry
+author: pythoninchemistry
+email: andrew.mccluskey@diamond.ac.uk
 description: >- # this means to ignore newlines until "baseurl:"
-  This is an example book built with Jupyter Books.
+  Introducing Python in a chemical context.
 
 baseurl: "/intro_python_chemists" # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
 url: "https://pythoninchemistry.org" # the base hostname & protocol for your site, e.g. http://example.com
@@ -30,7 +30,7 @@ url: "https://pythoninchemistry.org" # the base hostname & protocol for your sit
 # Jupyter Book settings
 
 # Main page settings
-footer_text               : This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a>
+footer_text               : This page was created by <a href="https://github.com/pythoninchemistry/intro_python_chemists/graphs/contributors">pythoninchemistry community</a>
 
 # Sidebar settings
 show_sidebar              : true  # Show the sidebar. Only set to false if your only wish to host a single page.
@@ -67,9 +67,9 @@ jupyterhub_interact_text         : "Interact"  # The text that interact buttons 
 use_binder_button                : true  # If 'true', add a binder button for interactive links
 binderhub_url                    : "https://mybinder.org"  # The URL for your BinderHub. If no URL, use ""
 binder_repo_base                 : "https://github.com/"  # The site on which the textbook repository is hosted
-binder_repo_org                  : "jupyter"  # The username or organization that owns this repository
-binder_repo_name                 : "jupyter-book"  # The name of the repository on the web
-binder_repo_branch               : "gh-pages"  # The branch on which your textbook is hosted.
+binder_repo_org                  : "pythoninchemistry"  # The username or organization that owns this repository
+binder_repo_name                 : "intro_python_chemists"  # The name of the repository on the web
+binder_repo_branch               : "master"  # The branch on which your textbook is hosted.
 binderhub_interact_text          : "Interact"  # The text that interact buttons will contain.
 
 # Thebelab settings
@@ -97,7 +97,7 @@ scholar:
 
 # Navigate to https://analytics.google.com, add a new property for your jupyter book and copy the tracking id here.
 google_analytics:
-  mytrackingcode: UA-52617120-7
+  mytrackingcode: UA-77138846-6
 
 #######################################################################################
 # Jupyter book settings you probably don't need to change
