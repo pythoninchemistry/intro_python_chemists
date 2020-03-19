@@ -62,8 +62,6 @@
       not_numbered: true
     - url: /features/titles
       not_numbered: true
-    - url: /features/citations
-      not_numbered: true
     - url: /features/jupytext
       not_numbered: true
     - url: /features/layout
