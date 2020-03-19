@@ -1,0 +1,498 @@
+---
+interact_link: content/basics/functions.ipynb
+kernel_name: python3
+kernel_path: content/basics
+has_widgets: false
+title: |-
+  Functions
+pagenum: 5
+prev_page:
+  url: /basics/collections.html
+next_page:
+  url: /guide/01_overview.html
+suffix: .ipynb
+search: function arguments code python return returned above keyword kineticenergy following value docstring variable hr functions however name used defined content whitespace not such definition within where information does length although example below cm run particular section statement followed brackets given mass velocity variables using block indentation needs note also path possible style before piece having case passed operation examples print type immediately set defining follows takes kinetic energy called center figure def removed point any pep standard book few tells line essential common inside addition shown means description includes google software expected scope occasionally reuse without allows segments performed already
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Functions</div>
+</div>
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+<h1 id="Functions">Functions<a class="anchor-link" href="#Functions"> </a></h1><p>Occasionally, there is a particular piece of code that you would like to reuse over-and-over, without having to write the code over-and-over). 
+For this case, Python allows the use of <em>functions</em>, these are segments of code to which arguments are passed and some operation is performed on them. 
+You will have already encountered some examples of functions, such as <code>print()</code> and <code>type()</code>. 
+However, in this section we will introduce how custom functions can be written for your code.
+A function can be easily recognised in Python as it is some statement followed immediately by a set of brackets (which contain the <em>arugments</em>).</p>
+<p>The general syntax for <em>defining</em> a function is Python is as follows,</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">kinetic_energy</span><span class="p">(</span><span class="n">mass</span><span class="p">,</span> <span class="n">velocity</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Determine the kinetic energy of a particle.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        mass (float): Particle mass (kg)</span>
+<span class="sd">        velocity (float): Particle velocity (m/s)</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (float): Particle kinetic energy (J)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">kinetic_energy</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">mass</span> <span class="o">*</span> <span class="n">velocity</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">kinetic_energy</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Above, the function has been given the name <code>kinetic_energy</code> and takes two arguments; <code>mass</code> and <code>velocity</code>, the kinetic energy is then found and <em>returned</em>.</p>
+<p>Following definition, the function may be used as follows,</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">kinetic_energy</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>450000.0
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The function above has been called with the variables <code>mass=10</code> and <code>velocity=30</code>. 
+Within the function, the following steps are occuring,</p>
+
+<pre><code>&gt;&gt;&gt; kinetic_energy = 0.5 * mass * velocity ** 2
+&gt;&gt;&gt; kinetic_energy = 0.5 * 10 * 300 ** 2
+&gt;&gt;&gt; kinetic_energy = 450000.0
+
+&gt;&gt;&gt; return kinetic_energy
+&gt;&gt;&gt; return 450000.0</code></pre>
+<p>The kinetic energy value then <em>returned</em> by the function, and in the case above passed to the <code>print()</code> function. 
+Hence, it is printed to the screen.</p>
+<h2 id="Defining-a-function">Defining a function<a class="anchor-link" href="#Defining-a-function"> </a></h2><p>Having seen, generally, how functions work, let's go into a bit more detail of function declaration,</p>
+<center>
+    <img src="../images/a_function.png" width=45%>
+    <br>
+    <i>
+        Figure 1. The anatomy of a simple Python function.
+    </i>
+</center><p>The function consists of four main textual areas:</p>
+<ul>
+<li><strong>Definition</strong>: Beginning with <code>def</code>, this is where the name and arguments for the function are defined</li>
+<li><strong>Docstring</strong>: This contains information about what the particular function does, including the arguments and what is returned</li>
+<li><strong>Content</strong>: Where the code of the function lives</li>
+<li><strong>Return</strong>: The information that is returned from the function, using the <code>return</code> keyword.</li>
+</ul>
+<p><hr></p>
+<hr>
+
+<h4 id="Aside:-whitespace">Aside: whitespace<a class="anchor-link" href="#Aside:-whitespace"> </a></h4><p>Python takes whitespace <strong>seriously</strong>. 
+It is used for idenifying a <em>block</em>; such as a function. 
+The function content begins when the indented section starts and ends when the indentation is removed. 
+In Figure 1, the docstring, content and return of the function are all within this <em>block</em>, if the whitespace is removed then Python will consider the function to be completed at this point. 
+The indentation can be any length (although 4 spaces is a <a href="https://www.python.org/dev/peps/pep-0008/#indentation">PEP8 Standard</a>) but needs to be consistent. 
+Throughout this book, we will see a few examples of other <em>blocks</em> (such as loops and if-statement), when you come across these note the importance of the whitespace that is used to define the block.</p>
+<p><hr></p>
+<hr>
+
+<h3 id="Definition">Definition<a class="anchor-link" href="#Definition"> </a></h3><p>A function is defined using the keyword <code>def</code>, which tells the Python interperator that in that line you will be giving a function name followed by a set of brackets, some arguments (although these are not essential), and a colon. 
+The function name <em>needs</em> to be a single continuous string of characters with no whitespace between them, a common convention is to use the <code>_</code> (underscore) character to denote where there should be a space. 
+Note, <code>kinetic_energy</code> above.</p>
+<p>The number of arguments that a function may have can be anything from 0 to infinity (although that is obviously impractical). 
+If a function is to have no arguments, it will simply have the open and closed brackets immediately following the function definition with nothing inside them.</p>
+<p>In addition to arguments, a function may also have <em>keyword arguments</em>. 
+These are arguments that are defined with a <em>default</em> value which may be changed when the function is called. 
+An example of this is shown below,</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">beer_lambert</span><span class="p">(</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">absorbance</span><span class="p">,</span> <span class="n">path_length</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Evaluate the concentration of a solution, using the Beer-Lambert law.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        epsilon (float): Molar attenuation coefficient (L/(mol cm))</span>
+<span class="sd">        absorbance (float): Absorbance of the solution</span>
+<span class="sd">        path_lenght (float, optional): Distance travelled through the sample (cm).</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (float): Concentration of solution (mol/L)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">concentration</span> <span class="o">=</span> <span class="n">absorbance</span> <span class="o">/</span> <span class="p">(</span><span class="n">epsilon</span> <span class="o">*</span> <span class="n">path_length</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">concentration</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the Beer-Lambert law function above, the path length is assumed to be 1 cm if no other value is given (this is because most spectroscopic curvettes are 1 cm wide). 
+This means that there are now, two possible way to run the function above.</p>
+<p><strong>If</strong> the path length is 1 cm, the following is run,</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">beer_lambert</span><span class="p">(</span><span class="mi">21000</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.009523809523809525
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Else</strong> the path length is some other value (in the example below 10 cm), then the following is run.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">beer_lambert</span><span class="p">(</span><span class="mi">21000</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">path_length</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.0009523809523809524
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>While it makes the code clearer, the <code>path_length</code> keyword does not <strong>need</strong> to be included, so the following will also run,</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">beer_lambert</span><span class="p">(</span><span class="mi">21000</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.0009523809523809524
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Docstring">Docstring<a class="anchor-link" href="#Docstring"> </a></h3><p>The docstring is an important (although not essential) component of any function. 
+Describing the purpose of a function is valuable of many reasons, it helps to clarify <strong>what</strong> the function will do, it offers guidence for others on how to use the function, and it acts to remind <em>future you</em> why it is that you have a particular function and what is does. 
+You may read this last point and roll your eyes, however I promise you that code you write today will not stay present in your memory forever.</p>
+<p>In addition to a description of the function, a docstring also typically includes information about the arguments taken by the function and objects that are returned. 
+There are a few common way that these may be formatted, within this book we will use <a href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html">Google Style</a>, however, other styles exist, such as NumPy and Sphinx. 
+Using a standard style of docstring is useful when writting large software packages, due to the availablity of tools to automatically generate software documentation from these docstrings.
+The Google style indicates the arguments with the keyword <code>Args</code>, before listing the arguments, the expected type and a short description (we find that it can be helpful to include information about the expected units in this section). 
+The <code>Returns</code> keyword is followed by a list of the values returned by the function, since these do not necessary has a <em>name</em> this is omitted.</p>
+<h3 id="Content">Content<a class="anchor-link" href="#Content"> </a></h3><p>The content of the function is relatively straightforward, it is the code that means the function <strong>does</strong> something. 
+However, this is a good chance to mention <em>scope</em>, the scope of a variable is the area in the code that it can be used.
+A variable that is created inside a function <strong>cannot</strong> be used elsewhere in your program, this includes the arugment variables. 
+However, it is possible to make use of a variable defined outside of a function within it, just remember that a piece of Python code is parsed from top-to-bottom so the variable needs to be defined <strong>before</strong> the function. 
+See below for an example of this in action,</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">speed_of_light</span> <span class="o">=</span> <span class="mf">2.99792458e8</span>
+<span class="n">planck</span> <span class="o">=</span> <span class="mf">6.62607004e-34</span>
+
+<span class="k">def</span> <span class="nf">photon_energy</span><span class="p">(</span><span class="n">wavelength</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Determines the energy of a single photon with a given wavelength.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        wavelength (float): Photon wavelength (m)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (float): Photon energy (J)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">planck</span> <span class="o">*</span> <span class="n">speed_of_light</span> <span class="o">/</span> <span class="n">wavelength</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">photon_energy</span><span class="p">(</span><span class="mf">600e-9</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>3.310743040286264e-19
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Return">Return<a class="anchor-link" href="#Return"> </a></h3><p>The return statement is the keyword that tells the Python interpertor to stop the function and <em>return</em> the value(s) given.
+You will note in the <code>photon_energy()</code> function above, there is a mathematical operation on the <code>return</code> line. 
+This is fine as the mathematics will be carried out before the value is returned.</p>
+<p>It is possible return more than one variable from a function.
+These will be returned as a <code>tuple</code> of variables, which may require unpacking as appropriate. 
+An example where more than one variable is returned is shown below,</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">speed_of_light</span> <span class="o">=</span> <span class="mf">2.99792458e8</span>
+<span class="n">planck</span> <span class="o">=</span> <span class="mf">6.62607004e-34</span>
+
+<span class="k">def</span> <span class="nf">photon_energy</span><span class="p">(</span><span class="n">wavelength</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Determines the energy of a single photon with a given wavelength in both</span>
+<span class="sd">    Joules and electron volts.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        wavelength (float): Photon wavelength (m)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (tuple of length 2, float): Photon energy in J and eV respectively</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">energy</span> <span class="o">=</span> <span class="n">planck</span> <span class="o">*</span> <span class="n">speed_of_light</span> <span class="o">/</span> <span class="n">wavelength</span>
+    <span class="k">return</span> <span class="n">energy</span><span class="p">,</span> <span class="n">energy</span> <span class="o">*</span> <span class="mf">6.242e+18</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">photon_energy</span><span class="p">(</span><span class="mf">600e-9</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(3.310743040286264e-19, 2.066565805746686)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+    </main>
+    

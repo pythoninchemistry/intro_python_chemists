@@ -29,6 +29,8 @@
   expand_sections: false
   sections:
   - url: /basics/types
+  - url: /basics/collections
+  - url: /basics/functions
 
 - url: /guide/01_overview
   not_numbered: true
