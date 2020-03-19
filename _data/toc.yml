@@ -23,7 +23,7 @@
 - url: /getting_started
   not_numbered: true
 
-- url: /basics
+- url: /basics/basics
   not_numbered: false
   expand_sections: false
   sections:
