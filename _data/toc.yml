@@ -19,6 +19,7 @@
 
 - url: /intro
   not_numbered: true
+  title: "Welcome"
 
 - url: /getting_started
   not_numbered: true
