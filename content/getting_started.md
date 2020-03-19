@@ -5,7 +5,7 @@ The interactivity is achieved through the use of [mybinder.org](http://mybinder.
 
 ![The Thebelab and mybinder Interact buttons](./images/thebebinder.png)
 
-- The first buttom will offer file formats to download the page as a .ipynb file which can be run locally,
+- The first button will offer file formats to download the page as a .ipynb file which can be run locally,
 - The "Interact" button will open a Jupyter Notebook version of the page running on the mybinder resources in a new tab, and 
 - The "Thebelab" button will make the code blocks in the webpage interactive, such that they can be run, edited and rerun.
 
