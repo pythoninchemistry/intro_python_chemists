@@ -31,6 +31,5 @@ If you would like to be involved, please look at the [contributing guidelines](h
     3. [Custom packages](https://pythoninchemistry.org/intro_python_chemists/advanced/custom_packages.html)
 
 [![DOI](https://zenodo.org/badge/248480226.svg)](https://zenodo.org/badge/latestdoi/248480226)
-[![CC-BY-4.0 Licence](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
 
 This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
