@@ -5,4 +5,4 @@
 
 An Introduction to Python for Chemists
 
-Please look at the [Contributing](https://github.com/pythoninchemistry/intro_python_chemists/blob/master/content/contributing.md) guidelines if you would like to contribute.
+Please look at the [contributing guidelines](https://github.com/pythoninchemistry/intro_python_chemists/blob/master/content/contributing.md) if you would like to contribute.
