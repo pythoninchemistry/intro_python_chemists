@@ -38,6 +38,54 @@ The following outlines how the `intro_python_chemists` developers think about th
 A general guideline: if you find yourself tempted to write a great big issue that
 is difficult to describe as one unit of work, please consider splitting it into two or more issues.
 
+**Projects** are used to describe the broader picture of the `intro_python_chemists` project. 
+More information about the overall project plan can be found on the Github [projects page](https://github.com/pythoninchemistry/intro_python_chemists/projects). 
+
+## Making a contribution
+
+The most likely place that you will contribute is in the [`content`](https://github.com/pythoninchemistry/intro_python_chemists/tree/master/content) of the book. 
+Details of the planned content of each chapter can be found in the [`toc.yml`], so we suggest that you have a look at what sections there are an fill in one of the gaps. 
+
+If you would like to contribute something that is not mentioned in the Table of Contents, then please open an [issue](https://github.com/pythoninchemistry/intro_python_chemists/issues/new/choose) and the community can discuss the contribution. 
+
+We try to follow a relatively standard series of steps for someone to offer a contribution to the material: 
+
+**1. Comment on an existing issue or open a new issue referencing your addition.**
+
+This allows other members of the development team to confirm that you aren't overlapping with work that's currently underway and that everyone is on the same page with the goal of the work you're going to carry out.
+
+[This blog](https://www.igvita.com/2011/12/19/dont-push-your-pull-requests/) is a nice explanation of why putting this work in up front is so useful to everyone involved.
+
+**2. [Fork](https://help.github.com/articles/fork-a-repo/) the [jupyter-book repository](https://github.com/pythoninchemistry/intro_python_chemists) to your profile.**
+
+This is now your own unique copy of `intro_python_chemist`.
+Changes here won't effect anyone else's work, so it's a safe space to explore edits to the code!
+
+Make sure to [keep your fork up to date](https://help.github.com/articles/syncing-a-fork/) with the master repository.
+
+**3. Make the changes you've discussed.**
+
+Try to keep the changes focused.
+We've found that working on a [new branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/) makes it easier to keep your changes targeted.
+
+**4. Submit a [pull request](https://help.github.com/articles/creating-a-pull-request/).**
+
+A member of the development team will review your changes to confirm that they can be merged into the main code base.
+When opening the pull request, we ask that you follow some specific conventions.
+We outline these below.
+
+### Pull Requests
+
+Pull requests should be submitted early and often!
+
+If your pull request is not yet ready to be merged, please open your pull request as a draft.
+More information about doing this is [available in GitHub's documentation](https://help.github.com/articles/about-pull-requests/#draft-pull-requests).
+This tells the development team that your pull request is a "work-in-progress",
+and that you plan to continue working on it.
+
+When your pull request is Ready for Review, you can select this option on the PR's page,
+and a project maintainer will review your proposed changes.
+
 ## Recognizing contributors
 
 We welcome and recognize all contributions from documentation to testing to code development.
