@@ -30,5 +30,10 @@ If you would like to be involved, please look at the [contributing guidelines](h
     2. [Classes](https://pythoninchemistry.org/intro_python_chemists/advanced/classes.html)
     3. [Custom packages](https://pythoninchemistry.org/intro_python_chemists/advanced/custom_packages.html)
 
-<a href="https://zenodo.org/badge/latestdoi/248480226"><img src="https://zenodo.org/badge/248480226.svg" alt="DOI"></a>
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+<table style="width:100%">
+  <tr>
+    <td><a href="https://zenodo.org/badge/latestdoi/248480226"><img src="https://zenodo.org/badge/248480226.svg" alt="DOI"></a></td>
+    <td><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></td> 
+  </tr>
+</table>
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
