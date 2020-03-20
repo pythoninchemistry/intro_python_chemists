@@ -31,7 +31,7 @@ If you would like to be involved, please look at the [contributing guidelines](h
     2. [Classes](https://pythoninchemistry.org/intro_python_chemists/advanced/classes.html)
     3. [Custom packages](https://pythoninchemistry.org/intro_python_chemists/advanced/custom_packages.html)
 
-<table style="width:100%">
+<table style="width:100%;border:0">
     <tr>
         <td>
             <center>
