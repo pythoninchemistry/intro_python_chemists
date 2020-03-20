@@ -25,6 +25,7 @@ If you would like to be involved, please look at the [contributing guidelines](h
     2. [Simple plots](https://pythoninchemistry.org/intro_python_chemists/good_practice/data_work/simple_plots.html)
     3. [Surface plots](https://pythoninchemistry.org/intro_python_chemists/good_practice/data_work/surface_plots.html)
     4. [Statistical analysis](https://pythoninchemistry.org/intro_python_chemists/good_practice/data_work/stats.html)
+    5. [Linear algebra](https://pythoninchemistry.org/intro_python_chemists/good_practice/data_work/linear_algebra.html)
 4. [Advanced](https://pythoninchemistry.org/intro_python_chemists/advanced/advanced.html)
     1. [Object-oriented programming](https://pythoninchemistry.org/intro_python_chemists/advanced/oop.html)
     2. [Classes](https://pythoninchemistry.org/intro_python_chemists/advanced/classes.html)
