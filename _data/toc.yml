@@ -30,4 +30,39 @@
   sections:
   - url: /basics/types
   - url: /basics/collections
+  - url: /basics/numpy_arrays
   - url: /basics/functions
+  - url: /basics/flow_control
+  - url: /basics/and_or
+  - url: /basics/loops
+
+- url: /good_practice/good_practice
+  not_numbered: false
+  expand_sections: false
+  sections:
+  - url: /good_practice/documentation
+  - url: /good_practice/packages
+  - url: /good_practice/custom_modules
+  - url: /good_practice/tests
+  - url: /good_practice/debugging
+  - url: /good_practice/raising_errors
+
+- url: /data_work/data_work
+  not_numbered: false
+  expand_sections: false
+  sections:
+  - url: /data_work/io
+  - url: /data_work/simple_plots
+  - url: /data_work/surface_plots
+  - url: /data_work/stats
+
+- url: /advanced/advanced
+  not_numbered: false
+  expand_sections: false
+  sections:
+  - url: /advanced/oop
+  - url: /advanced/classes
+  - url: /advanced/custom_packages
+
+
+ 

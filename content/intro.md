@@ -1,6 +1,6 @@
 # An Introduction to Python for Chemists
 
-<a href="https://doi.org/10.5281/zenodo.xxxxxx"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.xxxxxx.svg" class="left"></a>
+<a href="https://zenodo.org/badge/latestdoi/248480226"><img src="https://zenodo.org/badge/248480226.svg" alt="DOI"></a>
 <div style="clear:both;"></div>
 
 This is an open-source project to develop an introductory textbook covering all aspects of Python programming for chemistry students (or all career positions). 

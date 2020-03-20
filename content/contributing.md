@@ -68,6 +68,12 @@ Make sure to [keep your fork up to date](https://help.github.com/articles/syncin
 Try to keep the changes focused.
 We've found that working on a [new branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/) makes it easier to keep your changes targeted.
 
+Once you have made changes in a Jupyter Notebook file, please build the [`jupyter-book`](https://jupyterbook.org/intro.html) before you move to the next step. 
+
+```
+jupyter-book build --overwrite .
+```
+
 **4. Submit a [pull request](https://help.github.com/articles/creating-a-pull-request/).**
 
 A member of the development team will review your changes to confirm that they can be merged into the main code base.
