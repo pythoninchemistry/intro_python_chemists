@@ -11,7 +11,7 @@ prev_page:
 next_page:
   url: /basics/collections.html
 suffix: .ipynb
-search: type python numbers operations not float mathematical int string example b complex variable numerical types strings performed used data point notation any above possible where standard division important addition operator also center computer boolean component however operators order equal three textual variables either logic str nature between means line error case known exactly floating due logical information true false hr should interperator following code does multiplication times another defined follows shown decimal atom less different five operation returned upscaling therefore bool essentially single such particular specific function often text inverted commas quotation marks hello world greeting run programming exercise new
+search: python type operations numbers variable not float mathematical string int example b complex strings numerical used above types performed where standard data point notation any exercise possible division important below addition operator also center computer boolean component following however times operators order logical equal three textual variables either logic str nature should between means line error case defined shown known exactly floating due information true false hr interperator code new does cell chemistry multiplication another follows decimal atom less different five operation returned result upscaling before therefore bool essentially single such particular specific function often text inverted commas quotation marks
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
@@ -287,6 +287,17 @@ For example, if we want to assign the string <code>'Hello World'</code> to the v
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In the above example, the number 1 is a component of the string <code>hydrogen</code> and the <code>\n</code> means that a new line should be taken.
 This means that the Python interperator does not recognise it has a number so cannot perform mathematical operations (discussed below) on it.</p>
+<h4 id="Exercise">Exercise<a class="anchor-link" href="#Exercise"> </a></h4><p>In the cell below, define a variable string containing your favourite chemical element (this is a chemistry textbook after all), and have the Python interpreter print it.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Operations">Operations<a class="anchor-link" href="#Operations"> </a></h3><p>The textual nature of a string means that is it not possible (nor does it really make sense to) perform mathematical operations on them. 
 However, there are some operations that can be performed on a string, that initially, may appear mathematical in nature. 
 For examples, it is possible to "add" strings together,</p>
@@ -436,8 +447,18 @@ This message says that it is not possible to subtract one string from another, t
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The same is the case for operating on a string with any of the other standard operators (division, floor division, and power) in Python. 
-We will leave you to test this out for yourself.</p>
+<p>The same is the case for operating on a string with any of the other standard operators (division, floor division, and power) in Python.</p>
+<h4 id="Exercise">Exercise<a class="anchor-link" href="#Exercise"> </a></h4><p>Test the other standard operations on a pair of strings in the cell below.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 
 <h2 id="Numbers">Numbers<a class="anchor-link" href="#Numbers"> </a></h2><p><em>Numbers</em> are a broad definition of a type in Python, indeed within numbers there are three other, more specific, data sub-types. 
@@ -1162,6 +1183,96 @@ These operations can also be used with numbers of type <code>int</code>.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Notice that all of the numbers that are returned are of type <code>int</code>, except for the result of <code>3 / 2</code>, which the Python interperator has <em>intelligently</em> returned as a <code>float</code> (as the <code>int</code> <code>1</code> or <code>2</code> would not be correct). 
 This is achieved by the division operator automatically <em>upscaling</em> all of its <em>operands</em> (the numbers that it operates on) to type <code>float</code> before the division is performed.</p>
+<p>It was shown above that a number can be assigned to a variable, additionally this variable can then be used in a mathematical opertation. 
+Consider converting from kilojoules to calories, where you divide by $4.184$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">kj</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">calorie</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="mf">4.184</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">calorie</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>23.900573613766728
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Above, we have reused the <code>kj</code> variable in the creation of a new variable <code>calorie</code> and printed this.</p>
+<h4 id="Exercise">Exercise<a class="anchor-link" href="#Exercise"> </a></h4><p>Investigate, in the cell below, the effect of changing the value of <code>kj</code> <strong>after</strong> the variable <code>calorie</code> is defined.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Order-of-operations">Order of operations<a class="anchor-link" href="#Order-of-operations"> </a></h3><p>A single line of Python can contain many different mathematical operations, therefore it is important that Python has an order in which these operations should be performed. 
 This is the standard mathematical order of operations, this is known as many things (PIMDAS, POMDAS, BIDMAS, etc.). 
 However, we will refer to this as BODMAS:</p>
@@ -1173,73 +1284,14 @@ However, we will refer to this as BODMAS:</p>
 <li><strong>A</strong>ddition</li>
 <li><strong>S</strong>ubtraction</li>
 </ul>
+<h4 id="Exercise">Exercise<a class="anchor-link" href="#Exercise"> </a></h4><p>Write the following equations in the cells below, before you returns them use a calculator and BODMAS to determine what the answer should be.</p>
+<ul>
+<li>$3 \div (4 + 2) \times 3$</li>
+<li>$8 + 9 \times 7 ^ 3$</li>
+</ul>
 
 </div>
 </div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0.013888888888888888
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">8</span> <span class="o">+</span> <span class="mi">9</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>3095
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -1544,7 +1596,7 @@ A <code>bool</code> can take one of two values, either <code>True</code> or <cod
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-36-d6f700e50a15&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-37-d6f700e50a15&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>true<span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">NameError</span>: name &#39;true&#39; is not defined</pre>
@@ -1849,6 +1901,12 @@ Instead, the use of the <code>is</code> and <code>is not</code> notation is pref
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The <code>is</code> and <code>is not</code> operations act in a similar fashion to <code>==</code> and <code>!=</code>.</p>
+<h4 id="Exercise">Exercise<a class="anchor-link" href="#Exercise"> </a></h4><p>Using the cells below, find the result of the following logical operations:</p>
+<ul>
+<li>$1 = 4$</li>
+<li>$10 &lt; 15$ </li>
+<li>$3.1415 \neq 3$</li>
+</ul>
 
 </div>
 </div>
