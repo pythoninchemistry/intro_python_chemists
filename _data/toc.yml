@@ -55,6 +55,7 @@
   - url: /data_work/simple_plots
   - url: /data_work/surface_plots
   - url: /data_work/stats
+  - url: /data_work/linear_algebra
 
 - url: /advanced/advanced
   not_numbered: false
