@@ -31,17 +31,21 @@ If you would like to be involved, please look at the [contributing guidelines](h
     2. [Classes](https://pythoninchemistry.org/intro_python_chemists/advanced/classes.html)
     3. [Custom packages](https://pythoninchemistry.org/intro_python_chemists/advanced/custom_packages.html)
 
-<table border="0" style="width:100%">
+<table style="width:100%">
     <tr>
         <td>
-            <a href="https://zenodo.org/badge/latestdoi/248480226">
-                <img src="https://zenodo.org/badge/248480226.svg" alt="DOI">
-            </a>
+            <center>
+                <a href="https://zenodo.org/badge/latestdoi/248480226">
+                    <img src="https://zenodo.org/badge/248480226.svg" alt="DOI">
+                </a>
+            </center>
         </td>
         <td>
-           <a href="http://creativecommons.org/licenses/by/4.0/">
-                <img src="https://i.creativecommons.org/l/by/4.0/88x31.png" alt="CC-BY-4.0 Licence">
-            </a> 
+            <center>
+                <a href="http://creativecommons.org/licenses/by/4.0/">
+                    <img src="https://i.creativecommons.org/l/by/4.0/88x31.png" alt="CC-BY-4.0 Licence">
+                </a> 
+            </center>
         </td>
     </tr>
 </table>
