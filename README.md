@@ -1,4 +1,4 @@
-# intro_python_chemists
+# An Introduction to Python for Chemists
 
 [![intro_python_chemists](https://circleci.com/gh/pythoninchemistry/intro_python_chemists.svg?style=svg)](https://circleci.com/gh/pythoninchemistry/intro_python_chemists)
 [![DOI](https://zenodo.org/badge/248480226.svg)](https://zenodo.org/badge/latestdoi/248480226)
@@ -7,7 +7,7 @@ This is an open-source project to develop an introductory textbook covering all 
 
 ## Recognizing contributors
 
-We welcome and recognize all contributions from documentation to testing to code development.
+We welcome and recognize all contributions from writing new content to proof reading to improving figures.
 You can see a list of current contributors in the [contributors tab](https://github.com/pythoninchemistry/intro_python_chemists/graphs/contributors).
 
 If you would like to be involved, please look at the [contributing guidelines](https://github.com/pythoninchemistry/intro_python_chemists/blob/master/content/contributing.md).
