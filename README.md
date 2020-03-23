@@ -1,4 +1,4 @@
-# intro_python_chemists
+# An Introduction to Python for Chemists
 
 [![intro_python_chemists](https://circleci.com/gh/pythoninchemistry/intro_python_chemists.svg?style=svg)](https://circleci.com/gh/pythoninchemistry/intro_python_chemists)
 [![DOI](https://zenodo.org/badge/248480226.svg)](https://zenodo.org/badge/latestdoi/248480226)
