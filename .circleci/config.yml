@@ -120,7 +120,7 @@ commands:
       - run: 
           name: Install ruby dev
           command: |
-            sudo apt install ruby-dev
+            sudo apt install ruby-dev libffi-dev
 
       # Install Ruby/Jekyll dependencies
       - run:
