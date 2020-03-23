@@ -1,0 +1,29 @@
+{
+	"title": "An Introduction to Python for Chemists",
+	"creators": [{
+            "name": "McCluskey, Andrew R.",
+            "affiliation": "Diamond Light Source, Harwell Campus,. Didcot, OX11 0DE, UK.; Department of Chemistry, University of Bath, Claverton Down, Bath, BA2 7AY, UK.",
+            "orcid": "0000-0003-3381-5911"
+        },
+        {
+            "name": "Dean, Jacob M.",
+            "affiliation": "Department of Chemistry, University of Bath, Claverton Down, Bath, BA2 7AY, UK."
+        },
+        {
+    		"name": "Morgan, Benjamin J.",
+    		"affiliation": "Department of Chemistry, University of Bath, Claverton Down, Bath, BA2 7AY, UK.",
+    		"orcid": "0000-0002-3056-8233"
+        }
+	],
+	"description": "An open-source project to develop an introductory textbook covering all aspects of Python programming for chemistry students.",
+	"access_right": "open",
+	"license": "CC-BY-4.0",
+	"grants": [{
+    		"funder": "Ada Lovelace Centre (STFC)"
+    	},
+        {
+            "funder": "The Royal Society",
+            "code": "UF130329"
+        }
+    ]
+}
