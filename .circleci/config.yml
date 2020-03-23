@@ -122,6 +122,10 @@ commands:
           name: Installing Ruby/Jekyll from conda-forge
           command: conda install -c conda-forge rb-github-pages
 
+      - run: 
+          name: Install libffi from apt get
+          command: sudo apt install libffi-dev
+
       # Build the book's HTML w/ the base_url for CircleCI artifacts
       - run:
           name: Install book Ruby dependencies
