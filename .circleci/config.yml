@@ -117,16 +117,18 @@ commands:
             source activate testenv
             rm miniconda.sh
 
+      # Install Ruby/Jekyll dependencies
+      - run:
+          name: Installing Ruby/Jekyll from conda-forge
+          command: |
+            sudo apt install ruby-dev rvm
+            gem install bundler jekyll   
+        
       - run: 
           name: Install ffi
           command: |
             sudo apt install libffi-dev
             gem inst ffi
-
-      # Install Ruby/Jekyll dependencies
-      - run:
-          name: Installing Ruby/Jekyll from conda-forge
-          command: conda install -c conda-forge rb-github-pages      
 
       # Build the book's HTML w/ the base_url for CircleCI artifacts
       - run:
