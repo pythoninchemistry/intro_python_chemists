@@ -130,5 +130,4 @@ commands:
             echo "export PATH=$MINICONDA/bin:$PATH" >> $BASH_ENV
             source $BASH_ENV
             conda install gxx_linux-64
-            rm Gemfile.lock
             make install
