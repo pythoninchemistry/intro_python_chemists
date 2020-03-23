@@ -125,9 +125,9 @@ commands:
       - run: 
           name: Install libffi from apt get
           command: |
-            sudo apt install libffi-dev
+            sudo apt install libffi-dev libxml2-dev
 
       # Build the book's HTML w/ the base_url for CircleCI artifacts
       - run:
           name: Install book Ruby dependencies
-          command: sudo bundle install
+          command: bundle install
