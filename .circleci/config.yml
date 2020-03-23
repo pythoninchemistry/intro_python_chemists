@@ -117,28 +117,19 @@ commands:
             source activate testenv
             rm miniconda.sh
 
-      # Install Ruby/Jekyll dependencies
+       # Install Ruby/Jekyll dependencies
       - run:
           name: Installing Ruby/Jekyll from conda-forge
-          command: |
-            sudo apt install curl gnupg2
-            curl -sSL https://raw.githubusercontent.com/rvm/rvm/stable/binscripts/rvm-installer     -o rvm-installer
-            curl -sSL https://raw.githubusercontent.com/rvm/rvm/stable/binscripts/rvm-installer.asc -o rvm-installer.asc
-            gpg2 --verify rvm-installer.asc rvm-installer
-            bash rvm-installer
-            source /home/sharad/.rvm/scripts/rvm
-            rvm requirements
-            rvm install 2.1.2
-            rvm use 2.1.2 --default
-            gem install bundler jekyll   
-        
-      - run: 
-          name: Install ffi
-          command: |
-            sudo apt install libffi-dev
-            gem inst ffi
+          command: conda install -c conda-forge rb-github-pages
 
       # Build the book's HTML w/ the base_url for CircleCI artifacts
       - run:
           name: Install book Ruby dependencies
-          command: bundle install
+          command: |
+            export MINICONDA=$HOME/miniconda
+            echo "export PATH=$MINICONDA/bin:$PATH" >> $BASH_ENV
+            source $BASH_ENV
+            pip install --user -e ./
+            conda install gxx_linux-64
+            rm Gemfile.lock
+            make install
