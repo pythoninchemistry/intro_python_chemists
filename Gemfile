@@ -19,4 +19,3 @@ gem 'wdm', '~> 0.1.0' if Gem.win_platform?
 gem 'guard', '~> 2.14.2'
 gem 'guard-jekyll-plus', '~> 2.0.2'
 gem 'guard-livereload', '~> 2.5.2'
-gem 'ffi', '1.9.18'
