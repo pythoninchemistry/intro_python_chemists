@@ -129,5 +129,6 @@ commands:
             export MINICONDA=$HOME/miniconda
             echo "export PATH=$MINICONDA/bin:$PATH" >> $BASH_ENV
             source $BASH_ENV
+            pip install -r requirements.txt
             conda install gxx_linux-64
             make install
