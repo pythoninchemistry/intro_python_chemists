@@ -33,14 +33,6 @@ If you would like to be involved, please look at the [contributing guidelines](h
     2. [Classes](https://pythoninchemistry.org/intro_python_chemists/advanced/classes.html)
     3. [Custom packages](https://pythoninchemistry.org/intro_python_chemists/advanced/custom_packages.html)
 
-
-## On coding style
-
-In this book we prioritise readibility and understandability of code over everything else. 
-Therefore, the code herein will **not** necessarily adhere to PEP8 or any other standard, in particular if it sacrifices the educational utility of the material. 
-**All** issues opened that are based purely on standard adherence **will** be closed without considering.
-However, we are open to issues and pull requests that discuss/improve coding style **if** the focus is on making the code clearer for the learner. 
-
 ## Referencing 
 
 Should you wish to refer to this work elsewhere, we mint a DOI for each [release](https://github.com/pythoninchemistry/intro_python_chemists/releases) of the book. 
