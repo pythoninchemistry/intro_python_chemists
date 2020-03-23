@@ -122,7 +122,10 @@ commands:
           name: Installing Ruby/Jekyll from conda-forge
           command: |
             sudo apt install curl
-            curl -sSL https://get.rvm.io | bash -s stable
+            curl -sSL https://raw.githubusercontent.com/rvm/rvm/stable/binscripts/rvm-installer     -o rvm-installer
+            curl -sSL https://raw.githubusercontent.com/rvm/rvm/stable/binscripts/rvm-installer.asc -o rvm-installer.asc
+            gpg2 --verify rvm-installer.asc rvm-installer
+            bash rvm-installer
             source /home/sharad/.rvm/scripts/rvm
             rvm requirements
             rvm install 2.1.2
