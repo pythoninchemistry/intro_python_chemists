@@ -1,4 +1,9 @@
-This is an open-source project to develop an introductory textbook covering all aspects of Python programming for chemistry students (or all career positions). 
+This is an open-source project to develop an introductory textbook covering all aspects of Python programming for chemistry students (or all career positions).
+
+## Recognizing contributors
+
+We welcome and recognize all contributions from documentation to testing to code development.
+You can see a list of current contributors in the [contributors tab][https://github.com/pythoninchemistry/intro_python_chemists/graphs/contributors].
 
 If you would like to be involved, please look at the [contributing guidelines](https://github.com/pythoninchemistry/intro_python_chemists/blob/master/content/contributing.md).
 
