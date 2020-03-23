@@ -15,9 +15,9 @@
     		"orcid": "0000-0002-3056-8233"
         }
 	],
-	"description": "Uncertainty analysis and model comparison for atomistic molecular dynamics.",
+	"description": "An open-source project to develop an introductory textbook covering all aspects of Python programming for chemistry students.",
 	"access_right": "open",
-	"license": "MIT",
+	"license": "CC-BY-4.0",
 	"grants": [{
     		"funder": "Ada Lovelace Centre (STFC)"
     	},
