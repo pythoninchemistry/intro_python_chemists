@@ -68,6 +68,13 @@ workflows:
             branches:
               ignore:
                 - gh-pages
+      - doc:
+          requires:
+            - build_page_html
+          filters:
+            branches:
+              ignore:
+                - gh-pages
       - deploy:
           requires:
             - build_page_html
