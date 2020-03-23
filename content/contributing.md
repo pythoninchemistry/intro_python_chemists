@@ -99,11 +99,6 @@ and that you plan to continue working on it.
 When your pull request is Ready for Review, you can select this option on the PR's page,
 and a project maintainer will review your proposed changes.
 
-## Recognizing contributors
-
-We welcome and recognize all contributions from documentation to testing to code development.
-You can see a list of current contributors in the [contributors tab][https://github.com/pythoninchemistry/intro_python_chemists/graphs/contributors].
-
 ## Thank you!
 
 You're awesome.
