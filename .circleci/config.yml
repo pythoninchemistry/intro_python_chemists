@@ -43,8 +43,7 @@ jobs:
       # Add deployment key fingerprint for CircleCI to use for a push
       - add_ssh_keys:
           fingerprints:
-            - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC2ZOdao1Va5ZtwbQHW2SGB3UiikVWp29fkGB0dgO43okHQ62uQgSDx4DgYzV5I7sa+jIb1z857wFsoZuR0nD/FQmv1Qp0I/W9tOF0tyPYAe+xjQNUudQMLrBB/vOVf8OHPvDNz5e0sVuBpxwYqgHvd/x3i7hpVlk5B+aQ0zE8AC8oqQY57bOf8Hr69Pz89Jv3zbkKZ1mCA1zK/+icwLEUeHg5gC6bts9dWMpKt8+SLrpliVnWHFpcU1asumZ7LaTRsUGt/mm9sH3MuO8FtxFnAgsFfIapI6bjEX3oKX5o1Ki/6R9LpZj0mJfhZrJ2gT2ga+KjGwcdpc2PnPNv8T1f00ihr6+48G0EEF/rL+K7CQHP9BATMHRncdv8hM2HP5RBTNhnSpZn/fNmpmQSY/c0e5HzxKRfkjVi8cSGgMgXNsMA1keX6IbxwX1+5G+MpSAhMq6OkfNQqMW7bLA3XahSOIinth4mB/PiHMU0n9OOstBcC1jw6RBVDzhXNKPihQBO9uWeH9mhruQ9e63PYAv4SunHW6qa9NvOMuYv/AfggctINcNbD5I6zfZWmnwwDFOFqkYXW0+0IJ9c4BBcGBHP2vNj0e0HegqV7HjIu9bUlm6WtBrAebEbD7BkX5Id3vgNd0i3EX2JfZW8rG1IHq8zmrwa/gr8VdVFH1kHAl9VI9Q== a.r.mccluskey@bath.ac.uk
-"
+            - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC2ZOdao1Va5ZtwbQHW2SGB3UiikVWp29fkGB0dgO43okHQ62uQgSDx4DgYzV5I7sa+jIb1z857wFsoZuR0nD/FQmv1Qp0I/W9tOF0tyPYAe+xjQNUudQMLrBB/vOVf8OHPvDNz5e0sVuBpxwYqgHvd/x3i7hpVlk5B+aQ0zE8AC8oqQY57bOf8Hr69Pz89Jv3zbkKZ1mCA1zK/+icwLEUeHg5gC6bts9dWMpKt8+SLrpliVnWHFpcU1asumZ7LaTRsUGt/mm9sH3MuO8FtxFnAgsFfIapI6bjEX3oKX5o1Ki/6R9LpZj0mJfhZrJ2gT2ga+KjGwcdpc2PnPNv8T1f00ihr6+48G0EEF/rL+K7CQHP9BATMHRncdv8hM2HP5RBTNhnSpZn/fNmpmQSY/c0e5HzxKRfkjVi8cSGgMgXNsMA1keX6IbxwX1+5G+MpSAhMq6OkfNQqMW7bLA3XahSOIinth4mB/PiHMU0n9OOstBcC1jw6RBVDzhXNKPihQBO9uWeH9mhruQ9e63PYAv4SunHW6qa9NvOMuYv/AfggctINcNbD5I6zfZWmnwwDFOFqkYXW0+0IJ9c4BBcGBHP2vNj0e0HegqV7HjIu9bUlm6WtBrAebEbD7BkX5Id3vgNd0i3EX2JfZW8rG1IHq8zmrwa/gr8VdVFH1kHAl9VI9Q== a.r.mccluskey@bath.ac.uk"
 
       - prepare_jekyll_installation
       - run:
