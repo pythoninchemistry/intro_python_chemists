@@ -52,6 +52,7 @@
   expand_sections: false
   sections:
   - url: /data_work/io
+  - url: /data_work/units_and_uncertainties
   - url: /data_work/simple_plots
   - url: /data_work/surface_plots
   - url: /data_work/stats
