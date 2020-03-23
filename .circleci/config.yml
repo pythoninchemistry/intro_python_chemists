@@ -121,7 +121,7 @@ commands:
       - run:
           name: Installing Ruby/Jekyll from conda-forge
           command: |
-            sudo apt install ruby-dev rvm
+            sudo apt install ruby-dev
             gem install bundler jekyll   
         
       - run: 
