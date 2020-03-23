@@ -1,4 +1,4 @@
-This is an open-source project to develop an introductory textbook covering all aspects of Python programming for chemistry students (or all career positions).
+This is an open-source project to develop an introductory textbook covering all aspects of Python programming for chemistry students (at all career positions).
 
 ## Recognizing contributors
 
