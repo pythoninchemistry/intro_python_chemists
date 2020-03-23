@@ -55,7 +55,7 @@ jobs:
           name: Deploying site using ghp-import
           command: |
             pip install ghp-import
-            ghp-import -p -f -n ./_site/
+            ghp-import -p -f -n ./_site/ -m '[ci skip] deploy'
 
 
 # Tell CircleCI to use this workflow when it builds the site
