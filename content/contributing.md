@@ -41,6 +41,13 @@ is difficult to describe as one unit of work, please consider splitting it into 
 **Projects** are used to describe the broader picture of the `intro_python_chemists` project. 
 More information about the overall project plan can be found on the Github [projects page](https://github.com/pythoninchemistry/intro_python_chemists/projects). 
 
+## On coding style
+
+In this book we prioritise readibility and understandability of code over everything else. 
+Therefore, the code herein will **not** necessarily adhere to PEP8 or any other standard, in particular if it sacrifices the educational utility of the material. 
+**All** issues opened that are based purely on standard adherence **will** be closed without considering.
+However, we are open to issues and pull requests that discuss/improve coding style **if** the focus is on making the code clearer for the learner. 
+
 ## Making a contribution
 
 The most likely place that you will contribute is in the [`content`](https://github.com/pythoninchemistry/intro_python_chemists/tree/master/content) of the book. 
