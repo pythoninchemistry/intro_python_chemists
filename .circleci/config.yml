@@ -1,0 +1,134 @@
+# NOTE: This is an example CircleCI configuration that
+# will build your book and preview its HTML content.
+# You will probably have to modify it in order to get it working
+# just the way you want. See https://jupyterbook.org/advanced/circleci.html
+# for more information
+version: 2.1
+jobs:
+  build_page_html:
+    docker:
+      - image: circleci/python:3.7-stretch
+    steps:
+      - checkout
+      - run: pip install --user -r requirements.txt
+      - run:
+          name: Build site intermediate files
+          command: jupyter-book build .
+
+      # Persist the built files for the deploy step
+      - persist_to_workspace:
+          root: .
+          paths:
+            - _build/
+
+  doc:
+    docker:
+      - image: circleci/python:3.7-stretch
+    steps:
+      - prepare_jekyll_installation
+      - run:
+          name: Build the website
+          command: bundle exec jekyll build --baseurl /0/html/
+
+      # Tell Circle to store the documentation output in a folder that we can access later
+      - store_artifacts:
+          path: _site/
+          destination: html
+
+  # Deploy the built site to jupyter-book.github.io
+  deploy:
+    docker:
+      - image: circleci/python:3.7-stretch
+    steps:
+      # Add deployment key fingerprint for CircleCI to use for a push
+      - add_ssh_keys:
+          fingerprints:
+            - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC2ZOdao1Va5ZtwbQHW2SGB3UiikVWp29fkGB0dgO43okHQ62uQgSDx4DgYzV5I7sa+jIb1z857wFsoZuR0nD/FQmv1Qp0I/W9tOF0tyPYAe+xjQNUudQMLrBB/vOVf8OHPvDNz5e0sVuBpxwYqgHvd/x3i7hpVlk5B+aQ0zE8AC8oqQY57bOf8Hr69Pz89Jv3zbkKZ1mCA1zK/+icwLEUeHg5gC6bts9dWMpKt8+SLrpliVnWHFpcU1asumZ7LaTRsUGt/mm9sH3MuO8FtxFnAgsFfIapI6bjEX3oKX5o1Ki/6R9LpZj0mJfhZrJ2gT2ga+KjGwcdpc2PnPNv8T1f00ihr6+48G0EEF/rL+K7CQHP9BATMHRncdv8hM2HP5RBTNhnSpZn/fNmpmQSY/c0e5HzxKRfkjVi8cSGgMgXNsMA1keX6IbxwX1+5G+MpSAhMq6OkfNQqMW7bLA3XahSOIinth4mB/PiHMU0n9OOstBcC1jw6RBVDzhXNKPihQBO9uWeH9mhruQ9e63PYAv4SunHW6qa9NvOMuYv/AfggctINcNbD5I6zfZWmnwwDFOFqkYXW0+0IJ9c4BBcGBHP2vNj0e0HegqV7HjIu9bUlm6WtBrAebEbD7BkX5Id3vgNd0i3EX2JfZW8rG1IHq8zmrwa/gr8VdVFH1kHAl9VI9Q== a.r.mccluskey@bath.ac.uk"
+
+      - prepare_jekyll_installation
+      - run:
+          name: Build the website for deploy
+          command: bundle exec jekyll build
+
+      # Deploy the built site with ghp-import
+      - run:
+          name: Deploying site using ghp-import
+          command: |
+            pip install ghp-import
+            ghp-import -p -f -n ./_site/ -m '[ci skip] deploy'
+
+
+# Tell CircleCI to use this workflow when it builds the site
+workflows:
+  version: 2
+  default:
+    jobs:
+      - build_page_html:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+      - doc:
+          requires:
+            - build_page_html
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+      - deploy:
+          requires:
+            - build_page_html
+          filters:
+              branches:
+                only:
+                  - master
+                ignore:
+                  - gh-pages
+
+commands:
+  prepare_jekyll_installation:
+    steps:
+      - checkout
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: /tmp/workspace
+
+      # Grab the the built intermediate files from the last step
+      - run:
+          name: Copy over built site files
+          command: |
+            rm -rf ./_build
+            cp -r /tmp/workspace/_build .
+
+      # Install miniconda to test install
+      - run:
+          name: install miniconda
+          command: |
+            export MINICONDA=$HOME/miniconda
+            echo "export PATH=$MINICONDA/bin:$PATH" >> $BASH_ENV
+            source $BASH_ENV
+            hash -r
+            wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+            bash miniconda.sh -b -f -p $MINICONDA
+            conda config --set always_yes yes
+            conda update conda
+            conda info -a
+            conda create -n testenv python=3.7.0
+            source activate testenv
+            rm miniconda.sh
+
+       # Install Ruby/Jekyll dependencies
+      - run:
+          name: Installing Ruby/Jekyll from conda-forge
+          command: conda install -c conda-forge rb-github-pages
+
+      # Build the book's HTML w/ the base_url for CircleCI artifacts
+      - run:
+          name: Install book Ruby dependencies
+          command: |
+            export MINICONDA=$HOME/miniconda
+            echo "export PATH=$MINICONDA/bin:$PATH" >> $BASH_ENV
+            source $BASH_ENV
+            pip install -r requirements.txt
+            conda install gxx_linux-64
+            make install
