@@ -126,7 +126,7 @@ commands:
           name: Install libffi from apt get
           command: |
             sudo apt install libffi-dev
-            gem inst ffi
+            sudo gem inst ffi
 
       # Build the book's HTML w/ the base_url for CircleCI artifacts
       - run:
