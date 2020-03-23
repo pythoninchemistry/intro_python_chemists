@@ -105,4 +105,4 @@ You're awesome.
 
 <br>
 
-*&mdash; Based on contributing guidelines from the [STEMMRoleModels][https://github.com/KirstieJane/STEMMRoleModels] project.*
+*&mdash; Based on contributing guidelines from the [STEMMRoleModels](https://github.com/KirstieJane/STEMMRoleModels) project.*
