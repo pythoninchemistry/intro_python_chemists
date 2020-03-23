@@ -121,7 +121,7 @@ commands:
       - run:
           name: Installing Ruby/Jekyll from conda-forge
           command: |
-            sudo apt install curl gpg2
+            sudo apt install curl gnupg2
             curl -sSL https://raw.githubusercontent.com/rvm/rvm/stable/binscripts/rvm-installer     -o rvm-installer
             curl -sSL https://raw.githubusercontent.com/rvm/rvm/stable/binscripts/rvm-installer.asc -o rvm-installer.asc
             gpg2 --verify rvm-installer.asc rvm-installer
