@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 667.86 257.91" style="enable-background:new 0 0 667.86 257.91;" xml:space="preserve">
+<style type="text/css">
+	.st0{font-family:'IBMPlexMono-Medium';}
+	.st1{font-size:11px;}
+	.st2{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st3{font-size:14px;}
+</style>
+<text transform="matrix(1 0 0 1 15.0944 133.9602)" class="st0 st1">“Hydrogen”</text>
+<rect x="8.76" y="89.35" class="st2" width="81" height="81"/>
+<text transform="matrix(1 0 0 1 103.0944 133.9602)" class="st0 st1">“Helium”</text>
+<rect x="89.76" y="89.35" class="st2" width="81" height="81"/>
+<text transform="matrix(1 0 0 1 179.7416 133.9602)" class="st0 st1">“Lithium”</text>
+<rect x="170.41" y="89.35" class="st2" width="81" height="81"/>
+<text transform="matrix(1 0 0 1 255.3887 133.9602)" class="st0 st1">“Beryllium”</text>
+<rect x="251.06" y="89.35" class="st2" width="81" height="81"/>
+<text transform="matrix(1 0 0 1 435.3887 133.9602)" class="st0 st1">“Carbon”</text>
+<rect x="332.06" y="89.35" class="st2" width="81" height="81"/>
+<text transform="matrix(1 0 0 1 501.0359 133.9602)" class="st0 st1">“Nitrogen”</text>
+<rect x="412.7" y="89.35" class="st2" width="81" height="81"/>
+<text transform="matrix(1 0 0 1 351.0359 133.9602)" class="st0 st1">“Boron”</text>
+<rect x="493.7" y="89.35" class="st2" width="81" height="81"/>
+<g>
+	<g>
+		<line class="st2" x1="8.76" y1="25.22" x2="8.76" y2="56.39"/>
+		<g>
+			<polygon points="8.76,64.79 3.93,52.95 8.76,55.76 13.6,52.95 			"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 8.7631 17.0321)" class="st0 st1">elements[0] == “Hydrogen”</text>
+<text transform="matrix(1 0 0 1 332.0573 17.0319)" class="st0 st1">elements[4] == “Boron”</text>
+<text transform="matrix(1 0 0 1 5.7633 83.3901)" class="st0 st3">0</text>
+<text transform="matrix(1 0 0 1 86.763 83.3901)" class="st0 st3">1</text>
+<text transform="matrix(1 0 0 1 167.7633 83.3902)" class="st0 st3">2</text>
+<text transform="matrix(1 0 0 1 248.0574 83.4848)" class="st0 st3">3</text>
+<text transform="matrix(1 0 0 1 329.0571 83.4849)" class="st0 st3">4</text>
+<text transform="matrix(1 0 0 1 410.0573 83.4849)" class="st0 st3">5</text>
+<text transform="matrix(1 0 0 1 490.7041 83.4851)" class="st0 st3">6</text>
+<g>
+	<g>
+		<line class="st2" x1="493.7" y1="234.79" x2="493.7" y2="203.62"/>
+		<g>
+			<polygon points="493.7,195.22 498.54,207.06 493.7,204.25 488.87,207.06 			"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 493.7049 249.6534)" class="st0 st1">elements[-1] == “Nitrogen”</text>
+<text transform="matrix(1 0 0 1 5.5868 186.8193)" class="st0 st3">-7</text>
+<text transform="matrix(1 0 0 1 86.5866 186.8193)" class="st0 st3">-6</text>
+<text transform="matrix(1 0 0 1 167.5868 186.8194)" class="st0 st3">-5</text>
+<text transform="matrix(1 0 0 1 247.8809 186.914)" class="st0 st3">-4</text>
+<text transform="matrix(1 0 0 1 328.8806 186.9141)" class="st0 st3">-3</text>
+<text transform="matrix(1 0 0 1 409.8809 186.9141)" class="st0 st3">-2</text>
+<text transform="matrix(1 0 0 1 490.5277 186.9143)" class="st0 st3">-1</text>
+<g>
+	<g>
+		<line class="st2" x1="332.06" y1="25.22" x2="332.06" y2="56.39"/>
+		<g>
+			<polygon points="332.06,64.79 327.22,52.95 332.06,55.76 336.89,52.95 			"/>
+		</g>
+	</g>
+</g>
+</svg>

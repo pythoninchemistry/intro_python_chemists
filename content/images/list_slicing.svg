@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 667.86 200.47" style="enable-background:new 0 0 667.86 200.47;" xml:space="preserve">
+<style type="text/css">
+	.st0{font-family:'IBMPlexMono-Medium';}
+	.st1{font-size:11px;}
+	.st2{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st3{font-size:14px;}
+	.st4{fill:none;stroke:#000000;stroke-miterlimit:10;stroke-dasharray:4.1061,4.1061;}
+	.st5{fill:none;stroke:#000000;stroke-miterlimit:10;stroke-dasharray:4.0542,4.0542;}
+</style>
+<text transform="matrix(1 0 0 1 15.0944 133.9602)" class="st0 st1">“Hydrogen”</text>
+<rect x="8.76" y="89.35" class="st2" width="81" height="81"/>
+<text transform="matrix(1 0 0 1 103.0944 133.9602)" class="st0 st1">“Helium”</text>
+<rect x="89.76" y="89.35" class="st2" width="81" height="81"/>
+<text transform="matrix(1 0 0 1 179.7416 133.9602)" class="st0 st1">“Lithium”</text>
+<rect x="170.41" y="89.35" class="st2" width="81" height="81"/>
+<text transform="matrix(1 0 0 1 255.3887 133.9602)" class="st0 st1">“Beryllium”</text>
+<rect x="251.06" y="89.35" class="st2" width="81" height="81"/>
+<text transform="matrix(1 0 0 1 426.3887 133.9602)" class="st0 st1">“Carbon”</text>
+<rect x="332.06" y="89.35" class="st2" width="81" height="81"/>
+<text transform="matrix(1 0 0 1 501.0359 133.9602)" class="st0 st1">“Nitrogen”</text>
+<rect x="412.7" y="89.35" class="st2" width="81" height="81"/>
+<text transform="matrix(1 0 0 1 349.0359 133.9602)" class="st0 st1">“Boron”</text>
+<rect x="493.7" y="89.35" class="st2" width="81" height="81"/>
+<g>
+	<g>
+		<line class="st2" x1="89.76" y1="25.22" x2="89.76" y2="56.39"/>
+		<g>
+			<polygon points="89.76,64.79 84.93,52.95 89.76,55.76 94.6,52.95 			"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 86.7631 20.0321)" class="st0 st1">elements[1]</text>
+<text transform="matrix(1 0 0 1 329.0573 20.0319)" class="st0 st1">elements[4]</text>
+<text transform="matrix(1 0 0 1 5.7633 83.3901)" class="st0 st3">0</text>
+<text transform="matrix(1 0 0 1 86.763 83.3901)" class="st0 st3">1</text>
+<text transform="matrix(1 0 0 1 167.7633 83.3902)" class="st0 st3">2</text>
+<text transform="matrix(1 0 0 1 248.0574 83.4848)" class="st0 st3">3</text>
+<text transform="matrix(1 0 0 1 329.0571 83.4849)" class="st0 st3">4</text>
+<text transform="matrix(1 0 0 1 410.0573 83.4849)" class="st0 st3">5</text>
+<text transform="matrix(1 0 0 1 490.7041 83.4851)" class="st0 st3">6</text>
+<g>
+	<g>
+		<line class="st2" x1="155.35" y1="39.42" x2="153.35" y2="39.42"/>
+		<line class="st4" x1="149.25" y1="39.42" x2="93.82" y2="39.42"/>
+		<line class="st2" x1="91.76" y1="39.42" x2="89.76" y2="39.42"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 167.8291 43.003)" class="st0 st1">elements[1:4]</text>
+<text transform="matrix(1 0 0 1 5.5868 186.8193)" class="st0 st3">-7</text>
+<text transform="matrix(1 0 0 1 86.5866 186.8193)" class="st0 st3">-6</text>
+<text transform="matrix(1 0 0 1 167.5868 186.8194)" class="st0 st3">-5</text>
+<text transform="matrix(1 0 0 1 247.8809 186.914)" class="st0 st3">-4</text>
+<text transform="matrix(1 0 0 1 328.8806 186.9141)" class="st0 st3">-3</text>
+<text transform="matrix(1 0 0 1 409.8809 186.9141)" class="st0 st3">-2</text>
+<text transform="matrix(1 0 0 1 490.5277 186.9143)" class="st0 st3">-1</text>
+<g>
+	<g>
+		<line class="st2" x1="332.06" y1="25.22" x2="332.06" y2="56.39"/>
+		<g>
+			<polygon points="332.06,64.79 327.22,52.95 332.06,55.76 336.89,52.95 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line class="st2" x1="267.24" y1="39.42" x2="269.24" y2="39.42"/>
+		<line class="st5" x1="273.3" y1="39.42" x2="328.03" y2="39.42"/>
+		<line class="st2" x1="330.06" y1="39.42" x2="332.06" y2="39.42"/>
+	</g>
+</g>
+</svg>
