@@ -5,6 +5,20 @@
 
 This is an open-source project to develop an introductory textbook covering all aspects of Python programming for chemistry students (at all career positions).
 
+## Current aim
+
+Currently we are in the middle of the **content creation sprint**. 
+The idea of this is that this sprint will last for at least three months (or until we have all the content we "want"). 
+During this time, content does not need to be polished and the exact table of contents shape and structure is flexible. 
+We have some ideas for content that we would like (see the issues), but if you have another idea please feel free. 
+
+In order to be as flexible as possible we are currently not focusing content *order*, so if it is not clear, your should include some prerequisites at the top of the section that you are adding. 
+
+Once this sprint is complete, we will move to a **content curation sprint** where we will work to clean up the content that has been written and develop in more detailed flow for the book, ensuring that each new section build on those previous!
+After this curation sprint it may be the case that new content becomes obvious (in which case we will go back to a creation sprint), or we may release the first version of the book. 
+
+The book will **always** exist as a living document, however major releases will be numbered appropriately.
+
 ## Recognizing contributors
 
 We welcome and recognize all contributions from writing new content to proof reading to improving figures.
