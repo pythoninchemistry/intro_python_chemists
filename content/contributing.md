@@ -1,6 +1,6 @@
 # Contributing to 'An Introduction to Python for Chemists'
 
-Welcome! We're excited about your interest in contributing to this resources, which we will refer to in this document as `intro_python_chemist` as that is the name of the [Github Repo](https://github.com/pythoninchemistry/intro_python_chemists/). 
+Welcome! We're excited about your interest in contributing to this resources, which we will refer to in this document as `intro_python_chemists` as that is the name of the [Github Repo](https://github.com/pythoninchemistry/intro_python_chemists/). 
 
 These guidelines are designed to make it as easy as possible to get involved.
 If you have any questions that aren't discussed below, please let us know by opening an [issue](https://github.com/pythoninchemistry/intro_python_chemists/issues)!
@@ -51,7 +51,7 @@ However, we are open to issues and pull requests that discuss/improve coding sty
 ## Making a contribution
 
 The most likely place that you will contribute is in the [`content`](https://github.com/pythoninchemistry/intro_python_chemists/tree/master/content) of the book. 
-Details of the planned content of each chapter can be found in the [`toc.yml`], so we suggest that you have a look at what sections there are an fill in one of the gaps. 
+Details of the planned content of each chapter can be found in the [`toc.yml`](https://github.com/pythoninchemistry/intro_python_chemists/tree/master/_data/toc.yml), so we suggest that you have a look at what sections there are an fill in one of the gaps. 
 
 If you would like to contribute something that is not mentioned in the Table of Contents, then please open an [issue](https://github.com/pythoninchemistry/intro_python_chemists/issues/new/choose) and the community can discuss the contribution. 
 
@@ -75,11 +75,7 @@ Make sure to [keep your fork up to date](https://help.github.com/articles/syncin
 Try to keep the changes focused.
 We've found that working on a [new branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/) makes it easier to keep your changes targeted.
 
-Once you have made changes in a Jupyter Notebook file, please build the [`jupyter-book`](https://jupyterbook.org/intro.html) before you move to the next step. 
-
-```
-jupyter-book build --overwrite .
-```
+Once you have made changes in a Jupyter Notebook file or Markdown file, and you are happy with them, commit them!
 
 **4. Submit a [pull request](https://help.github.com/articles/creating-a-pull-request/).**
 
