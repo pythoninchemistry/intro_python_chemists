@@ -75,11 +75,7 @@ Make sure to [keep your fork up to date](https://help.github.com/articles/syncin
 Try to keep the changes focused.
 We've found that working on a [new branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/) makes it easier to keep your changes targeted.
 
-Once you have made changes in a Jupyter Notebook file, please build the [`jupyter-book`](https://jupyterbook.org/intro.html) before you move to the next step. 
-
-```
-jupyter-book build --overwrite .
-```
+Once you have made changes in a Jupyter Notebook file or Markdown file, and you are happy with them, commit them!
 
 **4. Submit a [pull request](https://help.github.com/articles/creating-a-pull-request/).**
 
