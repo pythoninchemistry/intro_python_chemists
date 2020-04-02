@@ -1,0 +1,646 @@
+---
+redirect_from:
+  - "/basics/and-or"
+interact_link: content/basics/and_or.ipynb
+kernel_name: python3
+kernel_path: content/basics
+has_widgets: false
+title: |-
+  And and or operations
+pagenum: 8
+prev_page:
+  url: /basics/flow_control.html
+next_page:
+  url: /basics/loops.html
+suffix: .ipynb
+search: true false evaluated not period block statement statements logic group s phosphorus sodium b p high table periodictable boolean whether code oxygen example both data used elements determine truth k singlet concentration silicon flow complete action periodic information point following else correct above printed molecule triplet low tutorial controls introduced c python using twenty dictionary hydrogen element melting boiling therefore below line happening lithium liquid cancers ions criteria alternatively such combination order stored variable contains keys chemical its mass remember guess incorrect whilst through process tables give examples step follows overall gives third exercise molecules behave gates ozlam akkaya transfer
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">And and or operations</div>
+</div>
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the previous tutorial, flow controls were introduced which allow the manipulation/determination of data based on certain characteristics. This took the form <code>If A is true then complete action B</code>. Often there are more than one criteria that one wished to evaluate against, for example in the cases of <code>If A and B are true then complete action C</code> or <code>If A or B are true then complete action C</code>. Alternatively we coult want a criteria such as <code>If A is False then complete action B</code>.</p>
+<p>Python can enact all these processes using <code>and</code>, <code>or</code>, and <code>not</code> statements. These statements collectively are called Boolean logic statements, named after the mathematician George Boole who created this field of mathematics. These statements are the building blocks of computers and Boolean logic is fundamentally important in all computation.</p>
+<p>In this tutorial these logic statements will be used in combination with flow controls to manipulate some data from the first twenty elements of the periodic table. In order to get started, we shall first import the data that we require and explain how the data is stored.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">periodic_table_20</span> <span class="k">as</span> <span class="nn">pt</span>
+<span class="n">periodic_table_20</span> <span class="o">=</span> <span class="n">pt</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The periodic_table_20 variable is a dictionary that contains dictionaries of properties of the the elements. The keys of the main dictionary are the chemical symbols of the first twenty elements. For example, to observe information about hydrogen we use</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">periodic_table_20</span><span class="p">[</span><span class="s2">&quot;H&quot;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;mass&#39;: 1.008,
+ &#39;group&#39;: 1,
+ &#39;period&#39;: 1,
+ &#39;block&#39;: &#39;s&#39;,
+ &#39;melting_point&#39;: 14.01,
+ &#39;boiling_point&#39;: 20.28}</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The information stored about each element is its: relative atomic mass, group, period, block, melting point, and boiling point. The keys of the elemental dictionary are <code>mass</code>, <code>group</code>, <code>period</code>, <code>block</code>, <code>melting_point</code>, and <code>boiling_point</code>. In order to obtain the block that hydrogen is in we can use</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">periodic_table_20</span><span class="p">[</span><span class="s2">&quot;H&quot;</span><span class="p">][</span><span class="s2">&quot;block&quot;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;s&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This indicates that, as we know, hydrogen lies in the s block of the periodic table.</p>
+<p>If a periodic table is not to hand it may be difficult to remember the group and period of an element. However, Boolean statements can be used to determine the location of an element if a guess is given. To check whether phosphorus is in period 2 and group 15, the following python code can be used</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">][</span><span class="s2">&quot;period&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">][</span><span class="s2">&quot;group&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">15</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Correct, phosphorus is in period 2 and group 15!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Phosphorus is not in period 2 and group 15&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Phosphorus is not in period 2 and group 15
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is incorrect, as one would expect. Phosphorus is in period 3. Whilst phosphorus is in group 15, it is not in period 2 so the code "flows to" the else statement. What if we use the following code?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">][</span><span class="s2">&quot;period&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">][</span><span class="s2">&quot;group&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">15</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Correct, phosphorus is in period 3 and group 15!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Phosphorus is not in period 3 and group 15&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Correct, phosphorus is in period 3 and group 15!
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we have provided the correct information for phosphorus the code is correct. But what will happen if we replace the <code>and</code> statement for an <code>or</code> statement? We will keep the incorrect guess of period 2 though.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">][</span><span class="s2">&quot;period&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="s2">&quot;P&quot;</span><span class="p">][</span><span class="s2">&quot;group&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">15</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Correct, phosphorus is in period 2 or group 15!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Phosphorus is not in period 2 or group 15&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Correct, phosphorus is in period 2 or group 15!
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This states that we are correct as whilst phosphorus is not in period 2, it is in group 15. Therefore one of the two statements is true, and so the code "flow through" the if statement instead of the else statement. To better understand the process of what python is doing, the concept of truth tables is introduced. Below is a truth table for the <code>and</code> and <code>or</code> statements.</p>
+<table>
+<thead><tr>
+<th>A</th>
+<th style="text-align:center">B</th>
+<th style="text-align:right">AND</th>
+<th style="text-align:right">OR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True</td>
+<td style="text-align:center">True</td>
+<td style="text-align:right">True</td>
+<td style="text-align:right">True</td>
+</tr>
+<tr>
+<td>True</td>
+<td style="text-align:center">False</td>
+<td style="text-align:right">False</td>
+<td style="text-align:right">True</td>
+</tr>
+<tr>
+<td>False</td>
+<td style="text-align:center">True</td>
+<td style="text-align:right">False</td>
+<td style="text-align:right">True</td>
+</tr>
+<tr>
+<td>False</td>
+<td style="text-align:center">False</td>
+<td style="text-align:right">False</td>
+<td style="text-align:right">False</td>
+</tr>
+</tbody>
+</table>
+<p>The truth tables give the output of the <code>and</code> and <code>or</code> statements when two statements, <code>A</code> and <code>B</code>, are evaluated. For example, taking the first line, if both statement A and statement B are true then <code>A and B</code> and <code>A or B</code> will both give true.</p>
+<p>The outputs shown in the above diagrams are the same as those in the logic table. We can use the logic illustrated above to show what is happening in the examples above. Step by step the first example's logic follows:</p>
+<p>1) <code>periodic_table_20["P"]["period"] == 2</code>, is evaluated which is <code>False</code> as phosphorus is in period 3.</p>
+<p>2) <code>periodic_table_20["P"]["group"] == 15</code> is evaluated which is <code>True</code> as phosphorus is in group 15.</p>
+<p>3) <code>False and True</code> is evaluated which overall gives <code>False</code>.</p>
+<p>4) <code>if False</code> is evaluated and the line <code>"Phosphorus is not in period 2 and group 15"</code> is printed through the else statement.</p>
+<p>While in the third example the following logic occurs:</p>
+<p>1) <code>periodic_table_20["P"]["period"] == 2</code>, is evaluated which is <code>False</code> as phosphorus is in period 3.</p>
+<p>2) <code>periodic_table_20["P"]["group"] == 15</code> is evaluated which is <code>True</code> as phosphorus is in group 15.</p>
+<p>3) <code>False or True</code> is evaluated which overall gives <code>True</code>.</p>
+<p>4) <code>if True</code> is evaluated and the line <code>"Correct, phosphorus is in period 2 or group 15!"</code> is printed.</p>
+<p>Other statements can be evaluated. For example, if we wanted to determine whether lithium is liquid at 700 K we could use the following code</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="s2">&quot;Li&quot;</span><span class="p">][</span><span class="s2">&quot;melting_point&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">700</span> <span class="ow">and</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="s2">&quot;Li&quot;</span><span class="p">][</span><span class="s2">&quot;boiling_point&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">700</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lithium is liquid at 700 K&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lithium is not liquid at 700 K.&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Lithium is liquid at 700 K
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This indicatrs that the melting point of lithium is below 700 K and its boiling point is greater than 700 K. Therefore lithium is liquid at 700 K.</p>
+<p><strong>Exercise:</strong> Write a similar code to determine whether sodium is a liquid at 100 $^{\circ}$C. Remember the melting and boiling points are recorded in K.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Chemical molecules can also behave as logic gates. For example the molecule below was determined to be useful in detecting cancers by Ozlam and Akkaya$^{1}$. The molecule facilitates the transfer of singlet oxygen to triplet oxygen in the presence of both high concentrations of sodium ions and protons when irradiated with 660 nm radiation.</p>
+<p><img src="../images/AND_logic_gate.png" alt="drawing" width="200"/></p>
+<p>The concentration of sodium ions and protons are high in the presence of cancers. The transfer of singlet oxygen to triplet oxygen does not occur with the aid of this molecule unless both sodium ions <strong>and</strong> proton concentrations are high. This makes the "truth table" as follows:</p>
+<table>
+<thead><tr>
+<th>Sodium ion concentration</th>
+<th style="text-align:center">Proton concentration</th>
+<th style="text-align:right">Oxygen state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High</td>
+<td style="text-align:center">High</td>
+<td style="text-align:right">Triplet</td>
+</tr>
+<tr>
+<td>High</td>
+<td style="text-align:center">Low</td>
+<td style="text-align:right">Singlet</td>
+</tr>
+<tr>
+<td>Low</td>
+<td style="text-align:center">High</td>
+<td style="text-align:right">Singlet</td>
+</tr>
+<tr>
+<td>Low</td>
+<td style="text-align:center">Low</td>
+<td style="text-align:right">Singlet</td>
+</tr>
+</tbody>
+</table>
+<p>This is analagous to the AND truth table as the production of triplet oxygen requires a high concentration of oxygen <strong>and</strong> a high concentration of sodium. Therefore the molecule above can aid in the detection of cancers using Boolean logic. There are other molecules that behave as logic gates for a multitude of other uses.</p>
+<p>$^{1}$ S. Ozlam and E. U. Akkaya, J. Am. Chem. Soc. 2009, 131, 1, 48-49.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Not-statements">Not statements<a class="anchor-link" href="#Not-statements"> </a></h4><p>The third aspect of Boolean logic is the <code>not</code> statement. The <code>not</code> statement simply reverses a Boolean statement so a <code>True</code> becomes <code>False</code> and a <code>False</code> becomes <code>True</code>. The periodic_table_20 variable only contains information on the first twenty elements of the periodic table so the elements must be in either the s or p block. To determine whether silicon is in the s or the p block, two methods can be used:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="s1">&#39;Si&#39;</span><span class="p">][</span><span class="s1">&#39;block&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Silicon is in the s block.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Silicon is in the p block&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Silicon is in the p block
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Alternatively, one could use a <code>not</code> statement such that:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">periodic_table_20</span><span class="p">[</span><span class="s1">&#39;Si&#39;</span><span class="p">][</span><span class="s1">&#39;block&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Silicon is in the p block.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Silicon is in the s block&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Silicon is in the p block.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Both are valid ways of determining whether silicon is in the s or p block. What is happening in the second method?</p>
+<p>1) <code>periodic_table_20['Si']['block'] == 's'</code> is evaluated to <code>False</code> as silicon is not in the s block.</p>
+<p>2) <code>not(False)</code> is evaluated to <code>True</code>.</p>
+<p>3) <code>if True:</code> is evaluated and "Silicon is in the p block." is printed.</p>
+<p>How does the process change if sodium id evaluated?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">periodic_table_20</span><span class="p">[</span><span class="s1">&#39;Na&#39;</span><span class="p">][</span><span class="s1">&#39;block&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sodium is in the p block.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sodium is in the s block&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Sodium is in the s block
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When sodium is evaluated the logic is:</p>
+<p>Both are valid ways of determining whether silicon is in the s or p block. What is happening in the second method?</p>
+<p>1) <code>periodic_table_20['Na']['block'] == 's'</code> is evaluated to <code>True</code> as sodium is in the s block.</p>
+<p>2) <code>not(True)</code> is evaluated to <code>False</code>.</p>
+<p>3) <code>if False:</code> is evaluated so the else statement is used and "Sodium is in the s block." is printed.</p>
+<p><strong>Exercise:</strong> Using a not statement determine whether calcium is in group 2.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the next tutorial loops will be introduced. The use of loops in combination with Boolean logic statements and flow controls can create efficient methods of analysing data.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+
+    </main>
+    
