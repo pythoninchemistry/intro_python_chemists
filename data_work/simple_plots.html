@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Simple plots</title>
-  <meta name="description" content="        Simple plots             ">
+  <meta name="description" content="        Simple plots    Prerequisites:typesfunctionscontainersnumpy Plotting a simple mathematical function Graphical representations of data are ubiqutious ...">
 
   <link rel="canonical" href="https://pythoninchemistry.org/intro_python_chemists/data_work/simple_plots.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Chemistry" href="https://pythoninchemistry.org/intro_python_chemists/feed.xml">
@@ -14,7 +14,7 @@
   <meta property="og:url"         content="https://pythoninchemistry.org/intro_python_chemists/data_work/simple_plots.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Simple plots" />
-<meta property="og:description" content="        Simple plots             " />
+<meta property="og:description" content="        Simple plots    Prerequisites:typesfunctionscontainersnumpy Plotting a simple mathematical function Graphical representations of data are ubiqutious ..." />
 <meta property="og:image"       content="https://pythoninchemistry.org/intro_python_chemists/images/logo/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,9 +26,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://pythoninchemistry.org/intro_python_chemists/data_work/simple_plots.html",
   "headline": "Simple plots",
-  "datePublished": "2020-04-02T19:00:17+00:00",
-  "dateModified": "2020-04-02T19:00:17+00:00",
-  "description": "        Simple plots             ",
+  "datePublished": "2020-04-03T08:55:40+00:00",
+  "dateModified": "2020-04-03T08:55:40+00:00",
+  "description": "        Simple plots    Prerequisites:typesfunctionscontainersnumpy Plotting a simple mathematical function Graphical representations of data are ubiqutious ...",
   "author": {
     "@type": "Person",
     "name": "pythoninchemistry"
@@ -1359,7 +1359,464 @@ initFunction(initPrint)
                   <main class="jupyter-page">
     <div id="page-info"><div id="page-title">Simple plots</div>
 </div>
-     
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Prerequisites:</p>
+<ul>
+<li>types</li>
+<li>functions</li>
+<li>containers</li>
+<li>numpy </li>
+</ul>
+<h2 id="Plotting-a-simple-mathematical-function">Plotting a simple mathematical function<a class="anchor-link" href="#Plotting-a-simple-mathematical-function"> </a></h2><p>Graphical representations of data are ubiqutious across all sciences, and python gives us convenient tools to build these. <code>matplotlib</code> is an accessible and ubiqutous plotting module. We'll begin by using the <code>matplotlib.pyplot.plot()</code> function to plot the mathematical function $\mathrm{e}^x$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1"># just as numpy is often imported as &#39;np&#39; ...</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># ... this is the &#39;standard&#39; way of importing matplotlib.pyplot</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># generate a numpy array, this is &#39;x&#39;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>         <span class="c1"># take the exponential of that array, this is &#39;y&#39;</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="c1"># plot our graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>    <span class="c1"># plt.show() declares we are finished plotting our graph, and that it should be displayed</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/data_work/simple_plots_1_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To go through the logic of what we did above, after generating the <code>x</code> and <code>y</code> data using the already familiar <code>numpy</code> package, the <code>plt.plot()</code> function allows us to visualise their relationship taking the data as two arguments. The arguments are positional, your <code>x</code> data should always preceed you <code>y</code> data.</p>
+<p>While the plotting process was straightforward, our graph is ultimatley incomplete, as it is unlabelled. To explore these concepts, let's turn to some more chemically relevant data.</p>
+<blockquote><h4 id="A-note-on-plt.show()">A note on <code>plt.show()</code><a class="anchor-link" href="#A-note-on-plt.show()"> </a></h4><p><code>plt.show()</code> is called at the end of each cell in which we are plotting a graph. You may come to discover that this is not always strictly necessary in a Jupyter environment as the graph will often be  printed to screen regardless. Notice, however, that if it is not included, <code>[&lt;matplotlib.lines.Line2D at xxxxxx]</code> is returned: this is the plot object, simply include <code>plt.show()</code> to prevent this. If you are writing a python script in a text editor as opposed to a Jupyter/Ipython environment without calling the <code>plt.show()</code> function, no graph will be shown. In summary, despite sometimes being unnecessary for a quick visualisation, it is good practice to always end your plots with <code>plt.show()</code>.</p>
+</blockquote>
+<h2 id="Plotting-chemical-data">Plotting chemical data<a class="anchor-link" href="#Plotting-chemical-data"> </a></h2><p>We will plot some data associated with the Arrhenius equation,</p>
+<p>$ k = A \mathrm{exp}\left(\dfrac{-E_a}{k_\mathrm{B} T}\right) $.</p>
+<p>where $k$ is the rate constant, $A$ is the pre-exponential factor, $E_a$ is the activation energy, $k_\mathrm{B}$ and $T$ is temperature. This expression should be familiar from plenty of areas of chemistry, but to review the key concepts, Arrhenius plots are used to analyse the effect of temperature on the rates of chemical reactions.</p>
+<p>Taking the natural log of this expression gives,</p>
+<p>$\ln(k)= -\dfrac{E_a}{k_\mathrm{B}} \dfrac{1}{T} + \ln(A) $.</p>
+<p>This expression now describes a straight line with gradient $-\dfrac{E_a}{k_\mathrm{B}}$ and intercept  $\ln(A)$. Given some example data, and remembering that <code>np.log</code> gives the <em>natural</em> log of each value in a numpy array, we can now make a new plot</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">450</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>                                                     <span class="c1">#</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.078e-04</span><span class="p">,</span><span class="mf">2.176e-04</span><span class="p">,</span><span class="mf">2.229e-04</span><span class="p">,</span><span class="mf">2.260e-04</span><span class="p">,</span><span class="mf">2.281e-04</span><span class="p">,</span><span class="mf">2.316e-04</span><span class="p">,</span><span class="mf">2.331e-04</span><span class="p">])</span>   <span class="c1"># define Arrhenius data</span>
+<span class="n">dk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.078e-06</span><span class="p">,</span><span class="mf">2.176e-06</span><span class="p">,</span><span class="mf">2.229e-06</span><span class="p">,</span><span class="mf">2.260e-06</span><span class="p">,</span><span class="mf">2.281e-06</span><span class="p">,</span><span class="mf">2.316e-06</span><span class="p">,</span><span class="mf">2.331e-06</span><span class="p">])</span>  <span class="c1">#</span>
+
+<span class="n">ln_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>                         <span class="c1"># take the natural log of the np.array &#39;k&#39;</span>
+<span class="n">inverse_temperature</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">temperature</span>      <span class="c1"># take the inverse of the np.array &#39;temperature&#39;</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">inverse_temperature</span><span class="p">,</span> <span class="n">ln_k</span><span class="p">)</span>      <span class="c1"># plot these with inverse_temperature on the x-axis, and ln_k on the y-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                               <span class="c1"># show our plot</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/data_work/simple_plots_3_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As above, this graph is still unsatisfactory; additions to our code will give a much improved graph. Axes labels can be set via <code>plt.xlabel()</code> and <code>plt.ylabel()</code>. The points along the graph are also discrete, and therefore to connect them with an arbitrary line is not appropriate. <code>plt.plot()</code> takes a third argument, which formats the points in your graph, the default is <code>-b</code> in otherwords, a line (<code>-</code>), that is blue (<code>b</code>). To give discrete points, we could change this default value to <code>og</code> which will give circles (<code>o</code>) that are green (<code>g</code>).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">inverse_temperature</span><span class="p">,</span> <span class="n">ln_k</span><span class="p">,</span> <span class="s1">&#39;og&#39;</span><span class="p">)</span> <span class="c1"># plot the data again, but this time using circles, &#39;o&#39;, that are green &#39;g&#39;.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;1/T / 1/K &#39;</span><span class="p">)</span>                  <span class="c1"># add an x-axis label, with both the quantity (1/T) and the units (1/K)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$\ln(</span><span class="si">{k}</span><span class="s1">)$&#39;</span><span class="p">)</span>                  <span class="c1"># add a y-axis label, ln(k)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                                <span class="c1"># show the plot</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/data_work/simple_plots_5_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It is also possible to include error bars using the <code>plt.errorbar()</code> function. This gives the same functionality as <code>plt.plot()</code> taking additional arguments that define errorbars to plot. As there are now quite a few positional arguments in our <code>plt.errorbars()</code>, we will include them as keyword arguments. To clarify, each of these arguments are:</p>
+<ul>
+<li><code>x</code> - the data to be plotted on the x-axis </li>
+<li><code>y</code> - the data to be plotted on the y-axis </li>
+<li><code>yerr</code> the errors in <code>y</code></li>
+<li><code>xerr</code> the errors in <code>x</code>   </li>
+<li><code>fmt</code> line formatting</li>
+</ul>
+<p>We can also add a title to a plot with <code>plt.title()</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">inverse_temperature</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">ln_k</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">dk</span><span class="o">/</span><span class="n">k</span><span class="p">,</span> <span class="n">xerr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;og&#39;</span><span class="p">)</span> <span class="c1"># plot graph as before, but this time inclusive of error bars</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;1/T / 1/K &#39;</span><span class="p">)</span>    <span class="c1"># x-label as above</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;ln(k)&#39;</span><span class="p">)</span>         <span class="c1"># y-label as above</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Arrhenius plot&#39;</span><span class="p">)</span> <span class="c1"># add a title to our graph</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                  <span class="c1"># show our graph</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/data_work/simple_plots_7_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Excercise">Excercise<a class="anchor-link" href="#Excercise"> </a></h3><p>Using numpy functions <code>sin</code> and <code>linspace</code>, plot $\sin(x)$ where $x$ takes values from 0 to 10. Ensure you label your axes.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Enter your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Multiple-lines-on-the-same-graph">Multiple lines on the same graph<a class="anchor-link" href="#Multiple-lines-on-the-same-graph"> </a></h2><p>Let's try something a little different and a little more complex. Say we want to compare the probability distribution of three atomic orbitals on the same graph, we need to call <code>plt.plot()</code> for each function, and then call <code>plt.show()</code> when we have finished adding the different functions to our plots. The radial wavefucntions, $R$, for the <em>hydrogenic</em> $3s$, $3p$ and $3d$ orbitals respectively are</p>
+<p>$R_{3s} = \dfrac{2}{3\sqrt3}\left(1-\dfrac{2r}{3}+\dfrac{2}{27}r^2\right)e^{-r/3}$</p>
+<p>$R_{3p} = \dfrac{2\sqrt{2}}{9\sqrt{3}}\left(\dfrac{2r}{3}\right)\left(1-\dfrac{1}{6}r\right)e^{-r/3}$</p>
+<p>$R_{3d} = \dfrac{1}{9\sqrt{30}}\left(\dfrac{2r}{3}\right)^2e^{-r/3}$</p>
+<p>plotted below, they look like this</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>  <span class="c1"># generate a series of r values which will give a smooth wavefunction</span>
+
+<span class="k">def</span> <span class="nf">r3s</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the value of the radial wavefunction of the 3s orbital for a given distance from origin</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        r (float): distance from origin</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (float): the value of the radial wavefunction at r</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">r3s</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">/</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="o">/</span><span class="mi">27</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r3s</span>
+
+<span class="k">def</span> <span class="nf">r3p</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the value of the radial wavefunction of the 3p orbital for a given distance from origin</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        r (float): distance from origin</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (float): the value of the radial wavefunction at r</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">r3p</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">9</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="n">r</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r3p</span>
+
+<span class="k">def</span> <span class="nf">r3d</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the value of the radial wavefunction of the 3d orbital for a given distance from origin</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        r (float): distance from origin</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (float): value of radial wavefunction at r</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">r3d</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span><span class="p">(</span><span class="mi">9</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r3d</span>
+
+<span class="n">wavefunction_3s</span> <span class="o">=</span> <span class="n">r3s</span><span class="p">(</span><span class="n">r_values</span><span class="p">)</span> <span class="c1"># </span>
+<span class="n">wavefunction_3p</span> <span class="o">=</span> <span class="n">r3p</span><span class="p">(</span><span class="n">r_values</span><span class="p">)</span> <span class="c1"># caluclate R(r) values from functions above </span>
+<span class="n">wavefunction_3d</span> <span class="o">=</span> <span class="n">r3d</span><span class="p">(</span><span class="n">r_values</span><span class="p">)</span> <span class="c1">#</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_values</span><span class="p">,</span> <span class="n">wavefunction_3s</span><span class="p">)</span> <span class="c1"># plot 3s wavefunction </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_values</span><span class="p">,</span> <span class="n">wavefunction_3p</span><span class="p">)</span> <span class="c1"># plot 3p wavefunction</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_values</span><span class="p">,</span> <span class="n">wavefunction_3d</span><span class="p">)</span> <span class="c1"># plot 3d wavefunction</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;r / Bohr radii&#39;</span> <span class="p">)</span>       <span class="c1"># label x-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span>                     <span class="c1"># label y-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Radial wavefunctions of $3s$, $3p$ and $3d$ orbitals&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                          <span class="c1"># plt.show() only after plotting all three wavefunctions</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/data_work/simple_plots_11_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How do we tell which line refers to which orbital? To show how to do this, and give these plots physical meaning, we can plot their radial distribution functions ($4\pi r^2 R(r)^2$). This time we add a <code>label</code> argument each time we call the <code>plt.plot()</code> function, the type of this argument must be a <code>string</code>. These labels are then shown in a <em>legend</em>, which is added to the plot by calling <code>plt.legend()</code> before calling <code>plt.show()</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">radial_probablilty_function</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">wavefunction</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the radial probability of a wavefunction at a given separation</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">       r (float): value of wavefunction at r </span>
+<span class="sd">       wavefunction (float): value of the wavefunction at r</span>
+<span class="sd">       </span>
+<span class="sd">    returns:</span>
+<span class="sd">       float radial probability of the wavefunction at r</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">wavefunction</span><span class="o">**</span><span class="mi">2</span> 
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_values</span><span class="p">,</span> <span class="n">radial_probablilty_function</span><span class="p">(</span><span class="n">r_values</span><span class="p">,</span> <span class="n">wavefunction_3s</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$3s$&#39;</span><span class="p">)</span> <span class="c1"># plot 3s *labelled* raidial probability function</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_values</span><span class="p">,</span> <span class="n">radial_probablilty_function</span><span class="p">(</span><span class="n">r_values</span><span class="p">,</span> <span class="n">wavefunction_3p</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$3p$&#39;</span><span class="p">)</span> <span class="c1"># plot 3p *labelled* raidial probability function</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_values</span><span class="p">,</span> <span class="n">radial_probablilty_function</span><span class="p">(</span><span class="n">r_values</span><span class="p">,</span> <span class="n">wavefunction_3d</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$3d$&#39;</span><span class="p">)</span> <span class="c1"># plot 3d *labelled* raidial probability function</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;r / Bohr radii&#39;</span> <span class="p">)</span>                                              <span class="c1"># label x-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;4$\pi$r$^2$R$^2$&#39;</span><span class="p">)</span>                                             <span class="c1"># label y-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Radial distribution functions of $3s$, $3p$ and $3d$ orbitals&#39;</span><span class="p">)</span> <span class="c1"># add a title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>                                                               <span class="c1"># show legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                                                                 <span class="c1"># plt.show() after all distributions have been plotted and show a legend</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/data_work/simple_plots_13_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Excercise">Excercise<a class="anchor-link" href="#Excercise"> </a></h3><p>Given that the radial wavefunctions of the 1s and 2s orbitals are as follows:</p>
+<p>$ R_{1s} = 2\mathrm{e}^{-r} $</p>
+<p>$ R_{2s} = \dfrac{1}{2\sqrt{2}}(2-r)\mathrm{e}^{-r/2}$</p>
+<p>plot and compare the radial distribution functions of the $1s$, $2s$ and $3s$ orbitals <strong>on the same plot</strong>. Ensure you label your axes, add a title, and include a legend that clarifies which function represents which orbital.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Enter your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
 
 
     </main>
