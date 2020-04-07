@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Loops</title>
-  <meta name="description" content="        Loops             ">
+  <meta name="description" content="        Loops    Pre-requisites TypesCollectionsFlow ControlAnd/Or logicFunctionsLoops The use of loops in python can reduce recursive tasks to a few lines o...">
 
   <link rel="canonical" href="https://pythoninchemistry.org/intro_python_chemists/basics/loops.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Chemistry" href="https://pythoninchemistry.org/intro_python_chemists/feed.xml">
@@ -14,7 +14,7 @@
   <meta property="og:url"         content="https://pythoninchemistry.org/intro_python_chemists/basics/loops.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Loops" />
-<meta property="og:description" content="        Loops             " />
+<meta property="og:description" content="        Loops    Pre-requisites TypesCollectionsFlow ControlAnd/Or logicFunctionsLoops The use of loops in python can reduce recursive tasks to a few lines o..." />
 <meta property="og:image"       content="https://pythoninchemistry.org/intro_python_chemists/images/logo/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,9 +26,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://pythoninchemistry.org/intro_python_chemists/basics/loops.html",
   "headline": "Loops",
-  "datePublished": "2020-04-03T11:55:28+00:00",
-  "dateModified": "2020-04-03T11:55:28+00:00",
-  "description": "        Loops             ",
+  "datePublished": "2020-04-07T11:25:52+00:00",
+  "dateModified": "2020-04-07T11:25:52+00:00",
+  "description": "        Loops    Pre-requisites TypesCollectionsFlow ControlAnd/Or logicFunctionsLoops The use of loops in python can reduce recursive tasks to a few lines o...",
   "author": {
     "@type": "Person",
     "name": "pythoninchemistry"
@@ -1359,7 +1359,819 @@ initFunction(initPrint)
                   <main class="jupyter-page">
     <div id="page-info"><div id="page-title">Loops</div>
 </div>
-     
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Pre-requisites">Pre-requisites<a class="anchor-link" href="#Pre-requisites"> </a></h3><ul>
+<li>Types</li>
+<li>Collections</li>
+<li>Flow Control</li>
+<li>And/Or logic</li>
+<li>Functions</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Loops">Loops<a class="anchor-link" href="#Loops"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The use of loops in python can reduce recursive tasks to a few lines of code. While numpy operations are useful for enacting large numbers of mathematical operations, loops can be used to facilitate the use of large numbers of other operations on data types suchs as:</p>
+<ul>
+<li>dictionaries </li>
+<li>lists</li>
+<li>NumPy arrays</li>
+</ul>
+<p>In this tutorial, the use of loops, facilitated by the use of <code>for</code> and <code>while</code> statements, on these data types will be illustrated.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Loops-use-in-combination-with-dictionaries">Loops use in combination with dictionaries<a class="anchor-link" href="#Loops-use-in-combination-with-dictionaries"> </a></h3><p>In the previous tutorial, on Boolean logic statements, we ilustrated that we could determine whether lithium was liquid at 700 K using the following python code</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">periodic_table_20</span> <span class="kn">import</span> <span class="n">periodic_table_20</span>
+<span class="c1"># periodic_table_20 = pt.create()</span>
+
+<span class="k">if</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="s2">&quot;Li&quot;</span><span class="p">][</span><span class="s2">&quot;melting_point&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">700</span> <span class="ow">and</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="s2">&quot;Li&quot;</span><span class="p">][</span><span class="s2">&quot;boiling_point&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">700</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lithium is liquid at 700 K&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lithium is not liquid at 700 K.&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Lithium is liquid at 700 K
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Recall that <code>perioidic_table_20</code> is a dictionary of dictionaries, containing the mass, group, period, block, melting  point, and boiling point of the first twenty elements of the periodic table.</p>
+<p>In the example above, we have used Boolean logic statements to determine whether one element, lithium, is a liquid at 700 K. What if we wanted to determine which of the first twenty elements of the periodic table were liquid at a certain temperature? Would we have to write the above code for twenty different elements?</p>
+<p>Thankfully not. This task becomes fairly simple with the use of a loop.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">periodic_table_20</span><span class="p">:</span>   <span class="c1"># loop through the first twenty elements</span>
+    <span class="k">if</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="n">element</span><span class="p">][</span><span class="s2">&quot;melting_point&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">700</span> <span class="ow">and</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="n">element</span><span class="p">][</span><span class="s2">&quot;boiling_point&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">700</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="s2">&quot;is liquid at 700 K&quot;</span><span class="p">)</span> 
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="s2">&quot;is not liquid at 700 K.&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>H is not liquid at 700 K.
+He is not liquid at 700 K.
+Li is liquid at 700 K
+Be is not liquid at 700 K.
+B is not liquid at 700 K.
+C is not liquid at 700 K.
+N is not liquid at 700 K.
+O is not liquid at 700 K.
+F is not liquid at 700 K.
+Ar is not liquid at 700 K.
+Na is liquid at 700 K
+Mg is not liquid at 700 K.
+Al is not liquid at 700 K.
+Si is not liquid at 700 K.
+P is not liquid at 700 K.
+S is liquid at 700 K
+Cl is not liquid at 700 K.
+Ne is not liquid at 700 K.
+K is liquid at 700 K
+Ca is not liquid at 700 K.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From this we have determined that Li, Na, S, and K are liquid at 700 K, whilst the other sixteen elements are not. But how does the loop enable us to see this? To allow us to observe what is happening, we will use</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">periodic_table_20</span><span class="p">:</span>   <span class="c1"># loop through the first twenty elements</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>H
+He
+Li
+Be
+B
+C
+N
+O
+F
+Ar
+Na
+Mg
+Al
+Si
+P
+S
+Cl
+Ne
+K
+Ca
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This prints out the symbols of the elements, which are the <strong>keys</strong> of the periodic_table_20 dictionary. In the above code, the <code>element</code> variable recursively takes on the value of the keys of the periodic_table_20 dictionary,  such that</p>
+<p>1) The variable <code>element</code> becomes "H"</p>
+<p>2) The value of <code>element</code> is printed, "H"</p>
+<p>3) The variable <code>element</code> becomes "He"</p>
+<p>4) The value of <code>element</code> is printed, "He"</p>
+<p>...</p>
+<p>37) The value of <code>element</code> becomes "K"</p>
+<p>38) The value of <code>element</code> is printed, "K"</p>
+<p>39) The value of <code>element</code> becomes "Ca"</p>
+<p>40) The value of <code>element</code> is printed, "Ca"</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To illustrated this further, the value of the variable <code>element</code> is:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">element</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Ca&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The value of the variable <code>element</code> is now "Ca", the last key in our periodic_table_20 dictionary. Similarly to flow controls, we can visualise loops using flow charts, such as the one below:</p>
+<p><img src="../images/flowchart-3.png" alt="drawing" width="400"/></p>
+<p>We give the <code>for</code> loop a collection (a dictionary) and it recursively loops through running the indented code until there are no more items (keys) left in the collection (dictionary).</p>
+<p>Now that we have shown that the <code>for</code> loop allows us to recursively access the keys of the periodic_table_20 dictionary, we can explain how we determined which elements were liquid at 700 K. The line</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="n">element</span><span class="p">][</span><span class="s2">&quot;melting_point&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">700</span> <span class="ow">and</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="n">element</span><span class="p">][</span><span class="s2">&quot;boiling_point&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">700</span><span class="p">:</span>
+</pre></div>
+<p>accesses the dictionary containing the information for the value of the variable <code>element</code> and extracts the respective melting and boiling points. Using this information the <code>if/else</code> statement determines whether the element is a liquid at 700 K.</p>
+<p>The code used previously prints out twenty lines informing us if an element is liquid at 700 K. This requires us to read twenty lines. A more efficient way of obtaining which elements are liquid at 700 K is to store the information in a list.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">liquid</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">not_liquid</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">periodic_table_20</span><span class="p">:</span>   <span class="c1"># loop through the first twenty elements</span>
+    <span class="k">if</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="n">element</span><span class="p">][</span><span class="s2">&quot;melting_point&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">700</span> <span class="ow">and</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="n">element</span><span class="p">][</span><span class="s2">&quot;boiling_point&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">700</span><span class="p">:</span>
+        <span class="n">liquid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>   <span class="c1"># if the element is a liquid append to the liquid list</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">not_liquid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>   <span class="c1"># if the element is not a liquid append to the not_liquid list</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The following elements are liquid at 700 K:&quot;</span><span class="p">,</span> <span class="n">liquid</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The following elements are not liquid at 700 K&quot;</span><span class="p">,</span> <span class="n">not_liquid</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The following elements are liquid at 700 K: [&#39;Li&#39;, &#39;Na&#39;, &#39;S&#39;, &#39;K&#39;]
+The following elements are not liquid at 700 K [&#39;H&#39;, &#39;He&#39;, &#39;Be&#39;, &#39;B&#39;, &#39;C&#39;, &#39;N&#39;, &#39;O&#39;, &#39;F&#39;, &#39;Ar&#39;, &#39;Mg&#39;, &#39;Al&#39;, &#39;Si&#39;, &#39;P&#39;, &#39;Cl&#39;, &#39;Ne&#39;, &#39;Ca&#39;]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This allows us to obtain the information require without reading twenty individual lines. However, if we were asked which elements are liquid at a different temperature, say 1000 K, we would be required to change four numbers (the two logic statements and the two print statements). A more efficient method would be to specify the temperature outside of the <code>for</code> loop, such that</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">liquid</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">not_liquid</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">temperature</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">periodic_table_20</span><span class="p">:</span> <span class="c1"># loop through the first twenty elements</span>
+    <span class="k">if</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="n">element</span><span class="p">][</span><span class="s2">&quot;melting_point&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">temperature</span> <span class="ow">and</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="n">element</span><span class="p">][</span><span class="s2">&quot;boiling_point&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">temperature</span><span class="p">:</span>
+        <span class="n">liquid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>   <span class="c1"># if the element is a liquid append to the liquid list</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">not_liquid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>   <span class="c1"># if the element is not a liquid append to the not_liquid list</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The following elements are liquid at </span><span class="si">{}</span><span class="s2"> K:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">),</span> <span class="n">liquid</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The following elements are not liquid at </span><span class="si">{}</span><span class="s2"> K&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">),</span> <span class="n">not_liquid</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The following elements are liquid at 1000 K: [&#39;Li&#39;, &#39;Na&#39;, &#39;Mg&#39;, &#39;Al&#39;, &#39;K&#39;]
+The following elements are not liquid at 1000 K [&#39;H&#39;, &#39;He&#39;, &#39;Be&#39;, &#39;B&#39;, &#39;C&#39;, &#39;N&#39;, &#39;O&#39;, &#39;F&#39;, &#39;Ar&#39;, &#39;Si&#39;, &#39;P&#39;, &#39;S&#39;, &#39;Cl&#39;, &#39;Ne&#39;, &#39;Ca&#39;]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can see that Li, Na, Mg, Al, and K are liquid at 1000 K, and we only required changing one number.</p>
+<h3 id="Compound-loops-used-in-combination-with-lists-and-NumPy-arrays">Compound loops used in combination with lists and NumPy arrays<a class="anchor-link" href="#Compound-loops-used-in-combination-with-lists-and-NumPy-arrays"> </a></h3><p>More often than not, in chemistry we will be asked to find properties at different temperatures, say every 100 K between 200 K and 1000 K. Can loops help us determine which elements are liquid at different temperatures? Yes, loops can be compounded in such a way that is useful here.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">temperatures</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>   <span class="c1"># Create an array of temperatures to probe</span>
+
+<span class="k">for</span> <span class="n">temperature</span> <span class="ow">in</span> <span class="n">temperatures</span><span class="p">:</span>   <span class="c1"># loop through the temperatures</span>
+    <span class="n">liquid</span> <span class="o">=</span> <span class="p">[]</span>    <span class="c1"># create a list to store liquid elements at a given temperature</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">periodic_table_20</span><span class="p">:</span>   <span class="c1"># loop through elements</span>
+        <span class="k">if</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="n">element</span><span class="p">][</span><span class="s2">&quot;melting_point&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">temperature</span> <span class="ow">and</span> <span class="n">periodic_table_20</span><span class="p">[</span><span class="n">element</span><span class="p">][</span><span class="s2">&quot;boiling_point&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">temperature</span><span class="p">:</span>
+            <span class="n">liquid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>    <span class="c1"># if an element is a liquid then append it to the liquid list</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The following elements are liquid at </span><span class="si">{}</span><span class="s2"> K:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">),</span> <span class="n">liquid</span><span class="p">)</span> <span class="c1"># print the elements liquid at given temperature</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The following elements are liquid at 200.0 K: [&#39;Cl&#39;]
+The following elements are liquid at 300.0 K: []
+The following elements are liquid at 400.0 K: [&#39;Na&#39;, &#39;P&#39;, &#39;S&#39;, &#39;K&#39;]
+The following elements are liquid at 500.0 K: [&#39;Na&#39;, &#39;P&#39;, &#39;S&#39;, &#39;K&#39;]
+The following elements are liquid at 600.0 K: [&#39;Li&#39;, &#39;Na&#39;, &#39;S&#39;, &#39;K&#39;]
+The following elements are liquid at 700.0 K: [&#39;Li&#39;, &#39;Na&#39;, &#39;S&#39;, &#39;K&#39;]
+The following elements are liquid at 800.0 K: [&#39;Li&#39;, &#39;Na&#39;, &#39;K&#39;]
+The following elements are liquid at 900.0 K: [&#39;Li&#39;, &#39;Na&#39;, &#39;K&#39;]
+The following elements are liquid at 1000.0 K: [&#39;Li&#39;, &#39;Na&#39;, &#39;Mg&#39;, &#39;Al&#39;, &#39;K&#39;]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note in the above code, the non-liquid data elements are not stored. This is because the only relevant information are the elements that <strong>are</strong> liquid at a given temperature. The <code>np.linspace(200,1100,100)</code> function creates a NumPy array of values from 200 to 1000 which has 9 values that are equally separated. What values are the variables <code>temperature</code> and <code>element</code> taking in the compound loops above?</p>
+<p>1) The variable <code>temperature</code> takes the value 200.</p>
+<p>2) The variable <code>liquid</code> is assigned to an empty list.</p>
+<p>3) The variable <code>element</code> is assigned "H", and determined whether it is a liquid at 200 K.</p>
+<p>4) The variable <code>element</code> is assigned "He", and determined whether it is a liquid at 200 K.</p>
+<p>...</p>
+<p>41) The variable <code>element</code> is assigned "K", and determined whether it is a liquid at 200 K.</p>
+<p>42) The variable <code>element</code> is assigned "Ca", and determined whether it is a liquid at 200 K.</p>
+<p>43) The <code>liquid</code> variable is printed.</p>
+<p>44) The variable <code>temperature</code> takes the value 300.</p>
+<p>45) The variable <code>liquid</code> is assigned to an empty list.</p>
+<p>46) The variable <code>element</code> is assigned "H", and determined whether it is a liquid at 300 K.</p>
+<p>47) The variable <code>element</code> is assigned "He", and determined whether it is a liquid at 300 K.</p>
+<p>...</p>
+<p>The outer loop is only "run through" once, whilst the inner loop is "run through" an amount of times equal to that of the length of the first loop. To more easily observe this consider the following example which uses a list (that bahaves the same as a NumPy array), where there are only two temperatures (600 K and 1000 K)</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">temperatures</span> <span class="o">=</span> <span class="p">[</span><span class="mi">600</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">temperature</span> <span class="ow">in</span> <span class="n">temperatures</span><span class="p">:</span>   <span class="c1"># loop through the temperatures</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">periodic_table_20</span><span class="p">:</span>   <span class="c1"># loop through the first twenty elements</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;temperature =&quot;</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="s2">&quot;    &quot;</span><span class="p">,</span> <span class="s2">&quot;element =&quot;</span><span class="p">,</span> <span class="n">element</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>temperature = 600      element = H
+temperature = 600      element = He
+temperature = 600      element = Li
+temperature = 600      element = Be
+temperature = 600      element = B
+temperature = 600      element = C
+temperature = 600      element = N
+temperature = 600      element = O
+temperature = 600      element = F
+temperature = 600      element = Ar
+temperature = 600      element = Na
+temperature = 600      element = Mg
+temperature = 600      element = Al
+temperature = 600      element = Si
+temperature = 600      element = P
+temperature = 600      element = S
+temperature = 600      element = Cl
+temperature = 600      element = Ne
+temperature = 600      element = K
+temperature = 600      element = Ca
+temperature = 1000      element = H
+temperature = 1000      element = He
+temperature = 1000      element = Li
+temperature = 1000      element = Be
+temperature = 1000      element = B
+temperature = 1000      element = C
+temperature = 1000      element = N
+temperature = 1000      element = O
+temperature = 1000      element = F
+temperature = 1000      element = Ar
+temperature = 1000      element = Na
+temperature = 1000      element = Mg
+temperature = 1000      element = Al
+temperature = 1000      element = Si
+temperature = 1000      element = P
+temperature = 1000      element = S
+temperature = 1000      element = Cl
+temperature = 1000      element = Ne
+temperature = 1000      element = K
+temperature = 1000      element = Ca
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Compound loops can be understood using flowcharts again. Recall in the previous flowchart that if the next item in the list existed, then the indented code is ran. However, now the indented code also includes a <code>for</code> loop. Therefore the flowchart becomes</p>
+<p><img src="../images/flowchart-4.png" alt="drawing" width="600"/></p>
+<p>where the dotted box contains the single indented code. Each time we cross the dotted line the second collection is reset so that when we enter the dotted box the next time "the next item in the second collection" is the first item. In the code above the first collection is the temperatures list and the second collection is the periodic_table_20 dictionary.</p>
+<p>Compound loops can have any number of levels. The three level compound loop below illustrates this</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">first_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;First item in the first list&quot;</span><span class="p">,</span> <span class="s2">&quot;Second item in the first list&quot;</span><span class="p">]</span>
+<span class="n">second_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;First item in the second list&quot;</span><span class="p">,</span> <span class="s2">&quot;Second item in the second list&quot;</span><span class="p">]</span>
+<span class="n">third_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;First item in the third list&quot;</span><span class="p">,</span> <span class="s2">&quot;Second item in the third list&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">first</span> <span class="ow">in</span> <span class="n">first_list</span><span class="p">:</span>   <span class="c1"># loop through first_list</span>
+    <span class="k">for</span> <span class="n">second</span> <span class="ow">in</span> <span class="n">second_list</span><span class="p">:</span>   <span class="c1"># loop through second_list</span>
+        <span class="k">for</span> <span class="n">third</span> <span class="ow">in</span> <span class="n">third_list</span><span class="p">:</span>   <span class="c1"># loop through third_list </span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;first =&quot;</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="s2">&quot;/ second =&quot;</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="s2">&quot;/ third =&quot;</span><span class="p">,</span> <span class="n">third</span><span class="p">)</span>   <span class="c1"># print the values of each variable </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>first = First item in the first list / second = First item in the second list / third = First item in the third list
+first = First item in the first list / second = First item in the second list / third = Second item in the third list
+first = First item in the first list / second = Second item in the second list / third = First item in the third list
+first = First item in the first list / second = Second item in the second list / third = Second item in the third list
+first = Second item in the first list / second = First item in the second list / third = First item in the third list
+first = Second item in the first list / second = First item in the second list / third = Second item in the third list
+first = Second item in the first list / second = Second item in the second list / third = First item in the third list
+first = Second item in the first list / second = Second item in the second list / third = Second item in the third list
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Take a minute to understand how the above three leveled compound list assigns variables.</p>
+<p><strong>Exercise:</strong> Use compound loops to determine which elements are gaseous at temperatures between 100 K and 500 K in intervals of 50 K.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="While-loops">While loops<a class="anchor-link" href="#While-loops"> </a></h3><p>The particle in a box is a well known quantum mechanical problem with well known solutions, namely</p>
+$$
+\begin{align}
+\Psi(x) = \sqrt{\frac{2}{L}} \sin\left(\frac{n\pi x}{L} \right).
+\end{align}
+$$<p>Here $n$ is the principle quantum number and $L$ is the length of the box. The first three solutions to the particle in a box problem, where $L = 1$, can be plotted using either a <code>for</code> loop or a <code>while</code> loop with the plot_wavefunction function. The plot_wavefunction function takes two arguments, the principle quantum number and the length of the list. First consider the use of a <code>for</code> loop.</p>
+<blockquote><p><strong>An aside:</strong> plotting will be discussed further in the <a href="../data_work/simple_plots.ipynb">simple plotting tutorial</a>. For the purposes of this tutorial, consider plot_wavefunction as a function that plots curves and plt.show() a function that prints the graph to screen.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">wavefunction</span> <span class="kn">import</span> <span class="n">plot_wavefunction</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>                   <span class="c1"># the values of n we wish to plot</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">1</span>                         <span class="c1"># set length of the box</span>
+
+<span class="k">for</span> <span class="n">N</span> <span class="ow">in</span> <span class="n">n</span><span class="p">:</span>
+    <span class="n">plot_wavefunction</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>   <span class="c1"># plots each curve recursively</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                    <span class="c1"># prints the graph to screen</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/basics/loops_25_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The same plot can be created using a <code>while</code> loop</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="mi">1</span>                         <span class="c1"># set length of box</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>                         <span class="c1"># set initial principle quantum number</span>
+
+<span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="n">plot_wavefunction</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>   <span class="c1"># plots each curve recursively</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>                    <span class="c1"># increase the value of n by 1.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                    <span class="c1"># prints the graph to screen</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/basics/loops_27_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What is the process occurring in the <code>while</code> loop above?</p>
+<p>1) The variable L is assigned value 1.</p>
+<p>2) The variable n is assigned value 1.</p>
+<p>3) 1 &lt; 4 is evaluated to <code>True</code> so the indented code is ran.</p>
+<p>4) The curve for n=1 is plotted</p>
+<p>5) The variable n is assigned value 2 (n = n + 1, where n is 1)</p>
+<p>6) 2 &lt; 4 is evaluated to <code>True</code> so the indented code is ran.</p>
+<p>7) The curve for n=2 is plotted</p>
+<p>8) The variable n is assigned value 3 (n = n + 1, where n is 2)</p>
+<p>9) 3 &lt; 4 is evaluated to <code>True</code> so the indented code is ran.</p>
+<p>10) The curve for n=3 is plotted</p>
+<p>11) The variable n is assigned value 4 (n = n + 1, where n is 3)</p>
+<p>12) 4 &lt; 4 is evaluated to <code>False</code> and the <code>while</code> loop is terminated</p>
+<p>13) The graph is printed to screen.</p>
+<blockquote><p><strong>Warning:</strong> <code>while</code> loops can be very dangerous! If the variable n is not increased by one each time then this loop could run infinitely as there is <strong>never a termination step.</strong> It is recommended to always use a <code>for</code> loop instead of a <code>while</code> loop.</p>
+</blockquote>
+<p><strong>Exercise:</strong> Use a <code>while</code> loop in combination with an <code>if</code> statement to plot the solutions to the particle in a box problem for n greater than 4 and less than 8, with $L=3$, using the plot_wavefunction function.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Write your code here.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
 
 
     </main>
