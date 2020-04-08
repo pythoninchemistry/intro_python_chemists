@@ -51,6 +51,7 @@ However, we are open to issues and pull requests that discuss/improve coding sty
 ## Making a contribution
 
 The most likely place that you will contribute is in the [`content`](https://github.com/pythoninchemistry/intro_python_chemists/tree/master/content) of the book. 
+We suggest that you read the [style guide](https://github.com/pythoninchemistry/intro_python_chemists/blob/master/content/style_guide.md) before you start on your content. 
 Details of the planned content of each chapter can be found in the [`toc.yml`](https://github.com/pythoninchemistry/intro_python_chemists/tree/master/_data/toc.yml), so we suggest that you have a look at what sections there are an fill in one of the gaps. 
 
 If you would like to contribute something that is not mentioned in the Table of Contents, then please open an [issue](https://github.com/pythoninchemistry/intro_python_chemists/issues/new/choose) and the community can discuss the contribution. 
