@@ -1,0 +1,2292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Object oriented plotting</title>
+  <meta name="description" content="        Object oriented plotting    Prequisties simple plottingsurface plottingobject oriented programmingloopsfunctionscontainersnumpySo far, when presentin...">
+
+  <link rel="canonical" href="https://pythoninchemistry.org/intro_python_chemists/advanced/object_oriented_plotting.html">
+  <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Chemistry" href="https://pythoninchemistry.org/intro_python_chemists/feed.xml">
+
+  <meta property="og:url"         content="https://pythoninchemistry.org/intro_python_chemists/advanced/object_oriented_plotting.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Object oriented plotting" />
+<meta property="og:description" content="        Object oriented plotting    Prequisties simple plottingsurface plottingobject oriented programmingloopsfunctionscontainersnumpySo far, when presentin..." />
+<meta property="og:image"       content="https://pythoninchemistry.org/intro_python_chemists/images/logo/logo.png" />
+
+<meta name="twitter:card" content="summary">
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "https://pythoninchemistry.org/intro_python_chemists/advanced/object_oriented_plotting.html",
+  "headline": "Object oriented plotting",
+  "datePublished": "2020-05-01T13:32:22+00:00",
+  "dateModified": "2020-05-01T13:32:22+00:00",
+  "description": "        Object oriented plotting    Prequisties simple plottingsurface plottingobject oriented programmingloopsfunctionscontainersnumpySo far, when presentin...",
+  "author": {
+    "@type": "Person",
+    "name": "pythoninchemistry"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pythoninchemistry.org/intro_python_chemists",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://pythoninchemistry.org/intro_python_chemists",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/intro_python_chemists/assets/css/styles.css">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/intro_python_chemists/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    },
+    
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+
+
+  <!-- DOM updating function -->
+  <script src="/intro_python_chemists/assets/js/page/dom-update.js"></script>
+
+  <!-- Selectors for elements on the page -->
+  <script src="/intro_python_chemists/assets/js/page/documentSelectors.js"></script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/intro_python_chemists';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script src="/intro_python_chemists/assets/js/page/anchors.js" async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+<!-- Display Thebelab button in each code cell -->
+<script>
+/**
+ * Set up thebelab button for code blocks
+ */
+
+const thebelabCellButton = id =>
+  `<a id="thebelab-cell-button-${id}" class="btn thebebtn o-tooltip--left" data-tooltip="Interactive Mode">
+    <img src="/intro_python_chemists/assets/images/edit-button.svg" alt="Start thebelab interactive mode">
+  </a>`
+
+
+const addThebelabButtonToCodeCells =  () => {
+
+  const codeCells = document.querySelectorAll('div.input_area > div.highlight:not(.output) pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("thebelab-cell-button-" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', thebelabCellButton(id));
+    }
+  })
+}
+
+initFunction(addThebelabButtonToCodeCells);
+</script>
+
+
+<script src="https://unpkg.com/thebelab@latest/lib/index.js" async></script>
+<script>
+    /**
+     * Add attributes to Thebelab blocks
+     */
+
+    const initThebelab = () => {
+        const addThebelabToCodeCells = () => {
+            console.log("Adding thebelab to code cells...");
+            // If Thebelab hasn't loaded, wait a bit and try again. This
+            // happens because we load ClipboardJS asynchronously.
+            if (window.thebelab === undefined) {
+                setTimeout(addThebelabToCodeCells, 250)
+            return
+            }
+
+            // If we already detect a Thebelab cell, don't re-run
+            if (document.querySelectorAll('div.thebelab-cell').length > 0) {
+                return;
+            }
+
+            // Find all code cells, replace with Thebelab interactive code cells
+            const codeCells = document.querySelectorAll('.input_area pre')
+            codeCells.forEach((codeCell, index) => {
+                const id = codeCellId(index)
+
+                // Clean up the language to make it work w/ CodeMirror and add it to the cell
+                dataLanguage = ""
+                dataLanguage = detectLanguage(dataLanguage);
+                codeCell.setAttribute('data-language', dataLanguage)
+                codeCell.setAttribute('data-executable', 'true')
+
+                // If the code cell is hidden, show it
+                var inputCheckbox = document.querySelector(`input#hidebtn${codeCell.id}`);
+                if (inputCheckbox !== null) {
+                    setCodeCellVisibility(inputCheckbox, 'visible');
+                }
+            });
+
+            // Remove the event listener from the page so keyboard press doesn't
+            // Change page
+            document.removeEventListener('keydown', initPageNav)
+            keyboardListener = false;
+
+            // Init thebelab
+            thebelab.bootstrap();
+
+            // Remove copy buttons since they won't work anymore
+            const copyAndThebeButtons = document.querySelectorAll('.copybtn, .thebebtn')
+            copyAndThebeButtons.forEach((button, index) => {
+                button.remove();
+            });
+
+            // Remove outputs since they'll be stale
+            const outputs = document.querySelectorAll('.output *, .output')
+            outputs.forEach((output, index) => {
+                output.remove();
+            });
+
+            // Find any cells with an initialization tag and ask ThebeLab to run them when ready
+            var thebeInitCells = document.querySelectorAll('div.tag_thebelab-init');
+            thebeInitCells.forEach((cell) => {
+                console.log("Initializing ThebeLab with cell: " + cell.id);
+                cell.querySelector('.thebelab-run-button').click();
+            });
+        }
+
+        // Add event listener for the function to modify code cells
+        const thebelabButtons = document.querySelectorAll('[id^=thebelab], [id$=thebelab]')
+        thebelabButtons.forEach((thebelabButton,index) => {
+            if (thebelabButton === null) {
+                setTimeout(initThebelab, 250)
+                return
+            };
+            thebelabButton.addEventListener('click', addThebelabToCodeCells);
+        });
+    }
+
+    // Initialize Thebelab
+    initFunction(initThebelab);
+
+// Helper function to munge the language name
+var detectLanguage = (language) => {
+    if (language.indexOf('python') > -1) {
+        language = "python";
+    }
+    return language;
+}
+</script>
+
+
+
+  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.8.1/tocbot.min.js" async></script>
+  <script src="/intro_python_chemists/assets/js/page/tocbot.js"></script>
+
+  <!-- Google analytics -->
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-77138846-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-77138846-6');
+</script>
+
+
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/intro_python_chemists/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/intro_python_chemists/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/intro_python_chemists/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("https://pythoninchemistry.org") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+
+  <!-- Load JS that depends on site variables -->
+  <script src="/intro_python_chemists/assets/js/page/copy-button.js" async></script>
+
+  <!-- Hide cell code -->
+  <script src="/intro_python_chemists/assets/js/page/hide-cell.js" async></script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/intro_python_chemists/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList,
+        documentTitle: "Made with Jupyter Book"
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
+</head>
+
+  <body>
+    <!-- Include the ThebeLab config so it gets reloaded on each page -->
+    <script type="text/x-thebe-config">{
+    requestKernel: true,
+    binderOptions: {
+    repo: "pythoninchemistry/intro_python_chemists",
+    ref: "master",
+    },
+    codeMirrorConfig: {
+    theme: "abcdef",
+    mode: "python"
+    },
+    kernelOptions: {
+    kernelName: "python3",
+    path: "content/advanced"
+    }
+}
+</script>
+
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://pythoninchemistry.org/intro_python_chemists/intro.html"><img src="/intro_python_chemists/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" alt="textbook logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">An Introduction to Python for Chemistry</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/intro">
+        <a class="c-sidebar__entry"
+          href="/intro_python_chemists/intro.html"
+        >
+          
+          Welcome
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/getting_started">
+        <a class="c-sidebar__entry"
+          href="/intro_python_chemists/getting_started.html"
+        >
+          
+          Getting started
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/basics/basics">
+        <a class="c-sidebar__entry"
+          href="/intro_python_chemists/basics/basics.html"
+        >
+          
+            1.
+          
+          Basics
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/basics/types">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/basics/types.html"
+              >
+                
+                  1.1
+                
+                Types
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/basics/collections">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/basics/collections.html"
+              >
+                
+                  1.2
+                
+                Collections
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/basics/numpy_arrays">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/basics/numpy_arrays.html"
+              >
+                
+                  1.3
+                
+                NumPy Arrays
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/basics/functions">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/basics/functions.html"
+              >
+                
+                  1.4
+                
+                Functions
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/basics/flow_control">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/basics/flow_control.html"
+              >
+                
+                  1.5
+                
+                Flow Control
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/basics/and_or">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/basics/and_or.html"
+              >
+                
+                  1.6
+                
+                And Or
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/basics/loops">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/basics/loops.html"
+              >
+                
+                  1.7
+                
+                Loops
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/good_practice/good_practice">
+        <a class="c-sidebar__entry"
+          href="/intro_python_chemists/good_practice/good_practice.html"
+        >
+          
+            2.
+          
+          Good practice
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/good_practice/documentation">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/good_practice/documentation.html"
+              >
+                
+                  2.1
+                
+                Documentation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/good_practice/packages">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/good_practice/packages.html"
+              >
+                
+                  2.2
+                
+                Packages
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/good_practice/custom_modules">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/good_practice/custom_modules.html"
+              >
+                
+                  2.3
+                
+                Custom modules
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/good_practice/tests">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/good_practice/tests.html"
+              >
+                
+                  2.4
+                
+                Testing
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/good_practice/debugging">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/good_practice/debugging.html"
+              >
+                
+                  2.5
+                
+                Debugging
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/good_practice/raising_errors">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/good_practice/raising_errors.html"
+              >
+                
+                  2.6
+                
+                Raising your own errors
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/data_work/data_work">
+        <a class="c-sidebar__entry"
+          href="/intro_python_chemists/data_work/data_work.html"
+        >
+          
+            3.
+          
+          Working with data
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/data_work/io">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/data_work/io.html"
+              >
+                
+                  3.1
+                
+                Reading and writing data
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/data_work/units_and_uncertainties">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/data_work/units_and_uncertainties.html"
+              >
+                
+                  3.2
+                
+                Units and uncertainties
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/data_work/simple_plots">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/data_work/simple_plots.html"
+              >
+                
+                  3.3
+                
+                Simple plots
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/data_work/surface_plots">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/data_work/surface_plots.html"
+              >
+                
+                  3.4
+                
+                Surface plots
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/data_work/stats">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/data_work/stats.html"
+              >
+                
+                  3.5
+                
+                Statistical analysis
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/data_work/optimisation">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/data_work/optimisation.html"
+              >
+                
+                  3.6
+                
+                Optimisation
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/data_work/ir_spectra">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/data_work/ir_spectra.html"
+              >
+                
+                  3.7
+                
+                Exercise: Fitting IR spectra
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/data_work/linear_algebra">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/data_work/linear_algebra.html"
+              >
+                
+                  3.8
+                
+                Linear algebra
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/advanced/advanced">
+        <a class="c-sidebar__entry"
+          href="/intro_python_chemists/advanced/advanced.html"
+        >
+          
+            4.
+          
+          Advanced
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections u-hidden-visually">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/advanced/oop">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/advanced/oop.html"
+              >
+                
+                  4.1
+                
+                Object-oriented programming
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/advanced/object_oriented_plotting">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/advanced/object_oriented_plotting.html"
+              >
+                
+                  4.2
+                
+                Object oriented plotting
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/advanced/classes">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/advanced/classes.html"
+              >
+                
+                  4.3
+                
+                Classes
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/advanced/custom_packages">
+              <a class="c-sidebar__entry"
+                href="/intro_python_chemists/advanced/custom_packages.html"
+              >
+                
+                  4.4
+                
+                Custom packages
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</nav>
+
+      
+      <div class="c-topbar" id="top-navbar">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+<div class="download-buttons-dropdown">
+    <button id="dropdown-button-trigger" class="interact-button"><img src="/intro_python_chemists/assets/images/download-solid.svg" alt="Download" /></button>
+    <div class="download-buttons">
+        <a href="/intro_python_chemists/content/advanced/object_oriented_plotting.ipynb" download>
+        <button id="interact-button-download" class="interact-button">.ipynb</button>
+        </a>
+        
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
+    </div>
+</div>
+
+
+  <button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+  
+  
+
+
+
+
+
+
+<a href="https://mybinder.org/v2/gh/pythoninchemistry/intro_python_chemists/master?filepath=content%2Fadvanced%2Fobject_oriented_plotting.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/intro_python_chemists/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+  
+
+
+</div>
+
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><img src="/intro_python_chemists/assets/images/list-solid.svg" alt="Search" />   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/intro_python_chemists/search.html" class="topbar-right-button" id="search-button">
+    <img src="/intro_python_chemists/assets/images/search-solid.svg" alt="Search" />
+  </a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+                  <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Object oriented plotting</div>
+</div>
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Prequisties">Prequisties<a class="anchor-link" href="#Prequisties"> </a></h2><ul>
+<li>simple plotting</li>
+<li>surface plotting</li>
+<li>object oriented programming</li>
+<li>loops</li>
+<li>functions</li>
+<li>containers</li>
+<li>numpy</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So far, when presenting quantitative information in python, we have used <code>matplotlib</code> to build line graphs and surface plots using the following functionality:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># generate a numpy array, x, then take the </span>
+<span class="c1"># square-root of this array, y.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># label axes, then plot</span>
+<span class="c1"># x against y</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;sqrt(x)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># plt.show() to visualise our graph </span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/advanced/object_oriented_plotting_2_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There is an alternate means of plotting in which we use python objects to build our plot with the following logic:</p>
+<p>A figure in <code>matplotlib</code> is divided into two kinds of objects.</p>
+<ul>
+<li>Figure object</li>
+<li>Axes object(s)</li>
+</ul>
+<p>A <code>Figure</code> object can contain one or more axes objects. Each <code>Axes</code> represents one plot inside our whole figure. Rewriting the above using our new object-oriented logic would be done as follows:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># produce a figure object, name it &#39;fig&#39;</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+<span class="c1"># add an `Axes` object</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">()</span>
+
+<span class="c1"># label axes, then plot x against y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;sqrt(x)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/advanced/object_oriented_plotting_4_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>All we seem to have done here is added an extra step, to produce the same plot; the advantages of this method are not immediatley obvious. The rest of this section will use a chemical example in order to convince you of this methodology.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Application-to-chemistry,-free-energies-of-mixing">Application to chemistry, free energies of mixing<a class="anchor-link" href="#Application-to-chemistry,-free-energies-of-mixing"> </a></h2><p>Metals are have found a great deal of application throughout society owing to their mechanical and electrical properties, but their usues are often limited dependent on the properties of a material. For example, copper is highly electronically conductive, but does not have the mechanical strength of titanium. Alloying metals allows for the manipulation of the physical and chemical propeties of metals by mixing togther different metals. Alloying can increase resistance to oxidation, improve strength, conductivity, and melting point releative to the pure metals to be alloyed. Consider brass, often used in household fixtures, brasses have a greater resistance to corrosion than pure zinc or copper, the two major metals that constitute a brass alloy. The combination also has a low melting point allowing it to be easily cast into many different shapes and sizes. Steel, an alloy of carbon and iron is, again, more corrosion resistant than iron (iron of course, is highly susceptible to oxidation/rusting) and steel is valued the world over for its mechanical properties.</p>
+<p>Whether or not two elements will alloy is determined by the free energy of mixing. We can evaluate this be considering the relative entropic and enthalpic contributions to alloying</p>
+$$
+\Delta G = \Delta H - T \Delta S
+$$<p>Consider alloying on an FCC lattice between two metals, $A$ and $B$. The entropy of alloying will be dominated by the vast number of configurations these atoms could be arranged in; the equation for configurational entropy in this case is</p>
+$$
+S = -k_\mathrm{B}N [c \ln c + (1− c)\ln (1− c)]
+$$<p>where $k_\mathrm{B}$ is the Boltzmann constant, $N$ is the number of sites available for substitution, $c$ is the ratio of sites occupied by atom A ($n_A$) and the available sites, i.e. $\dfrac{n_A}{N}$.</p>
+<p>The enthalpic contribution to the mixing energy will be dominated by the strengths of the nearest neighbour bonds that are in the alloy,</p>
+$$
+H = \dfrac{1}{2} N Z [cV_{AA} + (1 - c) V_{BB} + c (1 - c) (2V_{AB}  - V_{AA} - V_{BB})]
+$$<p>where $Z$ is the coordination number of the sites in the alloy, $V_{AA}$ is the strength of the A-A bond, $V_{BB}$ is the strength of the B-B bond, and $V_{AB}$ is the strength of the A-B bond.</p>
+<p>Let's consider a mole of $A$, that is to be alloyed with $B$, and begin by defining the necessary constants and equations</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import the Boltzmann constant, Avagadro&#39;s number</span>
+<span class="c1"># and the conversion factor between electron volts</span>
+<span class="c1"># and Joules</span>
+<span class="kn">from</span> <span class="nn">scipy.constants</span> <span class="kn">import</span> <span class="n">k</span><span class="p">,</span> <span class="n">N_A</span><span class="p">,</span> <span class="n">physical_constants</span>
+<span class="n">joule_eV</span> <span class="o">=</span> <span class="n">physical_constants</span><span class="p">[</span><span class="s1">&#39;joule-electron volt relationship&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    calculate configuration entropy as a function </span>
+<span class="sd">    of number of atoms of B</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        n (float): Number of atoms of B</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        S (float): configurational entropy of a 1 mol </span>
+<span class="sd">        mixture of A and B</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">c</span> <span class="o">=</span>  <span class="n">n</span> <span class="o">/</span> <span class="n">N_A</span>
+    <span class="n">S</span> <span class="o">=</span>  <span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="n">N_A</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="n">S</span>
+
+<span class="k">def</span> <span class="nf">enthalpy</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">v_aa</span><span class="p">,</span> <span class="n">v_bb</span><span class="p">,</span> <span class="n">v_ab</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    calculate enthlapy of mixing</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        n (float): Number of atoms of B</span>
+<span class="sd">        v_aa: bond strength of A-A</span>
+<span class="sd">        v_bb: bond strength of B-B</span>
+<span class="sd">        v_ab: bond strength of A-B</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        H (float):  enthalpy of mixing for A and B</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="mi">12</span>     <span class="c1"># because we are on an FCC lattice</span>
+    <span class="n">c</span> <span class="o">=</span>  <span class="n">n</span> <span class="o">/</span> <span class="n">N_A</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">N_A</span> <span class="o">*</span> <span class="n">Z</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">*</span> <span class="n">v_aa</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="n">v_bb</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">v_ab</span> <span class="o">-</span> <span class="n">v_aa</span> <span class="o">-</span> <span class="n">v_bb</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">H</span>
+
+<span class="c1"># generate all numbers between 1 and N_A</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N_A</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+
+<span class="n">mol_frac</span> <span class="o">=</span> <span class="n">N</span><span class="o">/</span><span class="n">N_A</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With these constants and equations defined, we can plot $\Delta H$, $-T\Delta S$ and $\Delta G$ on the same plot, to assess whether we expect these metals to mix.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># define some bond strengths in</span>
+<span class="c1"># electron volts, and convert to</span>
+<span class="c1"># Joules,</span>
+
+<span class="n">a_a</span> <span class="o">=</span> <span class="p">(</span> <span class="o">-</span><span class="mf">0.735</span> <span class="o">/</span> <span class="n">joule_eV</span> <span class="p">)</span>
+<span class="n">b_b</span> <span class="o">=</span> <span class="p">(</span> <span class="o">-</span><span class="mf">0.725</span> <span class="o">/</span> <span class="n">joule_eV</span> <span class="p">)</span>
+<span class="n">a_b</span> <span class="o">=</span> <span class="p">(</span> <span class="o">-</span><span class="mf">0.73</span> <span class="o">/</span> <span class="n">joule_eV</span> <span class="p">)</span>
+
+<span class="c1"># temperature of alloying</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="c1"># Calculate S and H for all values</span>
+<span class="c1"># in N, and for the given bond strengths</span>
+
+<span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">enthalpy</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a_a</span><span class="p">,</span> <span class="n">b_b</span><span class="p">,</span> <span class="n">a_b</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">])</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">entropy</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">])</span> 
+
+<span class="c1"># Calculate delta S and Delta H and </span>
+<span class="c1"># convert to kilojoules, then calculate </span>
+<span class="c1"># delta G</span>
+
+<span class="n">delta_H</span> <span class="o">=</span>  <span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">H</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-3</span>
+<span class="n">delta_S</span> <span class="o">=</span>  <span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">S</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-3</span> 
+<span class="n">delta_G</span> <span class="o">=</span> <span class="n">delta_H</span> <span class="o">-</span> <span class="n">T</span> <span class="o">*</span> <span class="n">delta_S</span>
+
+<span class="c1"># define our `Figure` and `Axes` objects</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span> <span class="n">delta_H</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\Delta H$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span> <span class="o">-</span><span class="n">T</span><span class="o">*</span><span class="n">delta_S</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$-T \Delta S$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span> <span class="n">delta_G</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\Delta G$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;mol fraction of B&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Energy / kJ&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/home/alex/.pyenv/versions/3.7.3/lib/python3.7/site-packages/ipykernel_launcher.py:21: RuntimeWarning: divide by zero encountered in log
+/home/alex/.pyenv/versions/3.7.3/lib/python3.7/site-packages/ipykernel_launcher.py:21: RuntimeWarning: invalid value encountered in double_scalars
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/advanced/object_oriented_plotting_9_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><h3 id="a-note-on-LaTeX">a note on LaTeX<a class="anchor-link" href="#a-note-on-LaTeX"> </a></h3><p>you might have notice in this text book, that when an example uses a mathematical symbol, i.e. in the legend
+of the above plot, the relevent python string is surrounded by $ symbols
+this denotes "LaTeX" (pronounced lay-tek) is to be used to generate that string. For our purposes LaTeX should just be considered as 
+a means of accessing mathematical symbols in python strings. Some examples of LaTeX (which can also be used in markdown cells):</p>
+<p>\Delta $\rightarrow \Delta$<br>
+\delta $\rightarrow \delta$<br>
+\vec{\sigma} $\rightarrow \vec{\sigma}$<br>
+\frac{1}{2} $\rightarrow \frac{1}{2}$</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the plot above, we can see that we would expect these two metals to alloy at $500~\mathrm{K}$ as, despite the unfavourable enthalpy of the process, the entropy term is comparitivley large enough to bring about a minimum in free energy at $\sim 25\%$ B. This is because when the condition:</p>
+$$
+V_\mathrm{AB} = \dfrac{V_\mathrm{AA} + V_\mathrm{BB}}{2}
+$$<p>is met, the change in enthalpy is linear, as there is no strong preference for the formation of A-A or B-B bonds, and the alloy will form an ideal mixture. We will now use the new functionality we've discussed in matplotlib to compare this case, with the situation when</p>
+$$
+V_\mathrm{AB} &gt; \dfrac{V_\mathrm{AA} + V_\mathrm{BB}}{2}~~~~\mathrm{\&amp;}~~~~V_\mathrm{AB} &lt; \dfrac{V_\mathrm{AA} + V_\mathrm{BB}}{2}
+$$<p>What we will do is define a <code>Figure</code> object with three subplots, which will each have one <code>Axes</code> object plotted on it. For each of the bond strength conditions, we will calculate the change in entropy and enthalpy, and plot them together on different subplots on the same <em>figure</em>. The comments will guide you through the process step by step.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># define a list of lists of bond strengths that will cover the three scenarios</span>
+<span class="c1"># discussed above</span>
+
+<span class="n">bond_strengths</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mf">0.73</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.737</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.73</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">],</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mf">0.735</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.725</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.73</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">],</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mf">0.7</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.69</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.72</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">]]</span>
+
+<span class="c1"># for each set of bond strengths, calculate the range of enthalpies</span>
+<span class="c1"># associated with them</span>
+
+<span class="n">enthalpies</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">bs</span> <span class="ow">in</span> <span class="n">bond_strengths</span><span class="p">:</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">enthalpy</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">bs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bs</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">])</span>
+    <span class="n">enthalpies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+
+<span class="c1"># define a `Figure` and set of associated</span>
+<span class="c1"># `Axes` objects displayed as 1 row (first argument)</span>
+<span class="c1"># with 3 columns (second argument) and a figsize</span>
+<span class="c1"># to ensure our figure is not too small</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># for each set of enthalpies...</span>
+
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">H</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">enthalpies</span><span class="p">):</span>
+    
+    <span class="c1"># ...set the index of the list </span>
+    <span class="c1"># to the current `Axes` object...</span>
+    
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    
+    <span class="c1"># ...calulate arrays of delta values...</span>
+    
+    <span class="n">delta_H</span> <span class="o">=</span>  <span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">H</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-3</span>
+    <span class="n">delta_S</span> <span class="o">=</span>  <span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">S</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-3</span> 
+    <span class="n">delta_G</span> <span class="o">=</span> <span class="n">delta_H</span> <span class="o">-</span> <span class="n">T</span> <span class="o">*</span> <span class="n">delta_S</span>
+
+    <span class="c1"># ...plot the mol fraction of B</span>
+    <span class="c1"># against each delta value, with a label...</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span> <span class="n">delta_H</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\Delta H$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span> <span class="o">-</span><span class="n">T</span><span class="o">*</span><span class="n">delta_S</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$-T \Delta S$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span> <span class="n">delta_G</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\Delta G$&#39;</span><span class="p">)</span>
+    <span class="c1">#ax.hlines(0,0,1,linewidth=0.75)</span>
+    <span class="c1">#ax.set_xlim(0,1)</span>
+    
+    <span class="c1"># ...add axes labels and add a legend.</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;mol fraction of B&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Energy / kJ&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># visualise the figure</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/advanced/object_oriented_plotting_12_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can see from the above plots, that there are three distinct cases as we vary our bond strengths, however, as the graphs do not have a common y axis, it is not straightforward to directly compare the three. Let's add a bit more code to help us compare. The code in the cell below is identical to the cell above, except for the commented changes.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bond_strengths</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mf">0.73</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.737</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.73</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">],</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mf">0.735</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.725</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.73</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">],</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mf">0.7</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.69</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.72</span> <span class="o">/</span> <span class="n">joule_eV</span><span class="p">]]</span>
+
+<span class="n">enthalpies</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">bs</span> <span class="ow">in</span> <span class="n">bond_strengths</span><span class="p">:</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">enthalpy</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">bs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bs</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">N</span><span class="p">])</span>
+    <span class="n">enthalpies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+
+<span class="c1"># add an argument when we define our `Figure` and `Axes` objects</span>
+<span class="c1"># that all sub plots in the figure should share common y axis </span>
+<span class="c1"># values. </span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="s1">&#39;row&#39;</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">H</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">enthalpies</span><span class="p">):</span>
+    
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    
+    <span class="n">delta_H</span> <span class="o">=</span>  <span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">H</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-3</span>
+    <span class="n">delta_S</span> <span class="o">=</span>  <span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">S</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-3</span> 
+    <span class="n">delta_G</span> <span class="o">=</span> <span class="n">delta_H</span> <span class="o">-</span> <span class="n">T</span> <span class="o">*</span> <span class="n">delta_S</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span> <span class="n">delta_H</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\Delta H$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span> <span class="o">-</span><span class="n">T</span> <span class="o">*</span> <span class="n">delta_S</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$-T \Delta S$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span> <span class="n">delta_G</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\Delta G$&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># restrict the x axis to values between</span>
+    <span class="c1"># 0 and 1, and add a horizontal line at</span>
+    <span class="c1"># y = 0 to help show the point at which</span>
+    <span class="c1"># the energy contributions become negative</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;mol fraction of B&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Energy / kJ&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># the subplots do not have to be accessed in a loop,</span>
+<span class="c1"># they can be modified explicitly like so:</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$V_</span><span class="si">{AB}</span><span class="s1"> &lt; \dfrac{V_</span><span class="si">{AA}</span><span class="s1"> - V_</span><span class="si">{BB}</span><span class="s1">}</span><span class="si">{2}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$V_</span><span class="si">{AB}</span><span class="s1"> = \dfrac{V_</span><span class="si">{AA}</span><span class="s1"> - V_</span><span class="si">{BB}</span><span class="s1">}</span><span class="si">{2}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$V_</span><span class="si">{AB}</span><span class="s1"> &gt; \dfrac{V_</span><span class="si">{AA}</span><span class="s1"> - V_</span><span class="si">{BB}</span><span class="s1">}</span><span class="si">{2}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/advanced/object_oriented_plotting_14_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we have our graphs plotted in a way that allows for simple comparison, we can discuss the implications of each bonding scenario:</p>
+<ul>
+<li><p>if $V_{AB} &lt; \dfrac{V_{AA} - V_{BB}}{2}$ then either an ordered solid solution or a compound is
+likely to form: A and B atoms preferentially sit next to eachother as opposed to mixing randomly.</p>
+</li>
+<li><p>$V_{AB} &gt; \dfrac{V_{AA} - V_{BB}}{2}$ then a mixture is unlikely to form, as A and B prefer to remain in their own crystals
+as opposed to alloying.</p>
+</li>
+</ul>
+<p>In many ways, the easiest 'dial to turn' during the synthesis of an alloy is temperature, we will now consider how each of the above scenarios is affected by an increasing synthesis temperature. First, let's explore how we might plot such a figure. The cells below will guide you through the process of plotting a $3 \times 3$ grid of subplots in a single figure.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># in this case, we are defining a 3x3</span>
+<span class="c1"># grid of plots as we would like to compare</span>
+<span class="c1"># three bonding strength scenarios at a range of</span>
+<span class="c1"># temperatures</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">sharey</span> <span class="o">=</span> <span class="s1">&#39;row&#39;</span><span class="p">)</span>
+
+<span class="c1"># We now index which `Axes`</span>
+<span class="c1"># we would like to modify </span>
+<span class="c1"># using a list, rather than</span>
+<span class="c1"># a single integer, so the</span>
+<span class="c1"># top left subplot would be accessed</span>
+<span class="c1"># using the list [0,0]</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">delta_H</span> <span class="o">=</span> <span class="p">(</span><span class="n">enthalpies</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">enthalpies</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="mf">1e-3</span>
+<span class="n">delta_G</span> <span class="o">=</span> <span class="n">delta_H</span> <span class="o">-</span> <span class="n">T</span> <span class="o">*</span> <span class="n">delta_S</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span> <span class="n">delta_H</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span> <span class="o">-</span><span class="n">T</span><span class="o">*</span><span class="n">delta_S</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span> <span class="n">delta_G</span><span class="p">)</span>
+
+<span class="c1"># and to acess the middles `Axes` object</span>
+<span class="c1"># we use the [1,1] index of the</span>
+<span class="c1"># list axs</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span> <span class="n">delta_H</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span> <span class="o">-</span><span class="n">T</span> <span class="o">*</span> <span class="n">delta_S</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span> <span class="n">delta_G</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/advanced/object_oriented_plotting_16_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's take this approach to show both the effect of bond strength, and temperature on the free energy of mixing.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># define a list of alloying temperatues</span>
+<span class="c1"># of interest</span>
+
+<span class="n">temperatures</span> <span class="o">=</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1500</span><span class="p">]</span>
+
+<span class="c1"># define our 3 by 3 grid of </span>
+<span class="c1"># plots as above</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">sharey</span> <span class="o">=</span> <span class="s1">&#39;row&#39;</span><span class="p">)</span>
+
+<span class="c1"># loop over both all the temperatues</span>
+<span class="c1"># and enthalpies and enumarate the lists...</span>
+
+<span class="k">for</span> <span class="n">t_index</span><span class="p">,</span><span class="n">T</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">temperatures</span><span class="p">):</span> 
+    <span class="k">for</span> <span class="n">h_index</span><span class="p">,</span><span class="n">H</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">enthalpies</span><span class="p">):</span>
+        
+        <span class="c1"># assing the position in the</span>
+        <span class="c1"># grid of plots by the temperature </span>
+        <span class="c1"># index, and enthalpy idex</span>
+        
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">t_index</span><span class="p">,</span><span class="n">h_index</span><span class="p">]</span>
+        
+        <span class="c1"># calculate relevant delta </span>
+        <span class="c1"># values</span>
+        
+        <span class="n">delta_H</span> <span class="o">=</span> <span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">H</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-3</span>
+        <span class="n">delta_G</span> <span class="o">=</span> <span class="n">delta_H</span> <span class="o">-</span> <span class="n">T</span> <span class="o">*</span> <span class="n">delta_S</span>
+        
+        <span class="c1"># plot `Axes` objects</span>
+        
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span><span class="n">delta_H</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\Delta H$&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span><span class="o">-</span><span class="n">T</span><span class="o">*</span><span class="n">delta_S</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$-T\Delta S$&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mol_frac</span><span class="p">,</span><span class="n">delta_G</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\Delta G$&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;mol fraction of B&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        
+<span class="c1"># add titles to the columns that show</span>
+<span class="c1"># the relevant bonding conditions</span>
+        
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$V_</span><span class="si">{AB}</span><span class="s1"> &lt; \dfrac{V_</span><span class="si">{AA}</span><span class="s1"> - V_</span><span class="si">{BB}</span><span class="s1">}</span><span class="si">{2}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$V_</span><span class="si">{AB}</span><span class="s1"> = \dfrac{V_</span><span class="si">{AA}</span><span class="s1"> - V_</span><span class="si">{BB}</span><span class="s1">}</span><span class="si">{2}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$V_</span><span class="si">{AB}</span><span class="s1"> &gt; \dfrac{V_</span><span class="si">{AA}</span><span class="s1"> - V_</span><span class="si">{BB}</span><span class="s1">}</span><span class="si">{2}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># add row-wise labels to the figure </span>
+<span class="c1"># indicate what temeprature is </span>
+<span class="c1"># important, and label the y axes</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;$500 $K&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;$1000 $K&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;$1500 $K&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Energy / kJ&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Energy / kJ&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Energy / kJ&#39;</span><span class="p">)</span>
+
+<span class="c1"># plot the figure</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Scientifically, perhaps the starkest difference seen with changing temperature, is the $V_{AB} &gt; \dfrac{V_{AA} - V_{BB}}{2}$ case: as we increase temperatures, the free energy of mixing becomes negative for small mole fractions of B, suggesting that a certain level of mixing is possible if the synthesis temperatures are increased.</p>
+<h3 id="Excercise">Excercise<a class="anchor-link" href="#Excercise"> </a></h3><ol>
+<li>Revisit the simple plots chapter, plot the radial probability of the $l =  1,2,3$ orbitals on three subplots on the same figure, one for $l=1$, one for $l=2$ and one for $l=3$  </li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Enter your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>Replot the $3\times3$ free energies of mxing below, and using the <code>np.argmin</code> and <code>ax.vlines</code> function, plot a line orginating on the x axis indicating minimum in each $\Delta G$ curve is.</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Enter your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>Altering only one line of code, change the orientation of the $3\times3$ plot of free energy curves so that the columns vary with temperature, and the rows with bonding condition.</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Appendix:-Plot-customisation">Appendix: Plot customisation<a class="anchor-link" href="#Appendix:-Plot-customisation"> </a></h3><p>You can change almost every facet of a <code>matplotlib</code> figure. Below is an example of how this can be done by modifying the <code>rcParams</code> of a plot. These ar just examples; explore to see how much you can chage, remembering that the primary aim of all plots should be the effective conveyance of information. For a full discussion, including all the parameters it is posible to modify see the <a href="https://matplotlib.org/tutorials/introductory/customizing.html">matplotlib documentation</a>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.grid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.facecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;lightgrey&#39;</span>
+
+<span class="c1"># produce a figure object, name it &#39;fig&#39;</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+<span class="c1"># add an `Axes` object</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">()</span>
+
+<span class="c1"># label axes, then plot x against y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$\sqrt</span><span class="si">{x}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># this final line will reset the default parameters</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParamsDefault</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/advanced/object_oriented_plotting_25_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+    </main>
+    
+            </div>
+            <div class="c-textbook__footer" id="textbook_footer">
+              
+<nav class="c-page__nav">
+  
+    
+    
+
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/intro_python_chemists/advanced/oop.html">
+      〈 <span class="u-margin-right-tiny"></span> Object-oriented programming
+    </a>
+  
+
+  
+    
+
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/intro_python_chemists/advanced/classes.html">
+      Classes <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+              <footer>
+  <p class="footer">This page was created by <a href="https://github.com/pythoninchemistry/intro_python_chemists/graphs/contributors">pythoninchemistry community</a></p>
+</footer>
+
+            </div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
