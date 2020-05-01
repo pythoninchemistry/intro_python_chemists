@@ -65,6 +65,7 @@
   expand_sections: false
   sections:
   - url: /advanced/oop
+  - url: /advanced/object_oriented_plotting
   - url: /advanced/classes
   - url: /advanced/custom_packages
 
