@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Exercise: Fitting IR spectra</title>
-  <meta name="description" content="        Exercise: Fitting IR spectra             ">
+  <meta name="description" content="        Exercise: Fitting IR spectra    Prerequisites:typesfunctionscontainersnumpy optimisationio    import numpy as npimport matplotlib.pyplot as pltfrom s...">
 
   <link rel="canonical" href="https://pythoninchemistry.org/intro_python_chemists/data_work/ir_spectra.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Chemistry" href="https://pythoninchemistry.org/intro_python_chemists/feed.xml">
@@ -14,7 +14,7 @@
   <meta property="og:url"         content="https://pythoninchemistry.org/intro_python_chemists/data_work/ir_spectra.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Exercise: Fitting IR spectra" />
-<meta property="og:description" content="        Exercise: Fitting IR spectra             " />
+<meta property="og:description" content="        Exercise: Fitting IR spectra    Prerequisites:typesfunctionscontainersnumpy optimisationio    import numpy as npimport matplotlib.pyplot as pltfrom s..." />
 <meta property="og:image"       content="https://pythoninchemistry.org/intro_python_chemists/images/logo/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,9 +26,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://pythoninchemistry.org/intro_python_chemists/data_work/ir_spectra.html",
   "headline": "Exercise: Fitting IR spectra",
-  "datePublished": "2020-05-01T13:32:22+00:00",
-  "dateModified": "2020-05-01T13:32:22+00:00",
-  "description": "        Exercise: Fitting IR spectra             ",
+  "datePublished": "2020-05-04T06:43:40+00:00",
+  "dateModified": "2020-05-04T06:43:40+00:00",
+  "description": "        Exercise: Fitting IR spectra    Prerequisites:typesfunctionscontainersnumpy optimisationio    import numpy as npimport matplotlib.pyplot as pltfrom s...",
   "author": {
     "@type": "Person",
     "name": "pythoninchemistry"
@@ -1380,7 +1380,614 @@ initFunction(initPrint)
                   <main class="jupyter-page">
     <div id="page-info"><div id="page-title">Exercise: Fitting IR spectra</div>
 </div>
-     
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Prerequisites:</p>
+<ul>
+<li>types</li>
+<li>functions</li>
+<li>containers</li>
+<li>numpy </li>
+<li>optimisation</li>
+<li>io</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">linregress</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span><span class="p">,</span> <span class="n">minimize</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is one of the <em>long-form</em> exercises in the book. 
+The idea behind these are to introduce a particular problem, and then allow the space to work on it.</p>
+<p>In this exercise, your will get an introdcution into using Python to fit experimental data, using a process called model-dependent analysis. 
+The specific application will be the anlaysis of an IR spectra from a mixture of organic species, however, hopefully you will recognise that the methods used herein are generalisable.</p>
+<h2 id="Aim">Aim<a class="anchor-link" href="#Aim"> </a></h2><p>You have been tasked with determining the relative composition of a mixture of two organic species; namely toluene and benyl alcohol. 
+You have recognised, that using IR spectroscopy and some data analysis, it may be possible to evaluate this.</p>
+<h2 id="Reading-in-and-plotting-experimental-data">Reading in and plotting experimental data<a class="anchor-link" href="#Reading-in-and-plotting-experimental-data"> </a></h2><p>IR spectra of the two species in isolation were available online, from the <a href="https://webbook.nist.gov/chemistry/">NIST Chemistry Webbook</a>.
+These are available in the files <code>toluene.csv</code> and <code>benzyl_alcohol.csv</code>, these files consist of two columns the first is the wavenumber, $\bar{\nu}$, and the second is the transmittance ($T$). 
+Referring to the previous section on <a href="./io.html">reading and writing data</a>, in the cell below, use <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.loadtxt.html"><code>np.loadtxt()</code></a> to open these files and store the information in array objects.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Having read the isolated data in, referring to the <a href="./simple_plots.html">plotting introduction</a> if necessary, plot both of the isolated IR spectra on a single plot.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With the isolated data read in and plotted, we now need the mixture data. 
+This is stored in the file named <code>mixture.csv</code>, which in addition to the two columns that the other files have, has a third column containing information about the uncertainty in the transmittance ($\mathrm{d}T$). 
+Read this file in, and plot the data (and the uncertainties).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Having plotted each of the three datasets, you should be able to identify features present in the mixture data that match those in the isolated datasets. 
+Such as the large feature in the toluene isolated data that can be seen in the mixture data at around 3000 cm<sup>-1</sup>, and then at higher energy there is a broad feature in the benzyl alcohol isolated data between 3250 cm<sup>-1</sup> and 3750 cm<sup>-1</sup>, that can also be found in the experimental data.</p>
+<h2 id="Fitting">Fitting<a class="anchor-link" href="#Fitting"> </a></h2><p>You will hopefully have encounter data fitting before, for example when a straight line of best fit is applied to some experimental data points. 
+This is shown below, where the blue dots are some discrete datapoints and the orange line is the line of best fit. 
+In order to determine this line of best fit, we have a metric that we want to minimise which represents the difference between the data and the model (the straight line).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="c1"># This function performs a linear regression</span>
+<span class="c1"># on the data x and y</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">slope</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">res</span><span class="o">.</span><span class="n">intercept</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/data_work/ir_spectra_9_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This minimisation can be achieved for a straight line model through linear regression, a mathematical operation which minimises the squared-residuals for each point. 
+The residuals are the difference between the model (the straight line) and the data.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sq_resid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">model</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sq_resid</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;(model - y)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/data_work/ir_spectra_11_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to describe this with a single value to minimise, we typically talk about minimising the <strong>sum</strong> of the square-residuals, which is sometimes referred to as $\chi^2$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;chi^2 = </span><span class="si">{:0.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sq_resid</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>chi^2 = 0.932
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>The reason that a square is taken of the residuals, rather than just the absolute value is to put a greater emphasis on outlying datapoints, such as the 4th point in the example above.</p>
+</blockquote>
+<p>The closer the $\chi^2$ value is to 0, the better the agreement between the model and the data.</p>
+<p>Define a function, to calculate the $\chi^2$ between a IR spectra of an isolated compound and the mixture data, you won't be able to use it yet.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Interpolation">Interpolation<a class="anchor-link" href="#Interpolation"> </a></h2><p>In the plots you have produced earlier, you might be able to notice that the values for wavenumber that are measured in each spectra are not the same. 
+This can be seen clearly if we print the minimum and maximum values for each spectra. 
+These can be accessed using the <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.amin.html#numpy.amin"><code>np.amin()</code></a> and <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.amax.html#numpy.amax"><code>np.amax()</code></a> functions.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to determine the $\chi^2$-value between our model (outlined later) and the data (the mixture), it is necessary that the positions on the $x$-axis for the two are the same. 
+Additionally, since our model will be created from mixing the toluene and benzyl alcohol spectra, we will need to normalised these $x$-axes. 
+This technique of this is referred to as <strong>interpolation</strong>.</p>
+<p>Interpolation is where we determine new data points within the range of a discrete set of known points. 
+Essentially we use what we know about the $x$- and $y$-data and have an educated guess at the $y$-values for a different set of $x$-values. It is important that the new range of $x$ values is from within the existing range, or else we are <a href="https://xkcd.com/605/">extrapolating</a>, which can be very inaccurate. 
+For the data in this exercise, the range of the mixture data lies within the other two datasets, therefore we will use the wavenumber values from the mixture and interpolate new values for the isolated materials.</p>
+<p>To interpolate new $y$-values, we will use the <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.interp.html"><code>np.interp()</code> function</a>. 
+This function takes three arguments, the new $x$-axis, the old $x$-axis, and the old $y$-axis values, and it will return a new set of $y$-axis values.</p>
+<p>In the cell below, interpolate new sets of $y$-values for the two isolated datasets, for the $x$-axis values from the mixture dataset. 
+Then calculate the $\chi^2$-value for each pure isolated IR spectra with the mixture data.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, plot your interpolated data alongside the original data to ensure that the interpolation has been accurate.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Fitting-real-data">Fitting real data<a class="anchor-link" href="#Fitting-real-data"> </a></h2><p>In the example shown previously, we were not working with "real" data, as there was no uncertainty on the measurement. 
+However, if we compare the slope of the straight line from the previous example to that where some uncertainty is present, there is a small, but important change.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">])</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">straight_line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">m</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="c1"># This function performs fits a straight</span>
+<span class="c1"># line, including uncertainties</span>
+<span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">straight_line</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">dy</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/data_work/ir_spectra_23_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Without uncertainties the gradient is </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">slope</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;With uncertainties the gradient is </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Without uncertainties the gradient is 1.000
+With uncertainties the gradient is 1.026
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to consider the uncertainty, there is a slight modification to the $\chi^2$-calculation, where the square residual is divided by the uncertainty,</p>
+$$ \chi^2 = \sum_{x=1}^{N}\bigg[\frac{y_{\mathrm{model}}(x) - y_{\mathrm{exp}}(x)}{\mathrm{d}y_{\mathrm{exp}}(x)}\bigg]^2, $$<p>where $y_{\mathrm{model}}(x)$ is the model value at $x$, $y_{\mathrm{exp}}(x)$ is the experimental value at $x$, $\mathrm{d}y_{\mathrm{exp}}(x)$ is the uncertainty at $x$, and $N$ is the number of points in the dataset. 
+For example, in the data above,</p>
+<ul>
+<li>There are 5 datapoints, so $N=5$,</li>
+<li>When $x=3$, $y_{\mathrm{exp}}(3) = 2.7$ and $\mathrm{d}y_{\mathrm{exp}}(3) = 0.3$,</li>
+<li>The model value when $x=3$ can be found from the straight line equation, so if the gradient is 1 and intercept is 0, then $y_{\mathrm{model}}(x) = 1\times3 + 0 = 3$.</li>
+</ul>
+<p>In the cell below, define a new function to calculate the $\chi^2$ value for <strong>real</strong> data.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Our-model">Our model<a class="anchor-link" href="#Our-model"> </a></h2><p>Now that all three datasets are on the same axis and we undestand how uncertainties should be included in a data fitting process, it is necessary to define our model. 
+We know that the mixture data contains only toluene and benzyl alcohol, therefore, we can <em>simulate</em> the expected IR transmission of a mixture of these through a simple linear combination.</p>
+$$ T_{\mathrm{mix}} = cT_{\mathrm{toluene}} + (1 - c) T_{\mathrm{benzyl alcohol}}, $$<p>where $c$ is the fractional composition of toluene, and hence $1-c$ is the fractional composition of benzyl alcohol.</p>
+<p>Write a function that evaluates the mixture equation above in the cell below, and test it by plotting the spectra that would result from a 10:90 mixture along with the measured mixture spectra.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A 10:90 mixture of the components doesn't do a very good job of modelling the observed mixture data, therefore we need to optimise this, by minimising the $\chi^2$-value. 
+Using what you learned in the <a href="./optimisation.html">Optimisation</a> section, in the cell below, use <code>scipy.optimize.minimize</code> to obtain the optimum value for $c$. 
+In order to achieve this, you will have to re-write your $\chi^2$ function such that $c$ is an input argument.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
 
 
     </main>
