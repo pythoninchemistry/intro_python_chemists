@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>NumPy Arrays</title>
-  <meta name="description" content="        NumPy Arrays             ">
+  <title>Numpy Arrays</title>
+  <meta name="description" content="        Numpy Arrays    Prerequisites TypesCollectionsNumPy Arrays In the previous tutorial, we were introduced to collections in the form of lists, tuples, ...">
 
   <link rel="canonical" href="https://pythoninchemistry.org/intro_python_chemists/basics/numpy_arrays.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Chemistry" href="https://pythoninchemistry.org/intro_python_chemists/feed.xml">
 
   <meta property="og:url"         content="https://pythoninchemistry.org/intro_python_chemists/basics/numpy_arrays.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="NumPy Arrays" />
-<meta property="og:description" content="        NumPy Arrays             " />
+<meta property="og:title"       content="Numpy Arrays" />
+<meta property="og:description" content="        Numpy Arrays    Prerequisites TypesCollectionsNumPy Arrays In the previous tutorial, we were introduced to collections in the form of lists, tuples, ..." />
 <meta property="og:image"       content="https://pythoninchemistry.org/intro_python_chemists/images/logo/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -25,10 +25,10 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://pythoninchemistry.org/intro_python_chemists/basics/numpy_arrays.html",
-  "headline": "NumPy Arrays",
-  "datePublished": "2020-05-04T06:43:40+00:00",
-  "dateModified": "2020-05-04T06:43:40+00:00",
-  "description": "        NumPy Arrays             ",
+  "headline": "Numpy Arrays",
+  "datePublished": "2020-05-04T18:03:00+00:00",
+  "dateModified": "2020-05-04T18:03:00+00:00",
+  "description": "        Numpy Arrays    Prerequisites TypesCollectionsNumPy Arrays In the previous tutorial, we were introduced to collections in the form of lists, tuples, ...",
   "author": {
     "@type": "Person",
     "name": "pythoninchemistry"
@@ -722,7 +722,7 @@ initFunction(initPrint)
                 
                   1.3
                 
-                NumPy Arrays
+                Numpy Arrays
               </a>
             </li>
             
@@ -1378,9 +1378,900 @@ initFunction(initPrint)
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
                   <main class="jupyter-page">
-    <div id="page-info"><div id="page-title">NumPy Arrays</div>
+    <div id="page-info"><div id="page-title">Numpy Arrays</div>
 </div>
-     
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites"> </a></h3><ul>
+<li>Types</li>
+<li>Collections</li>
+</ul>
+<h1 id="NumPy-Arrays">NumPy Arrays<a class="anchor-link" href="#NumPy-Arrays"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the previous tutorial, we were introduced to collections in the form of lists, tuples, and dictionaries. The python package NumPy provides a further example of a collection: an array. Arrays are collections which are engineered to easily and efficiently facilitate calculations.</p>
+<p>For example, say we have conducted an experiment to determine the melting point of water. We have repeated this experiment 10 times to obtain a more accurate calculation of the melting point. The results from the experiment can be observed in the table below.</p>
+<table>
+<thead><tr>
+<th>Experiment</th>
+<th style="text-align:center">Melting Point ($^{\circ}$C)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:center">98.5 $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:center">99.9  $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:center">100.6  $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align:center">99.3  $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>5</td>
+<td style="text-align:center">100.7 $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>6</td>
+<td style="text-align:center">99.4   $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>7</td>
+<td style="text-align:center">98.4  $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>8</td>
+<td style="text-align:center">99.5  $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>9</td>
+<td style="text-align:center">99.3  $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>10</td>
+<td style="text-align:center">100.7  $\pm$ 0.1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Importing-NumPy-&amp;-creating-an-array">Importing NumPy &amp; creating an array<a class="anchor-link" href="#Importing-NumPy-&amp;-creating-an-array"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We want to store this information in a NumPy array so that we can calculate certain properties. Before we can use a NumPy array we must import the NumPy module as follows</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now that we have imported the NumPy package we can create a NumPy array for the melting point data collected during our experiment.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">melting_point_data</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">98.5</span><span class="p">,</span> <span class="mf">99.9</span><span class="p">,</span> <span class="mf">100.6</span><span class="p">,</span> <span class="mf">99.3</span><span class="p">,</span> <span class="mf">100.7</span><span class="p">,</span> <span class="mf">99.4</span><span class="p">,</span> <span class="mf">98.4</span><span class="p">,</span> <span class="mf">99.5</span><span class="p">,</span> <span class="mf">99.3</span><span class="p">,</span> <span class="mf">100.7</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Indexing">Indexing<a class="anchor-link" href="#Indexing"> </a></h3><p>The indexing of arrays is identical to the indexing of lists. For example, if we wanted to access the melting point calculated in the sixth experiment one could use</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">melting_point_data</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span> <span class="c1"># recall indexing starts at zero in python</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>99.4
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>or if one was only interested in experiments six to ten one could use</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">melting_point_data</span><span class="p">[</span><span class="mi">5</span><span class="p">:])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[ 99.4  98.4  99.5  99.3 100.7]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Broadcasting">Broadcasting<a class="anchor-link" href="#Broadcasting"> </a></h3><p>Following the experiment, we realise that the electric thermometer we have been using is miscalibrated by -0.5 $^{\circ}$C. If we were using a list, float, or dictionary then we would have to manually add 0.5 $^{\circ}$C to each value. However, a NumPy array allows this error to be corrected more simply.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">corrected_melting_point_data</span> <span class="o">=</span> <span class="n">melting_point_data</span> <span class="o">+</span> <span class="mf">0.5</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">corrected_melting_point_data</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[ 99.  100.4 101.1  99.8 101.2  99.9  98.9 100.   99.8 101.2]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The addition operator has been "broadcasted" to each element of the array. This "broadcasting" capability can also be utilised for subtraction, multiplication, and division. This is illustrated below</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">subtraction_example</span> <span class="o">=</span> <span class="n">melting_point_data</span> <span class="o">-</span> <span class="mf">0.5</span> 
+
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Subtracting 0.5 from the original melting point data results in:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">subtraction_example</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Subtracting 0.5 from the original melting point data results in:
+[ 98.   99.4 100.1  98.8 100.2  98.9  97.9  99.   98.8 100.2]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">multiplication_example</span> <span class="o">=</span> <span class="n">melting_point_data</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Multiplying the original melting point data by two results in:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">multiplication_example</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Multiplying the original melting point data by two results in:
+[197.  199.8 201.2 198.6 201.4 198.8 196.8 199.  198.6 201.4]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">division_example</span> <span class="o">=</span> <span class="n">melting_point_data</span> <span class="o">/</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Dividing the original melting point data by 2 results in:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">division_example</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dividing the original melting point data by 2 results in:
+[49.25 49.95 50.3  49.65 50.35 49.7  49.2  49.75 49.65 50.35]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Speed-up-and-datatypes">Speed up and datatypes<a class="anchor-link" href="#Speed-up-and-datatypes"> </a></h3><p>Why is NumPy's broadcasting capabilities preferable to using lists? <strong>NumPy arrays are significantly faster</strong>. For example, if we were to take an array and a list of 100 values each, and we wished to enact the four simple operations above on every element in each collection then it would take the following times for python to complete these calculations.</p>
+<table>
+<thead><tr>
+<th>Operation</th>
+<th style="text-align:center">Array</th>
+<th style="text-align:center">List</th>
+<th style="text-align:center">Speed up factor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Addition</td>
+<td style="text-align:center">9.92E-07</td>
+<td style="text-align:center">6.66E-6</td>
+<td style="text-align:center">6.7</td>
+</tr>
+<tr>
+<td>Subtraction</td>
+<td style="text-align:center">1.04E-6</td>
+<td style="text-align:center">9.73E-6</td>
+<td style="text-align:center">9.4</td>
+</tr>
+<tr>
+<td>Multiplication</td>
+<td style="text-align:center">1.03E-6</td>
+<td style="text-align:center">8.66E-6</td>
+<td style="text-align:center">8.4</td>
+</tr>
+<tr>
+<td>Division</td>
+<td style="text-align:center">1.11E-6</td>
+<td style="text-align:center">9.11E-6</td>
+<td style="text-align:center">8.2</td>
+</tr>
+</tbody>
+</table>
+<p>The use of NumPy arrays provides a significant speed up. This is just for one operation. When compounded throughout a code, this could be the difference between making a code feasible to run or not.</p>
+<p>This speed up occurs because an array is a simpler, less maleable collection than a list. As you have previously seen, a list can contain any type of data. Arrays are designed to only use one type of data. Every value in the array should be the same data type for maximum efficient ie all pieces of data should be floats.</p>
+<blockquote><h4 id="A-note-on-NumPy-datatypes">A note on NumPy datatypes<a class="anchor-link" href="#A-note-on-NumPy-datatypes"> </a></h4><p>It is possible to have different types of data in a NumPy array. <strong>This is not recommended</strong>. Using different datatypes in an NumPy array will, at best, significantly reduce the efficiency of your code or, at worst, may stop your code working completely.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Basic-NumPy-functions">Basic NumPy functions<a class="anchor-link" href="#Basic-NumPy-functions"> </a></h3><p>The use of a NumPy array allows us to calculate some basic properties of our data. For example let's determine the mean and median of our data.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">corrected_melting_point_data</span><span class="p">)</span>
+<span class="n">median</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">corrected_melting_point_data</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The mean of our data is &quot;</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="s2">&quot;degrees Celsius.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The median of our data is &quot;</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="s2">&quot;degrees Celsius.&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The mean of our data is  100.13 degrees Celsius.
+The median of our data is  99.95 degrees Celsius.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It can be seen the mean and median melting points determined by our ten experiments are 100.13 $^{o}$C and 99.95 $^{o}$C respectively. To obtain the mean and median values we had to utilise the mean and median functions inside the numpy package. This was indicated by numpy.mean and numpy.median . The word before the dot is the package we wish to use, and the word after the dot is the function we wish to use.</p>
+<p>NumPy is a very common package in python. It can become laborious writing numpy.function whenever we wish to utilise one of its functions. Programmers often look to be as efficient as possible with their time and use the following to reduce what they have to type</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">corrected_melting_point_data</span><span class="p">)</span>
+<span class="n">median</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">corrected_melting_point_data</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The mean of our data is &quot;</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="s2">&quot;degrees Celsius.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The median of our data is &quot;</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="s2">&quot;degrees Celsius.&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The mean of our data is  100.13 degrees Celsius.
+The median of our data is  99.95 degrees Celsius.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first line in the above cell merely allows us to write np instead of numpy every time we wish to use the NumPy package. This may seem frivolous, however as you will see in future tutorials this can save a lot of time when using packages with much longer names.</p>
+<h3 id="Two-dimensional-arrays">Two-dimensional arrays<a class="anchor-link" href="#Two-dimensional-arrays"> </a></h3><p>In the above example we explored how NumPy arrays can be used to store experimental data and correct a miscalibration issue in a one-dimensional array. What if we wanted to store the trajectory of a particle, for example:</p>
+<table>
+<thead><tr>
+<th>Time  / s</th>
+<th style="text-align:center">x / nm</th>
+<th style="text-align:center">y / nm</th>
+<th style="text-align:center">z / nm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td>1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:center">-1</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:center">-2</td>
+<td style="text-align:center">-3</td>
+<td style="text-align:center">-5</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">-2</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td>5</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">-1</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<p>NumPy allows for multi-dimensional arrays. We could store this in a 6 x 4 array such that</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trajectory</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the above 6 x 4 array, the first item is the time and the second, third and fourth items are the x, y, and z coordinates respectively.</p>
+<p>Again the indexing of the multi-dimensional array works the same as for lists. If we wanted to identify where the particle was after three seconds one could use</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trajectory</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 3, -2, -3, -5])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="../images/indexing_array_3.png" alt="drawing" width="400"/></p>
+<p>which indicates the particle was at [-2,-3,-5] after three seconds. If one wished to know the y coordinate after two seconds, one could use</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trajectory</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="../images/indexing_array_2_2.png" alt="drawing" width="400"/></p>
+<p>If, for some reason, we wished to study the trajectory along the z coordinate only then NumPy allows us to access this information easily using</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trajectory</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 0,  1,  4, -5,  3,  0])</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="../images/indexing_array_z.png" alt="drawing" width="400"/></p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Exercise:</strong> Using the boiling point data for ethanol, displayed below, use a one-dimensional array to determine the mean and median of the experimental data collected.</p>
+<table>
+<thead><tr>
+<th>Experiment</th>
+<th style="text-align:center">Boiling Point ($^{\circ}$C)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:center">78.1 $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:center">78.8  $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:center">78.4  $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align:center">78.6  $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>5</td>
+<td style="text-align:center">78.4 $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>6</td>
+<td style="text-align:center">77.9   $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>7</td>
+<td style="text-align:center">79.4  $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>8</td>
+<td style="text-align:center">78.0  $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>9</td>
+<td style="text-align:center">78.7  $\pm$ 0.1</td>
+</tr>
+<tr>
+<td>10</td>
+<td style="text-align:center">78.4  $\pm$ 0.1</td>
+</tr>
+</tbody>
+</table>
+<p>Following this, create a 3 x 3 array for the coordinates of the atoms in a molecule of carbon dioxide displayed below</p>
+<table>
+<thead><tr>
+<th>Atom</th>
+<th style="text-align:center">x / Angstroms</th>
+<th style="text-align:center">y / Angstroms</th>
+<th style="text-align:center">z / Angstroms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td>01</td>
+<td style="text-align:center">-1.16</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td>02</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">+1.16</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For functions that are not built into an imported module you will be required to write your own. In the following tutorial you will learn how to do just this so that you can computationally solve any problem that may come your way.</p>
+<blockquote><h4 id="A-note-on-NumPy">A note on NumPy<a class="anchor-link" href="#A-note-on-NumPy"> </a></h4><p>This has been a very brief introduction to NumPy. The NumPy module has a lot more to offer than is described here. In future tutorials more of the NumPy module's functionality will be introduced.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
 
 
     </main>
