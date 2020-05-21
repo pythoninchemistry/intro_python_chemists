@@ -1,0 +1,40 @@
+--> Why Documentation ?
+
+Documentation of any library is the most important and technical part . It contains everything i.e., from user-manual guides to the list of all functions supported by that library . It contains the purpose of that function , what all arguments that function takes and what the function returns .
+Documentation contains the installation guide which would help a programmer to understand the procedure to install it in his Desktop/Laptop .
+
+
+--> How to search Documentation of any library ?
+ 
+Irrespective of what language or project you are working on , you must be using libraries or inbuilt functions in your code and to understand these functions in a better way you must go through the documentations . 
+To search any documentation , you can either search it on Google or else you can go on this site  https://devdocs.io/ which contains documentation of almost all the libraries existing today.
+
+I have mentioned some of the most frequently used libraries along with the links of their  documentation . You can refer to them .
+ 
+
+--> Most frequently used Libraries - 
+
+1.) Matplotlib - Matplotlib is a Python library that uses Python Script to write 2-dimensional graphs and plots. Often mathematical or scientific applications require more than single axes in a representation. This library helps us to build multiple plots at a time. You can, however, use Matplotlib to manipulate different characteristics of figures as well.
+    https://matplotlib.org/contents.html , https://devdocs.io/matplotlib~3.1/
+
+2.) Numpy - Numpy is a popular array – processing package of Python. It provides good support for different dimensional array objects as well as for matrices. Numpy is not only confined to providing arrays only, but it also provides a variety of tools to manage these arrays. It is fast, efficient, and really good for managing matrix and arrays.
+    https://numpy.org/doc/ , https://devdocs.io/numpy~1.15/ 
+
+
+3.) Scipy - Scipy is an open-source python library that is used for both scientific and technical computation. It is a free python library. And very suitable for machine learning. However, computation is not the only task that makes scipy special. It is also very popular for image manipulation, as well.
+    https://docs.scipy.org/doc/scipy/reference/ 
+
+4.) Pandas - Pandas is a python software package. It is a must to learn for data-science and dedicatedly written for Python language. It is a fast, demonstrative, and adjustable platform that offers intuitive data-structures. You can easily manipulate any type of data such as – structured or time-series data with this amazing package.
+    https://pandas.pydata.org/docs/ , https://devdocs.io/pandas~0.25/ 
+
+5.) ScikitLearn - Scikit learn is a simple and useful python machine learning library. It is written in python, cython, C, and C++. However, most of it is written in the Python programming language. It is a free machine learning library. It is a flexible python package that can work in complete harmony with other python libraries and packages such as Numpy and Scipy.
+    https://scikit-learn.org/stable/ , https://devdocs.io/scikit_learn/ 
+ 
+
+6.) Sympy - SymPy is an open-source Python library for symbolic computation. It provides computer algebra capabilities either as a standalone application, as a library to other applications, or live on the web as SymPy Live or SymPy Gamma.
+    https://docs.sympy.org/latest/index.html 
+
+
+--> For any other library I have already mentioned that you can either search it on Google or go on https://devdocs.io/ which contains documentation of all the libraries .
+
+
