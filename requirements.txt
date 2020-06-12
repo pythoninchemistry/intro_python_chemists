@@ -6,3 +6,4 @@ matplotlib
 nbinteract
 scipy
 jupyter-book
+mendeleev
