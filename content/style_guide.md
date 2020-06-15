@@ -1,6 +1,7 @@
 In order to ensure a consistent style throughout, we aim to adhere to the following:
 
 - The use of first-person (plural when including the reader) throughout
+- Exclusively use gender-neutral pronouns
 - Asides should mark use of the markdown indentent quote style
 - The `code` style is reserved for Python code, pseudo code should be written in italics
 - Equations should be centre-aligned with the `$$ y = x $$` math style

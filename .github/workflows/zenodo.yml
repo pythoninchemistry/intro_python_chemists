@@ -1,0 +1,28 @@
+name: Make release
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Get time
+        id: time
+        uses: nanzm/get-time-action@v1.0
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.time.outputs.time }}
+          release_name: Release ${{ steps.time.outputs.time }}
+          body: |
+            Automated release bot to push zenodo
+          draft: false
+          prerelease: false
