@@ -35,6 +35,7 @@
   - url: /basics/flow_control
   - url: /basics/and_or
   - url: /basics/loops
+  - url: /basics/oop_intro
 
 - url: /good_practice/good_practice
   not_numbered: false
