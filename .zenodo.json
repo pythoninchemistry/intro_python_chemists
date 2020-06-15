@@ -24,6 +24,11 @@
             "name": "Meli, Rocco",
             "affiliation": "Department of Biochemistry, University of Oxford, South Parks Rd., Oxford, OX1 3QU, UK.",
             "orcid": "0000-0002-2845-3410"
+        },
+        {
+            "name": "Glass, William G.",
+            "affiliation": "Department of Biochemistry, University of Oxford, South Parks Rd., Oxford, OX1 3QU, UK.; Memorial Sloan-Kettering Cancer Center, Zuckerman Building 417 E 68th St, NYC.",
+						"orcid": "0000-0002-4099-9280"
         }
 	],
 	"description": "An open-source project to develop an introductory textbook covering all aspects of Python programming for chemistry students.",
