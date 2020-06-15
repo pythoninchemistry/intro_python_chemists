@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Collections</title>
-  <meta name="description" content="        Collections    Prerequisites TypesCollections Previously, we were introduced to individual types that exist in Python. Python types go beyond individ...">
+  <title>Introduction to Object-Oriented Programming</title>
+  <meta name="description" content="        Introduction to Object-Oriented Programming    Prerequisites Collectionsnumpy arraysFunctionsIntroduction to Object-Oriented Programming Now that we ...">
 
-  <link rel="canonical" href="https://pythoninchemistry.org/intro_python_chemists/basics/collections.html">
+  <link rel="canonical" href="https://pythoninchemistry.org/intro_python_chemists/basics/oop_intro.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Chemistry" href="https://pythoninchemistry.org/intro_python_chemists/feed.xml">
 
-  <meta property="og:url"         content="https://pythoninchemistry.org/intro_python_chemists/basics/collections.html" />
+  <meta property="og:url"         content="https://pythoninchemistry.org/intro_python_chemists/basics/oop_intro.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Collections" />
-<meta property="og:description" content="        Collections    Prerequisites TypesCollections Previously, we were introduced to individual types that exist in Python. Python types go beyond individ..." />
+<meta property="og:title"       content="Introduction to Object-Oriented Programming" />
+<meta property="og:description" content="        Introduction to Object-Oriented Programming    Prerequisites Collectionsnumpy arraysFunctionsIntroduction to Object-Oriented Programming Now that we ..." />
 <meta property="og:image"       content="https://pythoninchemistry.org/intro_python_chemists/images/logo/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -24,11 +24,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "https://pythoninchemistry.org/intro_python_chemists/basics/collections.html",
-  "headline": "Collections",
+  "mainEntityOfPage": "https://pythoninchemistry.org/intro_python_chemists/basics/oop_intro.html",
+  "headline": "Introduction to Object-Oriented Programming",
   "datePublished": "2020-06-15T10:27:35+00:00",
   "dateModified": "2020-06-15T10:27:35+00:00",
-  "description": "        Collections    Prerequisites TypesCollections Previously, we were introduced to individual types that exist in Python. Python types go beyond individ...",
+  "description": "        Introduction to Object-Oriented Programming    Prerequisites Collectionsnumpy arraysFunctionsIntroduction to Object-Oriented Programming Now that we ...",
   "author": {
     "@type": "Person",
     "name": "pythoninchemistry"
@@ -550,7 +550,7 @@ initFunction(initPrint)
     mode: "python"
     },
     kernelOptions: {
-    kernelName: "python3",
+    kernelName: "python37664bitnbnotesconda050afe1249694e59be6572ddc57d11a1",
     path: "content/basics"
     }
 }
@@ -1359,7 +1359,7 @@ initFunction(initPrint)
 <div class="download-buttons-dropdown">
     <button id="dropdown-button-trigger" class="interact-button"><img src="/intro_python_chemists/assets/images/download-solid.svg" alt="Download" /></button>
     <div class="download-buttons">
-        <a href="/intro_python_chemists/content/basics/collections.ipynb" download>
+        <a href="/intro_python_chemists/content/basics/oop_intro.ipynb" download>
         <button id="interact-button-download" class="interact-button">.ipynb</button>
         </a>
         
@@ -1378,7 +1378,7 @@ initFunction(initPrint)
 
 
 
-<a href="https://mybinder.org/v2/gh/pythoninchemistry/intro_python_chemists/master?filepath=content%2Fbasics%2Fcollections.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/intro_python_chemists/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+<a href="https://mybinder.org/v2/gh/pythoninchemistry/intro_python_chemists/master?filepath=content%2Fbasics%2Foop_intro.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/intro_python_chemists/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
   
 
 
@@ -1399,24 +1399,27 @@ initFunction(initPrint)
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
                   <main class="jupyter-page">
-    <div id="page-info"><div id="page-title">Collections</div>
+    <div id="page-info"><div id="page-title">Introduction to Object-Oriented Programming</div>
 </div>
     <div class="jb_cell">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites"> </a></h3><ul>
-<li>Types</li>
-</ul>
-<h1 id="Collections">Collections<a class="anchor-link" href="#Collections"> </a></h1><p>Previously, we were introduced to individual types that exist in Python. 
-Python types go beyond individual items, including objects that can hold <strong>collections</strong> of variables. 
-This section will introduce three different collection types:</p>
+<h3 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Lists</li>
-<li>Tuples</li>
-<li>Dictionaries</li>
+<li>Collections</li>
+<li><code>numpy</code> arrays</li>
+<li>Functions</li>
 </ul>
-<p>As is the case with individual types, different collection types can be acted on in different ways.</p>
 
 </div>
 </div>
@@ -1427,10 +1430,49 @@ This section will introduce three different collection types:</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
+<h1 id="Introduction-to-Object-Oriented-Programming">Introduction to Object-Oriented Programming<a class="anchor-link" href="#Introduction-to-Object-Oriented-Programming"> </a></h1>
+</div>
+</div>
+</div>
+</div>
 
-<h2 id="Lists">Lists<a class="anchor-link" href="#Lists"> </a></h2><p>The first type of collection we will look at is a <strong>list</strong>. 
-Let us look first at how to create a list.</p>
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now that we are comfortable with basic types, collections, <code>numpy</code> arrays, and functions it is time to have a look at object-oriented programming. In programming jargon, an <em>object</em> is an ensemble of data and functionality that make sense together.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In Python, <em>everything</em> is an object and therefore the concepts of object-oriented programming are in extensive use in every Python code. So, why are objects so widespread? Because they are very useful to write re-usable code and hide away a lot of complexity.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Molecule">Molecule<a class="anchor-link" href="#Molecule"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's suppose, for example, that we want to represent a molecule in a Python program. At the very least, we will need to store some data representing the molecule. In order to represent a particular configuration of acetylene, we could store the element number and the atomic coordinates of the atoms in the molecule:</p>
 
 </div>
 </div>
@@ -1444,7 +1486,15 @@ Let us look first at how to create a list.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">noble_gases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;helium&#39;</span><span class="p">,</span> <span class="s1">&#39;Neon&#39;</span><span class="p">,</span> <span class="s1">&#39;Argon&#39;</span><span class="p">,</span> <span class="s1">&#39;Krypton&#39;</span><span class="p">,</span> <span class="s1">&#39;Xenon&#39;</span><span class="p">,</span> <span class="s1">&#39;Radon&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">elements</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">1.06</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># H1</span>
+    <span class="p">[</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># C1</span>
+    <span class="p">[</span> <span class="mf">1.20</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># C2</span>
+    <span class="p">[</span> <span class="mf">2.26</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># H2</span>
+<span class="p">])</span>
 </pre></div>
 
     </div>
@@ -1456,12 +1506,308 @@ Let us look first at how to create a list.</p>
 
 <div class="jb_cell">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Coordinates are stored in a $3 \times N$ array ($N$ being the number of atoms) and each row is assumed to be ordered in the same way as elements are.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
+<img src="../images/acetylene.png" alt="acetylene" width="50%"/>
+</center>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is all good, but we'll need to keep track of the fact that the <code>elements</code> and <code>coordinates</code> vectors represent the same molecule and therefore should be, in most cases, processed together. And what if we want to represent another molecule? To represent a dihydrogen molecule in the same program we will need to do something like the following:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">noble_gases</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">elements_H2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">coordinates_H2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># H1</span>
+    <span class="p">[</span><span class="mf">1.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># H1</span>
+<span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This works, but it's ugly. It is also error-prone and probably will not scale well to many molecules.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>Can you think of a way of tying together <code>elements</code> and <code>coordinates</code> within a single variable with what you learned already?</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using a dictionary to represent acetylene could be a good solution:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">acetylene</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;elements&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+    <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">1.06</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># H1</span>
+        <span class="p">[</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># C1</span>
+        <span class="p">[</span> <span class="mf">1.20</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># C2</span>
+        <span class="p">[</span> <span class="mf">2.26</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># H2</span>
+    <span class="p">])</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We now have a single variable representing the acetylene molecule. All the information is stored within that variable and it can be easily and unequivocally accessed. If we want to see the elements (atomic numbers) of the  atoms in acetylene, we can simply print them out:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">acetylene</span><span class="p">[</span><span class="s2">&quot;elements&quot;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1 6 6 1]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Do you see where we are heading? Objects allow us to tie together data (as we just did with a dictionary) and functionality together. By defining and using objects we can create a super slick representation of a molecule, with all the data and all the functionality we need.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the following sections we will have a first look at the simple concepts of object-oriented programming (OOP) to get an idea of this powerful paradigm. We'll learn a lot more about OOP in the advanced sections.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Molecule-Class">Molecule Class<a class="anchor-link" href="#Molecule-Class"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A <em>class</em> is the definition of an object. We can think of a class as an architectural plan and an object (usually called an <em>instance</em> of the class in this context) as an house built following said plan. With the same plan, you can build multiple houses (create multiple instances), each housing different people (different data). For our example above, a yet to be defined <code>Molecule</code> class would represent a generic molecule (by defining the data and the functionality associated to a molecule) while <code>acetylene</code> would be an object (instance) of said class, containing the actual data defining <code>acetylene</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Creating a new class in Python has a similar syntax to a function definition, with the <code>class</code> keyword instead of <code>def</code> and without <code>()</code> (<code>()</code> is optional for a class definition):</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">EmptyClass</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Empty class that does nothing.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        The `pass` statement in Python does nothing.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Note #1</em>: the <code>pass</code> statement in Python does nothing and it is therefore useful when a statement is required but no code needs to be written.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Note #2</em>: docstrings are used to document classes as well.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once our class is defined, we can create (<em>instantiate</em>) an object of said class:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ec</span> <span class="o">=</span> <span class="n">EmptyClass</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can check that the content of the variable <code>ec</code> is indeed an instance of  the class <code>EmptyClass</code> using the <code>isinstance</code> function:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">ec</span><span class="p">,</span> <span class="n">EmptyClass</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1477,7 +1823,7 @@ Let us look first at how to create a list.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>list</pre>
+<pre>True</pre>
 </div>
 
 </div>
@@ -1490,12 +1836,171 @@ Let us look first at how to create a list.</p>
 
 <div class="jb_cell">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When we create an object from a class definition, we usually need to initialise some data. Let's now see how to do it.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Class-Methods-and-Attributes">Class Methods and Attributes<a class="anchor-link" href="#Class-Methods-and-Attributes"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A <em>method</em> is a function associated to a class. Methods are defined in the same way one would define a standard Python function and follow the same rules. However, there are a few names for methods that have special meaning. One of such methods is the <code>__init__</code> function, which is called to create a new object from a class.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">noble_gases</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">SimpleMolecule</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rempresentation of a simple molecular conformation.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        els (numpy.ndarray): array of elements</span>
+<span class="sd">        coords (numpy.dnarray): array of coordinates</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        elements (numpy.ndarray): array of elements</span>
+<span class="sd">        coordinates (numpy.dnarray): array of coordinates</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        The `self` argument is omitted from the documentation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">coords</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elements</span> <span class="o">=</span> <span class="n">els</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">=</span> <span class="n">coords</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Note #3</em>: The <code>__init__</code> method can be documented either at the class level or the <code>__init__</code> function level. Either form is acceptable, but one needs to be consistent across the code.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is a schematic representation of the class <code>SimpleMolecule</code>:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
+<img src="../images/SimpleMolecule.png" alt="SimpleMolecule" width="50%"/>
+</center>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>SimpleMolecule</code> is now a class representing a molecule which can be initialised with elements and coordinates. In order to create an <code>acetylene</code> instance of the <code>SimpleMolecule</code> class we can do the following:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">acetylene</span> <span class="o">=</span> <span class="n">SimpleMolecule</span><span class="p">(</span>
+    <span class="n">els</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+    <span class="n">coords</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">1.06</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># H1</span>
+        <span class="p">[</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># C1</span>
+        <span class="p">[</span> <span class="mf">1.20</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># C2</span>
+        <span class="p">[</span> <span class="mf">2.26</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># H2</span>
+    <span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are three important things to notice here. First, the <code>__init__</code> method takes <code>self</code> as the first of its three arguments. Second, the <code>__init__</code> function is not called explicitly but it's called implicitly as <code>SimpleMolecule(els, coords)</code>; this is why this method is "special" (some Pythonistas would call it <em>magic</em>!). Third, a <code>SimpleMolecule</code> object is created by passing two arguments and not three. The reason behind the latter behavior is that Python always passes, automatically, the object itself (which is an instance of the class <code>SimpleMolecule</code>) as first argument of a method. Therefore, when we initialise <code>SimpleMolecule</code> we only need to define the <code>els</code> and <code>coords</code> arguments, while the <code>self</code> argument is taken care of automatically by Python.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <code>self</code> argument, which represents the particular instance of the class we are working with, can be used to store data related to that particular instance. The variables stored within a class are called <em>attributes</em>. In the case of <code>SimpleMolecule</code> the attributes are <code>self.elements</code> and <code>self.coordinates</code>. They can be easily accessed with the <code>.</code> operator:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">acetylene</span><span class="o">.</span><span class="n">elements</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1509,7 +2014,7 @@ Let us look first at how to create a list.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;helium&#39;, &#39;Neon&#39;, &#39;Argon&#39;, &#39;Krypton&#39;, &#39;Xenon&#39;, &#39;Radon&#39;]
+<pre>[1 6 6 1]
 </pre>
 </div>
 </div>
@@ -1524,8 +2029,39 @@ Let us look first at how to create a list.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can use the <strong>index notation</strong> to identify particular elements in a list. 
-However, it is important to note that this notation counts from $0$, so the first element of the list is found with,</p>
+<p><em>Note #4</em>: The <code>acetylene</code> instance of the <code>SimpleMolecule</code> class is very similar to the dictionary we used before. With the dictionary we used <code>print(acetylene["elements"])</code>, while now we use <code>print(acetylene.elements)</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Recapitulation">Recapitulation<a class="anchor-link" href="#Recapitulation"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In just a few paragraphs we have been through a lot of new and complicated concepts, so let's try to recapitulate the example above. <code>SimpleMolecule</code> is a <em>class</em> which defines how a simple molecule is represented in our Python program. The object <code>acetylene</code> is a particular <em>instance</em> of the <code>SimpleMolecule</code> class, intialised using the <code>__init__</code> <em>method</em>. <code>acetylene</code> stores the atomic numbers and atomic coordinates in the <em>attributes</em> <code>self.elements</code> and <code>self.coordinates</code>; the values of the attributes are specific to the <code>acetylene</code> instance and they will have different values for different instances.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To verify the latter statement we can create another instance of <code>SimpleMolecule</code>, this time representing dihydrogen:</p>
 
 </div>
 </div>
@@ -1539,7 +2075,38 @@ However, it is important to note that this notation counts from $0$, so the firs
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">noble_gases</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">H2</span> <span class="o">=</span> <span class="n">SimpleMolecule</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">]])</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If we print out the elements and coordinates associated to <code>H2</code> we see that they are different from the ones associated to <code>acetylene</code>:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">H2</span><span class="o">.</span><span class="n">elements</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1553,364 +2120,7 @@ However, it is important to note that this notation counts from $0$, so the firs
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>helium
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The index notation is shown for a list of the first 7 elements in the figure below.</p>
-<p><img src='./../images/list_indexing.png' width='60%'></p>
-<p>We can also change particular values, as lists are <strong>mutable</strong>.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">noble_gases</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Helium&#39;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The final element in the tuple therefore has the index of $n-1$, where $n$ is the tuple length. 
-The lengths of a collection can be found with the <code>len()</code> function.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">noble_gases</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>6</pre>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">noble_gases</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">noble_gases</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Radon
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>You may notice that Oganesson is missing from the list, it is possible to concatenate it.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">noble_gases</span> <span class="o">=</span> <span class="n">noble_gases</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Oganesson&#39;</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">noble_gases</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;Helium&#39;, &#39;Neon&#39;, &#39;Argon&#39;, &#39;Krypton&#39;, &#39;Xenon&#39;, &#39;Radon&#39;, &#39;Oganesson&#39;]
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In addition to standard indexing, it is also possible to perform <strong>negative</strong> indexing with lists and tuples, where $-1$ is the final element of the list with the counting up moving backwords through the list.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">noble_gases</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Oganesson
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can also get <strong>slices</strong> of a list, this is achieved using the <code>:</code> notation.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">noble_gases</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;Neon&#39;, &#39;Argon&#39;]
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This notation can be a bit confusing, as this notation is inclusive then exclusive. 
-The slice of the list includes the element with the index that preceeds the colon and exclusive of that after the colon. 
-In the example above, we can see that is <strong>includes</strong> the index $1$ item (<code>'Neon'</code>) but <strong>excludes</strong> the index $3$ element (<code>'Krypton'</code>).</p>
-<p>This is shown for the <code>elements</code> list in the figure below.</p>
-<p><img src='./../images/list_slicing.png' width='60%'></p>
-<p>It is also possible to use list slicing to <strong>skip</strong> elements of the list, where the number after the second colon is the step size.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">noble_gases</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;Neon&#39;, &#39;Krypton&#39;]
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Above, the second to the sixth elements are printed skipping each second (so those with indices $2$ and $4$).</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As well as list concatentation (the adding together of lists above), it is possible to <code>append</code> single elements to the end of a list.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">halogens</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Fluorine&#39;</span><span class="p">,</span> <span class="s1">&#39;Chlorine&#39;</span><span class="p">,</span> <span class="s1">&#39;Bromine&#39;</span><span class="p">,</span> <span class="s1">&#39;Iodine&#39;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">halogens</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;Fluorine&#39;, &#39;Chlorine&#39;, &#39;Bromine&#39;, &#39;Iodine&#39;]
+<pre>[1 1]
 </pre>
 </div>
 </div>
@@ -1928,8 +2138,7 @@ In the example above, we can see that is <strong>includes</strong> the index $1$
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">halogens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Astanine&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">halogens</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">acetylene</span><span class="o">.</span><span class="n">elements</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1943,7 +2152,267 @@ In the example above, we can see that is <strong>includes</strong> the index $1$
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;Fluorine&#39;, &#39;Chlorine&#39;, &#39;Bromine&#39;, &#39;Iodine&#39;, &#39;Astanine&#39;]
+<pre>[1 6 6 1]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <code>SimpleMolecule</code> class specifies the general structure of a simple molecule (as represented in our program), while its instances <code>H2</code> and <code>acetylene</code> represent actual molecules with the associated data. This example helps clarify the meaning of <code>self</code>: for <code>H2</code> the attribute <code>self.elements</code> actually means <code>H2.elements</code> while for <code>acetylene</code> the attribute <code>self.elements</code> actually means <code>acetylene.elements</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Adding-Functionality-to-the-Molecule-Class">Adding Functionality to the Molecule Class<a class="anchor-link" href="#Adding-Functionality-to-the-Molecule-Class"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As outlined in <em>Note #4</em>, the <code>SimpleMolecule</code> class does not differ a lot from the original <code>acetylene</code> dictionary we defined above: it contains the same data which are accessed using <code>acetylene.elements</code> (class) instead of <code>acetylene["elements"]</code> (dictionary). Why we introduced a lot of complicated concepts to accomplish something we can achieve simply with a dictionary? The reason is that with classes we can do much more!</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A simple extension of the <code>SimpleMolecule</code> class is to add some functionality. For example, we might want to be able to remove hydrogen atoms. We can add functionality to do that, by defining a method for that purpose:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Molecule</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rempresentation of a simple molecular conformation.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        els (numpy.ndarray): array of elements</span>
+<span class="sd">        coords (numpy.dnarray): array of coordinates</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        elements (numpy.ndarray): array of elements</span>
+<span class="sd">        coordinates (numpy.dnarray): array of coordinates</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        The `self` argument is omitted from the documentation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">coords</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elements</span> <span class="o">=</span> <span class="n">els</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">=</span> <span class="n">coords</span>
+
+    <span class="k">def</span> <span class="nf">removeHs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove hydrogen atoms from the molecule.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            Information about hydrogen atoms is lots forever when</span>
+<span class="sd">            this function is called: attributes `elements` and </span>
+<span class="sd">            `coordinates` are modified in-place.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Mask for hydrogen atoms</span>
+        <span class="c1"># The mask array is True where there are no hydrogen atoms</span>
+        <span class="c1"># The mask array is False where there are hydrogen atoms</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span> <span class="o">!=</span> <span class="mi">1</span>
+
+        <span class="c1"># Select only elements where the mask is True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+
+        <span class="c1"># Select only coordinates where the mask is True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is a schematic representation of the class <code>Molecule</code></p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
+<img src="../images/Molecule.png" alt="Molecule" width="50%"/>
+</center>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <code>Molecule</code> class is now more complex and can't be reproduced simply or cleanly with a dictionary. In addition to the <code>self.elements</code> and <code>self.coordinates</code> attributes we now have some functionality (the <code>removeHs</code> method) associated to the <code>Molecule</code> class that allows us to strip all the hydrogens from any molecule with a simple function call. It is important to notice that the method <code>removeHs</code> only takes <code>self</code> as argument since <code>self.elements</code> and <code>self.coordinates</code>, which are attributes, are always available within the class. We can define again an <code>acetylene</code> molecule, but this time as an instance of the <code>Molecule</code> class (and not the <code>SimpleMolecule</code> class we used before):</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">acetylene</span> <span class="o">=</span> <span class="n">Molecule</span><span class="p">(</span>
+    <span class="n">els</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+    <span class="n">coords</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">1.06</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># H1</span>
+        <span class="p">[</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># C1</span>
+        <span class="p">[</span> <span class="mf">1.20</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># C2</span>
+        <span class="p">[</span> <span class="mf">2.26</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span> <span class="c1"># H2</span>
+    <span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">acetylene</span><span class="o">.</span><span class="n">elements</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1 6 6 1]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The definition of <code>acetylene</code> is the same as before (since the <code>__init__</code> method did not change), but being an instance of the <code>Molecule</code> class, there is now an associated <code>removeHs</code> method. The method can be called using the <code>.</code> operator and since the <code>self</code> argument of <code>removeH</code> is passed automatically there is no other argument that needs to be specified:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">acetylene</span><span class="o">.</span><span class="n">removeHs</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If we now print the <code>self.elements</code> and <code>self.coordinates</code> attributes, we can confirm that hydrogen atoms have been removed:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">acetylene</span><span class="o">.</span><span class="n">elements</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[6 6]
 </pre>
 </div>
 </div>
@@ -1961,8 +2430,7 @@ In the example above, we can see that is <strong>includes</strong> the index $1$
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">halogens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Tennessine&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">halogens</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">acetylene</span><span class="o">.</span><span class="n">coordinates</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1976,7 +2444,8 @@ In the example above, we can see that is <strong>includes</strong> the index $1$
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;Fluorine&#39;, &#39;Chlorine&#39;, &#39;Bromine&#39;, &#39;Iodine&#39;, &#39;Astanine&#39;, &#39;Tennessine&#39;]
+<pre>[[0.  0.  0. ]
+ [1.2 0.  0. ]]
 </pre>
 </div>
 </div>
@@ -1991,68 +2460,7 @@ In the example above, we can see that is <strong>includes</strong> the index $1$
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Finally, we note that a list does <strong>not</strong> have to be of a consistent <code>type</code>. 
-So it is possble for a list to be made up of disparate forms of information.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chlorine</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cl&#39;</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mf">35.45</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">chlorine</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;Cl&#39;, 17, 35.45]
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Where the list <code>chlorine</code> contains information about the chemical symbol, atomic number, and the average mass number.</p>
+<p>As we can see, after calling <code>removeHs</code> from the <code>acetylene</code> instance of <code>Molecule</code> (using the <code>.</code> operator), the information about hydrogen atoms has been removed from both the <code>self.element</code> and <code>self.coordinates</code> attributes, with a simple function call. Achieving this functionality with the simple dictionary defined above would have been more complicated and error prone.</p>
 
 </div>
 </div>
@@ -2063,31 +2471,9 @@ So it is possble for a list to be made up of disparate forms of information.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr> 
-
-<h2 id="Tuples">Tuples<a class="anchor-link" href="#Tuples"> </a></h2><p>The <strong>immutable</strong> cousin to a list is a <strong>tuple</strong>, a tuple acts in many ways the same as a tuple (such as indexing). 
-However, the elements of a tuple cannot change once the object is defined. 
-Let's look at how a tuple is defined.</p>
-
+<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion"> </a></h2>
 </div>
 </div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">noble_gases</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;helium&#39;</span><span class="p">,</span> <span class="s1">&#39;neon&#39;</span><span class="p">,</span> <span class="s1">&#39;argon&#39;</span><span class="p">,</span> <span class="s1">&#39;krypton&#39;</span><span class="p">,</span> <span class="s1">&#39;xenon&#39;</span><span class="p">,</span> <span class="s1">&#39;radon&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -2095,281 +2481,7 @@ Let's look at how a tuple is defined.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Above is a tuple of noble gases, where the tuple is defined using round brackets.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">noble_gases</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>tuple</pre>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Like with lists, we can use the <strong>index notation</strong> to identify particular elements in the tuple.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">noble_gases</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>helium
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">noble_gases</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>radon
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Above it was mentioned that a tuple is an immutable type, that once created it's objects cannot be altered. 
-We can see this in action if we try and change the value of one of the elements in the tuple.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">noble_gases</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Helium&#39;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-22-22efed8af598&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>noble_gases<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;Helium&#39;</span>
-
-<span class="ansi-red-fg">TypeError</span>: &#39;tuple&#39; object does not support item assignment</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>However, it is still possible to concatenate tuples, like lists, but the item that is being concatentated <strong>must</strong> be a tuple, hence the brackets and trailing comma.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">noble_gases</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;oganesson&#39;</span><span class="p">,)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(&#39;helium&#39;, &#39;neon&#39;, &#39;argon&#39;, &#39;krypton&#39;, &#39;xenon&#39;, &#39;radon&#39;, &#39;oganesson&#39;)</pre>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The immutability of a tuple does not mean that the whole variable cannot be overwritten.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">noble_gases</span> <span class="o">=</span> <span class="s1">&#39;inert&#39;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">noble_gases</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>inert
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Additionally, like lists, tuple items can also consist of data of different types.</p>
+<p>In this section we have introduced a lot "basic" principles and definitions of object oriented programming and hopefully you are now convinced of how powerful and clean this programming paradigm is. We made extensive use of the <code>.</code> operators, which indicates you are using an object and accessing its data (attributes) or associated functionality (methods). The key points to take away from this lesson are the following:</p>
 
 </div>
 </div>
@@ -2380,64 +2492,25 @@ We can see this in action if we try and change the value of one of the elements 
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
-<h2 id="Dictionaries">Dictionaries<a class="anchor-link" href="#Dictionaries"> </a></h2><p>The final type of collection we will discuss here is the dictionary (<code>dict</code>). 
-This collection type consists of <code>keys</code> and <code>values</code>.
-These <code>keys</code> and <code>values</code> are analogous to the words and definitions of a traditional dictionary.
-Consider if we rewrite the <code>chlorine</code> variable as a dictionary.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chlorine</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;chemical symbol&#39;</span><span class="p">:</span> <span class="s1">&#39;Cl&#39;</span><span class="p">,</span> <span class="s1">&#39;atomic number&#39;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span> <span class="s1">&#39;average mass number&#39;</span><span class="p">:</span> <span class="mf">35.45</span><span class="p">}</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
+<ul>
+<li>In Python, everything is an <em>object</em></li>
+<li>Objects tie together related data and functionality</li>
+<li>A <em>class</em> is the definition of an object</li>
+<li>The <code>class</code> keyword allows us to define a class in Python</li>
+<li>An <em>instance</em> of a class is an object of said class which exists in your program as a variable </li>
+<li>The variables associated to an object are called <em>attributes</em><ul>
+<li>We define an attribute by defining a <code>self.attribute_name</code> variable within the class</li>
+</ul>
+</li>
+<li>The functions associated to an object are called <em>methods</em><ul>
+<li>We define a method as a standard Python function, with <code>self</code> as first argument</li>
+</ul>
+</li>
+<li>The <code>__init__</code> method of a class defines how an instance is initialised</li>
+</ul>
 
 </div>
 </div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">chlorine</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;chemical symbol&#39;: &#39;Cl&#39;, &#39;atomic number&#39;: 17, &#39;average mass number&#39;: 35.45}
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -2445,42 +2518,9 @@ Consider if we rewrite the <code>chlorine</code> variable as a dictionary.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Here, we are able to use the <code>keys</code> of the dictionaries as labels for each datum.</p>
-
+<h3 id="Acknowledgments">Acknowledgments<a class="anchor-link" href="#Acknowledgments"> </a></h3>
 </div>
 </div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">chlorine</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>dict_keys([&#39;chemical symbol&#39;, &#39;atomic number&#39;, &#39;average mass number&#39;])
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -2488,242 +2528,10 @@ Consider if we rewrite the <code>chlorine</code> variable as a dictionary.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>It is possible to access a single one of the elements of a dictionary, by passing the relevant <code>key</code> in lieu of an index.</p>
+<p>The idea of a molecule API is loosely inspired by <a href="https://depth-first.com/articles/2020/04/06/a-minimal-molecule-api/">Depth-First: A Minimal Molecule API</a> by Richard L. Apodaca</p>
 
 </div>
 </div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chlorine</span><span class="p">[</span><span class="s1">&#39;atomic number&#39;</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>17</pre>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>However, traditional indexing does <strong>not</strong> work for dictionaries, as the index is not a <code>key</code>.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chlorine</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-30-a0685985ddc1&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>chlorine<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-red-fg">KeyError</span>: 1</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can add elements to a dictionary rather simply.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chlorine</span><span class="p">[</span><span class="s1">&#39;number of isotopes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">chlorine</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;chemical symbol&#39;: &#39;Cl&#39;, &#39;atomic number&#39;: 17, &#39;average mass number&#39;: 35.45, &#39;number of isotopes&#39;: 2}
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Finally, the items in a dictionary need not be single variables, like a float or an int. 
-They can also be a <code>list</code> or <code>tuple</code>.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chlorine</span><span class="p">[</span><span class="s1">&#39;mass numbers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">37</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">chlorine</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;chemical symbol&#39;: &#39;Cl&#39;, &#39;atomic number&#39;: 17, &#39;average mass number&#39;: 35.45, &#39;number of isotopes&#39;: 2, &#39;mass numbers&#39;: (35, 37)}
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Exercise">Exercise<a class="anchor-link" href="#Exercise"> </a></h4><p>Add the necessary information to the dictionary below such that it is a dictionary where the <code>keys</code> are the names of the first-row of transition metals, and the values are <code>int</code> of the number of valence electrons.
-Test your dictionary by printing some of the values.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d_block</span> <span class="o">=</span> <span class="p">{}</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -2740,8 +2548,8 @@ Test your dictionary by printing some of the values.</p>
     
     
 
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/intro_python_chemists/basics/types.html">
-      〈 <span class="u-margin-right-tiny"></span> Types
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/intro_python_chemists/basics/loops.html">
+      〈 <span class="u-margin-right-tiny"></span> Loops
     </a>
   
 
@@ -2749,8 +2557,8 @@ Test your dictionary by printing some of the values.</p>
     
 
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/intro_python_chemists/basics/numpy_arrays.html">
-      Numpy Arrays <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/intro_python_chemists/good_practice/good_practice.html">
+      Good practice <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
