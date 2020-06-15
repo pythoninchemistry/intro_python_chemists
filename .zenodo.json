@@ -19,6 +19,11 @@
     	    "name": "Morgan, Benjamin J.",
     	    "affiliation": "Department of Chemistry, University of Bath, Claverton Down, Bath, BA2 7AY, UK.",
     	    "orcid": "0000-0002-3056-8233"
+        },
+        {
+            "name": "Meli, Rocco",
+            "affiliation": "Department of Biochemistry, University of Oxford, South Parks Rd., Oxford, OX1 3QU, UK.",
+            "orcid": "0000-0002-2845-3410"
         }
 	],
 	"description": "An open-source project to develop an introductory textbook covering all aspects of Python programming for chemistry students.",
