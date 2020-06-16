@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Custom modules</title>
-  <meta name="description" content="        Custom modules             ">
+  <title>Custom Modules</title>
+  <meta name="description" content="        Custom Modules    Pre-requisites functionstypescollectionspackagesModules Instead of creating one large piece of code that can often be unwieldy we c...">
 
   <link rel="canonical" href="https://pythoninchemistry.org/intro_python_chemists/good_practice/custom_modules.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Chemistry" href="https://pythoninchemistry.org/intro_python_chemists/feed.xml">
 
   <meta property="og:url"         content="https://pythoninchemistry.org/intro_python_chemists/good_practice/custom_modules.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Custom modules" />
-<meta property="og:description" content="        Custom modules             " />
+<meta property="og:title"       content="Custom Modules" />
+<meta property="og:description" content="        Custom Modules    Pre-requisites functionstypescollectionspackagesModules Instead of creating one large piece of code that can often be unwieldy we c..." />
 <meta property="og:image"       content="https://pythoninchemistry.org/intro_python_chemists/images/logo/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -25,10 +25,10 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://pythoninchemistry.org/intro_python_chemists/good_practice/custom_modules.html",
-  "headline": "Custom modules",
-  "datePublished": "2020-06-15T13:37:58+00:00",
-  "dateModified": "2020-06-15T13:37:58+00:00",
-  "description": "        Custom modules             ",
+  "headline": "Custom Modules",
+  "datePublished": "2020-06-16T10:01:02+00:00",
+  "dateModified": "2020-06-16T10:01:02+00:00",
+  "description": "        Custom Modules    Pre-requisites functionstypescollectionspackagesModules Instead of creating one large piece of code that can often be unwieldy we c...",
   "author": {
     "@type": "Person",
     "name": "pythoninchemistry"
@@ -550,7 +550,7 @@ initFunction(initPrint)
     mode: "python"
     },
     kernelOptions: {
-    kernelName: "python3",
+    kernelName: "python37364bitd38a54fb656a4d2291427feb2f9b7184",
     path: "content/good_practice"
     }
 }
@@ -931,7 +931,7 @@ initFunction(initPrint)
                 
                   2.3
                 
-                Custom modules
+                Custom Modules
               </a>
             </li>
             
@@ -1399,9 +1399,344 @@ initFunction(initPrint)
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
                   <main class="jupyter-page">
-    <div id="page-info"><div id="page-title">Custom modules</div>
+    <div id="page-info"><div id="page-title">Custom Modules</div>
 </div>
-     
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Pre-requisites">Pre-requisites<a class="anchor-link" href="#Pre-requisites"> </a></h3><ul>
+<li>functions</li>
+<li>types</li>
+<li>collections</li>
+<li>packages</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Modules">Modules<a class="anchor-link" href="#Modules"> </a></h1><p>Instead of creating one large piece of code that can often be unwieldy we can break it up into smaller chunks, or modules. Modules can be accessed through installed packages or they can written by the user.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Custom-Modules">Custom Modules<a class="anchor-link" href="#Custom-Modules"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below is an example of a custom module (i.e. one we have written ourselves) called <code>print_things.py</code>:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_names</span><span class="p">(</span><span class="n">list_of_names</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">list_of_names</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">print_dictionary</span><span class="p">(</span><span class="n">input_dictionary</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">input_dictionary</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key: &quot;</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;, Value: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here, <code>print_things.py</code> contains the objects:</p>
+<ul>
+<li><code>print_names()</code> </li>
+<li><code>print_dictionary()</code></li>
+</ul>
+<p>which are both functions.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Great! We have made our module, but how can we go about using it?</p>
+<p>Python makes this really simple with the <code>import</code> statement.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Importing-Modules">Importing Modules<a class="anchor-link" href="#Importing-Modules"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to use our newly created module we need to <code>import</code> it into our main script:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">print_things</span>
+</pre></div>
+<p>Now, we can access the objects in the <code>print_things</code> module:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">print_things</span>
+
+
+<span class="n">element_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hydrogen&quot;</span><span class="p">,</span> <span class="s2">&quot;Helium&quot;</span><span class="p">,</span> <span class="s2">&quot;Lithium&quot;</span><span class="p">]</span>
+<span class="n">element_protons</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Hydrogen&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Helium&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Lithium&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+
+<span class="n">print_things</span><span class="o">.</span><span class="n">print_names</span><span class="p">(</span><span class="n">element_names</span><span class="p">)</span>
+
+<span class="n">print_things</span><span class="o">.</span><span class="n">print_dictionary</span><span class="p">(</span><span class="n">element_protons</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An alternative to using <code>import</code> is to use the <code>from</code> statement. This allows us to select certain objects from our module rather than importing all of them in one go:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">print_things</span> <span class="kn">import</span> <span class="n">print_names</span>
+
+
+<span class="n">element_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hydrogen&quot;</span><span class="p">,</span> <span class="s2">&quot;Helium&quot;</span><span class="p">,</span> <span class="s2">&quot;Lithium&quot;</span><span class="p">]</span>
+
+<span class="n">print_things</span><span class="o">.</span><span class="n">print_names</span><span class="p">(</span><span class="n">element_names</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>However, if we do want to <code>import</code> all objects in our <code>print_things</code> module with the <code>from</code> statement we can do so like this:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">print_things</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+<p>Using this style of import, if there are any modules that we don't want to be imported (i.e. that we only want to be used within the module itself), we can prefix them with an underscore (<code>_</code>).</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_names</span><span class="p">(</span><span class="n">list_of_names</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">list_of_names</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">print_dictionary</span><span class="p">(</span><span class="n">input_dictionary</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">input_dictionary</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key: &quot;</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;, Value: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">_private_function</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m a private function!&quot;</span><span class="p">)</span>
+</pre></div>
+<p>Here, <code>_private_function()</code> can only be used within the <code>print_things.py</code> module. We can test this by importing the <code>print_things.py</code> module and trying to use it:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#  Import all of the functions from the print_things.py module</span>
+<span class="kn">from</span> <span class="nn">print_things</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">element_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hydrogen&quot;</span><span class="p">,</span> <span class="s2">&quot;Helium&quot;</span><span class="p">,</span> <span class="s2">&quot;Lithium&quot;</span><span class="p">]</span>
+
+<span class="c1">#  Use the print_names() function </span>
+<span class="n">print_names</span><span class="p">(</span><span class="n">element_names</span><span class="p">)</span>
+
+<span class="c1">#  Use the _private_function()</span>
+<span class="n">_private_function</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This can be avoided by importing the module in the normal way:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#  Import all of the functions from the print_things.py module</span>
+<span class="kn">import</span> <span class="nn">print_things</span>
+
+<span class="n">element_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hydrogen&quot;</span><span class="p">,</span> <span class="s2">&quot;Helium&quot;</span><span class="p">,</span> <span class="s2">&quot;Lithium&quot;</span><span class="p">]</span>
+
+<span class="c1">#  Use the print_names() function </span>
+<span class="n">print_things</span><span class="o">.</span><span class="n">print_names</span><span class="p">(</span><span class="n">element_names</span><span class="p">)</span>
+
+<span class="c1">#  Use the _private_function()</span>
+<span class="n">print_things</span><span class="o">.</span><span class="n">_private_function</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Another useful way to use both the <code>import</code> / <code>from</code> statements is to <code>import</code> modules and use an alternative name:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">print_things</span> <span class="kn">import</span> <span class="n">print_names</span> <span class="k">as</span> <span class="n">pn</span> <span class="c1">#  Import print_names from the print_things module </span>
+<span class="kn">import</span> <span class="nn">print_things</span> <span class="k">as</span> <span class="nn">pt</span> <span class="c1">#  Import the whole print_things module</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Organising-Modules:-Packages">Organising Modules: Packages<a class="anchor-link" href="#Organising-Modules:-Packages"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As a project grows, the number of individual modules may increase and can often be hard to manage. This is where Python packages come in.</p>
+<p>Packages are collections of modules contained within a directory. However, in order to make sure this directory is recognised as a package it needs to contain a file named <code>__init__.py</code>, this allows it to be imported (just like the <code>print_things.py</code> module we created earlier).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For example if we had a package called <code>pkg</code> that contained two modules we will name <code>module2.py</code> and <code>module1.py</code> we could <code>import</code> them as:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pkg.module1</span><span class="o">,</span> <span class="nn">pkg.module2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Location">Location<a class="anchor-link" href="#Location"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An important point that applies to packages (and by extension modules) is their location. Most of the time a package manager will sort out the location of installed packages so they are useable. Additionally, Python will also look in your current working directory for any <a href="https://pythoninchemistry.org/intro_python_chemists/advanced/custom_packages.html">custom packages</a>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
 
 
     </main>

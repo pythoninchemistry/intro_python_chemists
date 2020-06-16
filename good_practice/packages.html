@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Packages</title>
-  <meta name="description" content="        Packages             ">
+  <meta name="description" content="        Packages    Pre-requisites functionstypescollectionsPackages One of the key concepts in programming is the creation of simple and easy to maintain co...">
 
   <link rel="canonical" href="https://pythoninchemistry.org/intro_python_chemists/good_practice/packages.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Chemistry" href="https://pythoninchemistry.org/intro_python_chemists/feed.xml">
@@ -14,7 +14,7 @@
   <meta property="og:url"         content="https://pythoninchemistry.org/intro_python_chemists/good_practice/packages.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Packages" />
-<meta property="og:description" content="        Packages             " />
+<meta property="og:description" content="        Packages    Pre-requisites functionstypescollectionsPackages One of the key concepts in programming is the creation of simple and easy to maintain co..." />
 <meta property="og:image"       content="https://pythoninchemistry.org/intro_python_chemists/images/logo/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,9 +26,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://pythoninchemistry.org/intro_python_chemists/good_practice/packages.html",
   "headline": "Packages",
-  "datePublished": "2020-06-15T13:37:58+00:00",
-  "dateModified": "2020-06-15T13:37:58+00:00",
-  "description": "        Packages             ",
+  "datePublished": "2020-06-16T10:01:02+00:00",
+  "dateModified": "2020-06-16T10:01:02+00:00",
+  "description": "        Packages    Pre-requisites functionstypescollectionsPackages One of the key concepts in programming is the creation of simple and easy to maintain co...",
   "author": {
     "@type": "Person",
     "name": "pythoninchemistry"
@@ -550,7 +550,7 @@ initFunction(initPrint)
     mode: "python"
     },
     kernelOptions: {
-    kernelName: "python3",
+    kernelName: "python37364bitd38a54fb656a4d2291427feb2f9b7184",
     path: "content/good_practice"
     }
 }
@@ -931,7 +931,7 @@ initFunction(initPrint)
                 
                   2.3
                 
-                Custom modules
+                Custom Modules
               </a>
             </li>
             
@@ -1401,7 +1401,124 @@ initFunction(initPrint)
                   <main class="jupyter-page">
     <div id="page-info"><div id="page-title">Packages</div>
 </div>
-     
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Pre-requisites">Pre-requisites<a class="anchor-link" href="#Pre-requisites"> </a></h3><ul>
+<li>functions</li>
+<li>types</li>
+<li>collections</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Packages">Packages<a class="anchor-link" href="#Packages"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One of the key concepts in programming is the creation of simple and easy to maintain code, this is where Python packages come in. A Python package contains code (often written by somebody else) with specific functionalities that allow it to be reused without the need for duplicating code.</p>
+<p>For example, if we wanted to write a short Python script that calculates the cosine of an angle we can use the <code>NumPy</code> package. Before we use the package we need to install it.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Installing-Packages">Installing Packages<a class="anchor-link" href="#Installing-Packages"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Installing Python packages is very simple and one of the most popular package managers to achieve this is <code>pip</code>. Here, <code>pip</code> accesses the <a href="https://pypi.org/">Python Package Index</a> (<code>PyPI</code>) that contains a large number of Python packages.</p>
+<p>For our example we need the <code>NumPy</code> package and this can be installed via the following command at the terminal/anaconda prompt (see <a href="https://pythoninchemistry.org/import-anything">here</a> for more information about different operating systems):</p>
+<div class="highlight"><pre><span></span>pip install numpy
+</pre></div>
+<p>Here, <code>pip</code> will install <code>numpy</code> and all of the dependencies that it needs to work. We now have our package, but how can we go about using it?</p>
+<hr>
+<p>An alternative and popular package maneger is Conda. The benefit of using Conda is that it can install packages written in different langauges (e.g. C, C++ etc) and can also create independent Python environments. You can find out more about Conda <a href="https://docs.conda.io/en/latest/">here</a>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Importing-Packages">Importing Packages<a class="anchor-link" href="#Importing-Packages"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to use an installed package in our Python script we can make use of the <code>import</code> statement. It is customary (and recommended) to <code>import</code> any packages at the start of a Python script. For our example we will need to do this:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+</pre></div>
+<p>We can then use the <code>numpy</code> package and the functions it contains to construct our script:</p>
+<div class="highlight"><pre><span></span><span class="c1">##  Import the entire numpy package</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">angle</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">cosine_angle</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+</pre></div>
+<p>Great! We've now successfully used <code>import</code> to use our newly installed <code>numpy</code> package. If we don't want to <code>import</code> the entire <code>numpy</code> package (as we have above) we can instead only <code>import</code> the specific functions we need:</p>
+<div class="highlight"><pre><span></span><span class="c1">##  Import specific functions from numpy</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">cos</span><span class="p">,</span> <span class="n">radians</span>
+
+<span class="n">angle</span> <span class="o">=</span> <span class="n">radians</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">cosine_angle</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+</pre></div>
+<p>However, this can sometimes have unintended consequences if these functions share the same name with variables in a longer script. This problem can also arise using <code>from numpy import *</code>, which imports all functions without the need to use the <code>numpy.</code> syntax. To get around this it is common to <code>import</code> packages and rename them:</p>
+<div class="highlight"><pre><span></span><span class="c1">##  Import the specific functions from numpy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">cosine_angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+</pre></div>
+<p>Although our example has used the <code>numpy</code> package, there are a large number of packages to choose from and each have a customary name that is often used. For example:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
 
 
     </main>
@@ -1424,7 +1541,7 @@ initFunction(initPrint)
 
     
     <a id="js-page__nav__next" class="c-page__nav__next" href="/intro_python_chemists/good_practice/custom_modules.html">
-      Custom modules <span class="u-margin-right-tiny"></span> 〉
+      Custom Modules <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
