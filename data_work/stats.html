@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Statistical analysis</title>
-  <meta name="description" content="        Statistical analysis             ">
+  <meta name="description" content="        Statistical analysis    Prerequesites:NumPy arraysTypesmatplotliblibraries    import numpy as npimport matplotlib.pyplot as pltfrom scipy import stat...">
 
   <link rel="canonical" href="https://pythoninchemistry.org/intro_python_chemists/data_work/stats.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Chemistry" href="https://pythoninchemistry.org/intro_python_chemists/feed.xml">
@@ -14,7 +14,7 @@
   <meta property="og:url"         content="https://pythoninchemistry.org/intro_python_chemists/data_work/stats.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Statistical analysis" />
-<meta property="og:description" content="        Statistical analysis             " />
+<meta property="og:description" content="        Statistical analysis    Prerequesites:NumPy arraysTypesmatplotliblibraries    import numpy as npimport matplotlib.pyplot as pltfrom scipy import stat..." />
 <meta property="og:image"       content="https://pythoninchemistry.org/intro_python_chemists/images/logo/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -26,9 +26,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://pythoninchemistry.org/intro_python_chemists/data_work/stats.html",
   "headline": "Statistical analysis",
-  "datePublished": "2020-06-16T10:01:02+00:00",
-  "dateModified": "2020-06-16T10:01:02+00:00",
-  "description": "        Statistical analysis             ",
+  "datePublished": "2020-06-16T12:47:05+00:00",
+  "dateModified": "2020-06-16T12:47:05+00:00",
+  "description": "        Statistical analysis    Prerequesites:NumPy arraysTypesmatplotliblibraries    import numpy as npimport matplotlib.pyplot as pltfrom scipy import stat...",
   "author": {
     "@type": "Person",
     "name": "pythoninchemistry"
@@ -1119,7 +1119,7 @@ initFunction(initPrint)
                 
                   3.4
                 
-                Surface plots
+                Surface Plots
               </a>
             </li>
             
@@ -1401,7 +1401,325 @@ initFunction(initPrint)
                   <main class="jupyter-page">
     <div id="page-info"><div id="page-title">Statistical analysis</div>
 </div>
-     
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Prerequesites:</p>
+<ul>
+<li>NumPy arrays</li>
+<li>Types</li>
+<li>matplotlib</li>
+<li>libraries</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Statistics in an important tool in the analysis of chemical data. 
+In this section, we will introduce some simple aspects of statistical analysis, focusing on how it can be used in interpret chemical measurements.</p>
+<p>Consider the measurement of the rate of some chemical reaction at 300 K. 
+In order to be thorough, this measurement is completed multiple times (say five), and the values are given in the array below.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Some reaction rate data</span>
+<span class="n">k_300</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.331</span><span class="p">,</span> <span class="mf">1.313</span><span class="p">,</span> <span class="mf">1.317</span><span class="p">,</span> <span class="mf">1.323</span><span class="p">,</span> <span class="mf">1.217</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If we assume that these values are some sample of an underlying normally distributed population, then we can describe the reaction rate with a mean and standard deviation.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using numpy to calculate the mean and standard deviation</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mean = </span><span class="si">{:.3f}</span><span class="s2">, std_dev = </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">k_300</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">k_300</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>mean = 1.300, std_dev = 0.042
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Above, we added some phrases that may be unfamiliar to the typical chemist, so let clarify things a bit:</p>
+<ul>
+<li>the <strong>population</strong> is all of elements for a set of data</li>
+<li>a <strong>sample</strong> is some subset of that data</li>
+<li>a <a href="https://en.wikipedia.org/wiki/Normal_distribution"><strong>normal distribution</strong></a> common way that a population can be distributed (and is commonly used for measurement uncertainties)</li>
+</ul>
+<p>An example of a normal distribution, that we think (if we assume that the samples we have are representative of the population) describes our measurements is shown below.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generate linearly spaced x values</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="c1"># Calculate the distribution probability at each x</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">k_300</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">k_300</span><span class="p">))</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;p(k)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/data_work/stats_7_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This plot gives the relative likelihood that a particular value of $k$ would be measured. 
+We can think of this as, if we measured infinite values of $k$ at 300 K the histogram of the results would look like this.</p>
+<p>To generate the plot above, we used a special type of object from the <code>scipy</code> library. 
+This is called a <a href="https://docs.scipy.org/doc/scipy/reference/stats.html"><code>rv_continuous</code></a> object, in particular, we used the <code>norm</code> version (for normal).</p>
+<p>These objects allow for a vast amount of functionality associated with probability distributions. 
+Let's take a closer look at the <code>stats.norm</code> object. 
+This is a <a href="./../basics/oop_intro.html">class</a>, so can be defined as follows,</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dist</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">k_300</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">k_300</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With this object created, we can get the probability at a series of values <code>pdf(x)</code> or some number of random numbers from the distribution <code>rvs()</code> as shown below to create the histogram and plot over it.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generate 5000 random numbers</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+<span class="c1"># Plot a histogram</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="c1"># Use min and max of random numbers to create a range</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">values</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="c1"># Plot the probability in that range</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/data_work/stats_11_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can also fit some statistical function to a set of data, for example with the <code>norm</code> distribution.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">k_300</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(1.3002000000000002, 0.04203998097049992)</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Notice that the values are the same as above, the mean and standard deviation.
+This fitting can be performed using any of the statistical functions included in <code>scipy</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
 
 
     </main>
@@ -1415,7 +1733,7 @@ initFunction(initPrint)
     
 
     <a id="js-page__nav__prev" class="c-page__nav__prev" href="/intro_python_chemists/data_work/surface_plots.html">
-      〈 <span class="u-margin-right-tiny"></span> Surface plots
+      〈 <span class="u-margin-right-tiny"></span> Surface Plots
     </a>
   
 
