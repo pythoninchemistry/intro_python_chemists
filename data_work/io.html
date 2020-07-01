@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Reading and writing data</title>
-  <meta name="description" content="        Reading and writing data             ">
+  <title>Io</title>
+  <meta name="description" content="        Io    prerequistes:simple plottingbasicsreading documentationReading and writing data While studying chemistry, we will inevitably gather data. If we...">
 
   <link rel="canonical" href="https://pythoninchemistry.org/intro_python_chemists/data_work/io.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Chemistry" href="https://pythoninchemistry.org/intro_python_chemists/feed.xml">
 
   <meta property="og:url"         content="https://pythoninchemistry.org/intro_python_chemists/data_work/io.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Reading and writing data" />
-<meta property="og:description" content="        Reading and writing data             " />
+<meta property="og:title"       content="Io" />
+<meta property="og:description" content="        Io    prerequistes:simple plottingbasicsreading documentationReading and writing data While studying chemistry, we will inevitably gather data. If we..." />
 <meta property="og:image"       content="https://pythoninchemistry.org/intro_python_chemists/images/logo/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -25,10 +25,10 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://pythoninchemistry.org/intro_python_chemists/data_work/io.html",
-  "headline": "Reading and writing data",
-  "datePublished": "2020-06-16T12:52:11+00:00",
-  "dateModified": "2020-06-16T12:52:11+00:00",
-  "description": "        Reading and writing data             ",
+  "headline": "Io",
+  "datePublished": "2020-07-01T10:06:56+00:00",
+  "dateModified": "2020-07-01T10:06:56+00:00",
+  "description": "        Io    prerequistes:simple plottingbasicsreading documentationReading and writing data While studying chemistry, we will inevitably gather data. If we...",
   "author": {
     "@type": "Person",
     "name": "pythoninchemistry"
@@ -1056,7 +1056,7 @@ initFunction(initPrint)
                 
                   3.1
                 
-                Reading and writing data
+                Io
               </a>
             </li>
             
@@ -1399,9 +1399,617 @@ initFunction(initPrint)
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
                   <main class="jupyter-page">
-    <div id="page-info"><div id="page-title">Reading and writing data</div>
+    <div id="page-info"><div id="page-title">Io</div>
 </div>
-     
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>prerequistes:</p>
+<ol>
+<li>simple plotting</li>
+<li>basics</li>
+<li>reading documentation</li>
+</ol>
+<h1 id="Reading-and-writing-data">Reading and writing data<a class="anchor-link" href="#Reading-and-writing-data"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>While studying chemistry, we will inevitably gather data. If we want to interrogate that data using Python, we need a means to parse that data. Perhaps you have collected some data from a pratcical lab, and have copied said data into Excel, and would now like to analyse it in a Jupyter notebook. Or perhaps you are using a computer program to run simulations, and need to load the data into a notebook to check your results. In this section, we'll going into the basics of dealing with data files.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Parsing-text-files">Parsing text files<a class="anchor-link" href="#Parsing-text-files"> </a></h2><p>For our first example: imagine we have run a program to compute the relative energies of three conformers of the same molecule. This is stored in the file  "computational_output.txt". We want to read in the results as python variables to determine our ground state, and do any subsequent analysis we might require. We open files using the open function, starting with an example of <strong>what not to do</strong>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># First, we read in the file as some variable name,</span>
+<span class="n">computational_results</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;computational_output.txt&#39;</span><span class="p">)</span>
+
+<span class="c1"># computational results is now an interable object, like a</span>
+<span class="c1"># list, comprised of strings.</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">computational_results</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+<span class="c1"># We must close the file as below when we&#39;ve finished,</span>
+<span class="n">computational_results</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Starting program...
+
+Loading atomic coordinates...
+
+Starting the calculation...
+
+Conformer 1 energy = 2331.2 kcal mol-1
+
+Conformer 2 energy = 2329.1 kcal mol-1
+
+Conformer 3 energy = 2330.4 kcal mol-1
+
+Calculation complete
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The above clearly works for printing the file, so why is it bad practice? It's easy to forget to <code>close</code> the file at the end. Much like having too many applications running at once on your computer, too many opened files in python is going to drain your computers resources. Not so bad for a 7 line text file, but the outputs of popular computational analysis packages can easily be as large as a few gigabytes. We ensure the file is always closed by wrapping our file processing in a <code>with</code> statement. The <code>with</code> statement will automatically close the file when the code within it has finished running. To achieve the exact same as above, but employing best practice, we can instead write</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;computational_output.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">results_file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">results_file</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Starting program...
+
+Loading atomic coordinates...
+
+Starting the calculation...
+
+Conformer 1 energy = 2331.2 kcal mol-1
+
+Conformer 2 energy = 2329.1 kcal mol-1
+
+Conformer 3 energy = 2330.4 kcal mol-1
+
+Calculation complete
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>All well and good, but how do we processing the data? We can use any tools we would normally use for processing strings. For example</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">energy_strings</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;computational_output.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">results_file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">results_file</span><span class="p">:</span>
+        <span class="c1"># we can use a conditional to find any line that contains</span>
+        <span class="c1"># &#39;=&#39;, as we know these contain our energies</span>
+        <span class="k">if</span> <span class="s1">&#39;=&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="n">energy_strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+<span class="c1"># we can then &#39;split&#39; the strings into individual</span>
+<span class="c1"># strings, breaking on whitespace, and returning a list</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">energy_strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;Conformer&#39;, &#39;1&#39;, &#39;energy&#39;, &#39;=&#39;, &#39;2331.2&#39;, &#39;kcal&#39;, &#39;mol-1&#39;]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We know that our output file has a consistent format, so for any lines that contains an '=' sign, the fifth value in a split of that line (i.e. index 4), will have the energy of our conformer. In code,</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">energies</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># iterative over the lines we know contain our conformer energies</span>
+<span class="c1"># we&#39;ll add these to a list, ensuring that we convert from strings</span>
+<span class="c1"># to floats</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">energy_strings</span><span class="p">:</span>
+    <span class="n">energy_string</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">energies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">energy_string</span><span class="p">))</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">energies</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[2331.2, 2329.1, 2330.4]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The energies are now stored as floats in the list <code>energies</code> for us to do whatever analysis we need.</p>
+<h2 id="Excercise">Excercise<a class="anchor-link" href="#Excercise"> </a></h2><p>Copy the code above to retrieve the energies from the data file, but rather than storing the energies as a list, store them in a dictonary with the format <code>{'conformer_1_energy': ..., 'conformer_2_energy': ..., 'conformer_3_energy': ...}</code>. Do this in a way that ensures if we change the number of conformers, the code will still store all the energies in a dictionary.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Parsing-standard-data-files">Parsing standard data files<a class="anchor-link" href="#Parsing-standard-data-files"> </a></h2><p>One very common format for numerical data to be stored in is a 'comma separeted values' or .csv file. These files contain rows and columns of data, sepearted by ',' symbols, and are easily converted into numpy arrays. If you want to work on some data you were provided in a spreadsheet using python, you could save that spreadsheet as a <code>.csv</code> file, and then read it in as follows, using the numpy function <code>loadtxt</code>,</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># first argument is the filename, the second is the &#39;delimiter&#39;</span>
+<span class="c1"># i.e. what seperates the values, in our case, &#39;,&#39;, we need to </span>
+<span class="c1"># also add skiprows = 1 as the first line of the file is strings</span>
+<span class="c1"># that cannot be converted to floats</span>
+
+<span class="n">benzene_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;benzene_data.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">benzene_data</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[  320.    10887.   ]
+ [  320.5   10880.   ]
+ [  321.    10873.   ]
+ [  321.5   10866.   ]
+ [  322.    10859.   ]
+ [  322.5   10852.   ]
+ [  323.    10845.   ]
+ [  323.5   10838.   ]
+ [  324.    10831.   ]
+ [  324.5   10824.   ]
+ [  325.    10817.   ]
+ [  325.5   10810.   ]
+ [  326.    10803.   ]
+ [  326.5   10796.   ]
+ [  327.    10789.   ]
+ [  327.5   10782.   ]
+ [  328.    10775.   ]
+ [  328.5   10768.   ]
+ [  329.    10761.   ]
+ [  329.5   10754.   ]
+ [  330.    10747.   ]
+ [  330.5   10740.   ]
+ [  331.    10733.   ]
+ [  331.5   10726.   ]
+ [  332.    10719.   ]
+ [  332.5   10712.   ]
+ [  333.    10705.   ]
+ [  333.5   10697.   ]
+ [  334.    10690.   ]
+ [  334.5   10683.   ]
+ [  335.    10676.   ]
+ [  335.5   10669.   ]
+ [  336.    10662.   ]
+ [  336.5   10655.   ]
+ [  337.    10648.   ]
+ [  337.5   10641.   ]
+ [  338.    10634.   ]
+ [  338.5   10627.   ]
+ [  339.    10619.   ]
+ [  339.5   10612.   ]
+ [  340.    10605.   ]
+ [  340.5   10598.   ]
+ [  341.    10591.   ]
+ [  341.5   10584.   ]
+ [  342.    10577.   ]
+ [  342.5   10570.   ]
+ [  343.    10562.   ]
+ [  343.5   10555.   ]
+ [  344.    10548.   ]
+ [  344.5   10541.   ]
+ [  345.    10534.   ]
+ [  345.5   10527.   ]
+ [  346.    10519.   ]
+ [  346.5   10512.   ]
+ [  347.    10505.   ]
+ [  347.5   10498.   ]
+ [  348.    10491.   ]
+ [  348.5   10483.   ]
+ [  349.    10476.   ]
+ [  349.5   10469.   ]
+ [  350.    10462.   ]
+ [  350.5   10455.   ]
+ [  351.    10447.   ]
+ [  351.5   10440.   ]
+ [  352.    10433.   ]
+ [  352.5   10426.   ]
+ [  353.    10418.   ]
+ [  353.13  10417.   ]
+ [  353.13     35.561]
+ [  353.5      35.519]
+ [  354.       35.463]
+ [  354.5      35.407]
+ [  355.       35.351]
+ [  355.5      35.296]
+ [  356.       35.24 ]
+ [  356.5      35.185]
+ [  357.       35.13 ]
+ [  357.5      35.075]
+ [  358.       35.021]
+ [  358.5      34.966]
+ [  359.       34.912]
+ [  359.5      34.858]
+ [  360.       34.804]
+ [  360.5      34.751]
+ [  361.       34.697]
+ [  361.5      34.644]
+ [  362.       34.591]
+ [  362.5      34.538]
+ [  363.       34.485]
+ [  363.5      34.433]
+ [  364.       34.381]
+ [  364.5      34.328]
+ [  365.       34.276]
+ [  365.5      34.225]
+ [  366.       34.173]
+ [  366.5      34.122]
+ [  367.       34.07 ]
+ [  367.5      34.019]
+ [  368.       33.968]
+ [  368.5      33.917]
+ [  369.       33.867]
+ [  369.5      33.816]
+ [  370.       33.766]]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>benzene_data</code> now contains the content of the file <code>benzene_data.csv</code>, that is to say the density of a benzene sample in $\mathrm{mol~m}^{-3}$ as a function of temperature in $\mathrm{K}$. It is an array of arrays. Each sub array contains two values, a temperature and a density. The csv file has been read 'row-wise'. If we wanted to read it 'column-wise' (which we often do), and return an array of two sub-arrays: all temperatures, and all densities, we add one argument to out <code>loadtxt()</code> call,</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># unpack = True will ensure that the data is read in column-wise, and we are left with an array of two arrays.</span>
+
+<span class="n">benzene_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;benzene_data.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">benzene_data</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[  320.      320.5     321.      321.5     322.      322.5     323.
+    323.5     324.      324.5     325.      325.5     326.      326.5
+    327.      327.5     328.      328.5     329.      329.5     330.
+    330.5     331.      331.5     332.      332.5     333.      333.5
+    334.      334.5     335.      335.5     336.      336.5     337.
+    337.5     338.      338.5     339.      339.5     340.      340.5
+    341.      341.5     342.      342.5     343.      343.5     344.
+    344.5     345.      345.5     346.      346.5     347.      347.5
+    348.      348.5     349.      349.5     350.      350.5     351.
+    351.5     352.      352.5     353.      353.13    353.13    353.5
+    354.      354.5     355.      355.5     356.      356.5     357.
+    357.5     358.      358.5     359.      359.5     360.      360.5
+    361.      361.5     362.      362.5     363.      363.5     364.
+    364.5     365.      365.5     366.      366.5     367.      367.5
+    368.      368.5     369.      369.5     370.   ]
+ [10887.    10880.    10873.    10866.    10859.    10852.    10845.
+  10838.    10831.    10824.    10817.    10810.    10803.    10796.
+  10789.    10782.    10775.    10768.    10761.    10754.    10747.
+  10740.    10733.    10726.    10719.    10712.    10705.    10697.
+  10690.    10683.    10676.    10669.    10662.    10655.    10648.
+  10641.    10634.    10627.    10619.    10612.    10605.    10598.
+  10591.    10584.    10577.    10570.    10562.    10555.    10548.
+  10541.    10534.    10527.    10519.    10512.    10505.    10498.
+  10491.    10483.    10476.    10469.    10462.    10455.    10447.
+  10440.    10433.    10426.    10418.    10417.       35.561    35.519
+     35.463    35.407    35.351    35.296    35.24     35.185    35.13
+     35.075    35.021    34.966    34.912    34.858    34.804    34.751
+     34.697    34.644    34.591    34.538    34.485    34.433    34.381
+     34.328    34.276    34.225    34.173    34.122    34.07     34.019
+     33.968    33.917    33.867    33.816    33.766]]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can then do whatever we like with these arrays, such as plot against each other.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">benzene_data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">benzene_data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature / K&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Density / molm-3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/data_work/io_17_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From the above plot, it's clear to see the boiling point of benzene as the density drops dramatically. These data were taken from the NIST website [1], where you can get access to all manner of chemical and physical properties of different chemical systems, download them as <code>.csv</code> files, and now you have the tools to do whatever you like with them!</p>
+<h2 id="Excercise">Excercise<a class="anchor-link" href="#Excercise"> </a></h2><p>Read in the benzene_data.csv file, and convert the temperature array from Kelvin to Celcius, then, using the <a href="https://numpy.org/doc/stable/reference/generated/numpy.savetxt.html"><code>np.savetext</code></a> fucntion, write that information back to a <code>.csv</code> file. If you can't understand how to do this from the numpy documentation, re-read the chapter on reading and understanding python documentation to get help.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Write your code here</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="References">References<a class="anchor-link" href="#References"> </a></h2><ol>
+<li>Eric W. Lemmon, Mark O. McLinden and Daniel G. Friend, "Thermophysical Properties of Fluid Systems" in NIST Chemistry WebBook, NIST Standard Reference Database Number 69, Eds. P.J. Linstrom and W.G. Mallard, National Institute of Standards and Technology, Gaithersburg MD, 20899, <a href="https://doi.org/10.18434/T4D303">https://doi.org/10.18434/T4D303</a>, (retrieved June 16, 2020).</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
 
 
     </main>
