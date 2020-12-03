@@ -32,3 +32,9 @@ In this book we prioritise readibility and understandability of code over everyt
 Therefore, the code herein will **not** necessarily adhere to PEP8 or any other standard, in particular if it sacrifices the educational utility of the material. 
 **All** issues opened that are based purely on standard adherence **will** be closed without considering.
 However, we are open to issues and pull requests that discuss/improve coding style **if** the focus is on making the code clearer for the learner. 
+
+## License
+
+Code snippets and examples are covered by an [BSD-3](https://opensource.org/licenses/BSD-3-Clause) license (see `LICENSE` file) (see LICENSE file). Text, images, and any other content is covered by the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license (see below).
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
