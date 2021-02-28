@@ -59,7 +59,6 @@
   - url: /data_work/stats
   - url: /data_work/optimisation
   - url: /data_work/ir_spectra
-  - url: /data_work/linear_algebra
 
 - url: /advanced/advanced
   not_numbered: false
@@ -69,6 +68,25 @@
   - url: /advanced/object_oriented_plotting
   - url: /advanced/classes
   - url: /advanced/custom_packages
+
+  - url: /linear_algebra/linear_algebra
+  not_numbered: false
+  expand_sections: false
+  sections:
+  - url: /linear_algebra/scalars_and_vectors
+  - url: /linear_algebra/dot_product
+  - url: /linear_algebra/bases
+  - url: /linear_algebra/matrices
+  - url: /linear_algebra/determinants
+  - url: /linear_algebra/cross_product
+  - url: /linear_algebra/inverse_transformations
+  - url: /linear_algebra/active_passive_transformations
+  - url: /linear_algebra/diagonalisation
+  - url: /linear_algebra/eigenvectors_and_eigenfunctions
+  - url: /linear_algebra/change_of_variables
+  - url: /linear_algebra/notation
+  - url: /linear_algebra/problems
+
 
 
  
